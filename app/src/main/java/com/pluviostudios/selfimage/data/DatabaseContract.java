@@ -2,6 +2,7 @@ package com.pluviostudios.selfimage.data;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.Context;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
@@ -45,6 +46,28 @@ public class DatabaseContract {
         public static long getStartDateFromUri(Uri uri) {
             return Long.parseLong(uri.getPathSegments().get(1));
         }
+
+        public static android.support.v4.content.CursorLoader buildCursorLoaderWithDefaultProjection(Context context) {
+            String[] projection = {
+                    DatabaseContract.DateEntry._ID,
+                    DatabaseContract.DateEntry.DATE_COL,
+                    DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL
+            };
+
+            String sortOrder = DatabaseContract.DateEntry.DATE_COL + " ASC ";
+
+            return new android.support.v4.content.CursorLoader(context,
+                    DatabaseContract.DateEntry.CONTENT_URI,
+                    projection,
+                    null,
+                    null,
+                    sortOrder
+            );
+        }
+
+        public static int DEFAULT_COL_INDEX_ID = 0;
+        public static int DEFAULT_COL_INDEX_DATE = 1;
+        public static int DEFAULT_COL_INDEX_IMAGE_DIRECTORY = 2;
 
     }
 

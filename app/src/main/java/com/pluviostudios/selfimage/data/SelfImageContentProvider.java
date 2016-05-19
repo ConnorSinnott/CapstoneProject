@@ -150,7 +150,8 @@ public class SelfImageContentProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
-        retCursor.setNotificationUri(getContext().getContentResolver(), uri);
+        // The CursorPager being used causes the code below to force onLoadFinished to loop.
+        // retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
 
     }
@@ -169,7 +170,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 if (_id > 0)
                     returnUri = DatabaseContract.DateEntry.buildDateUri(_id);
                 else
-                    throw new android.database.SQLException("FAiled to insert row int " + uri);
+                    throw new android.database.SQLException("Failed to insert row int " + uri);
                 break;
             }
             case DIARY: {
@@ -177,7 +178,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 if (_id > 0)
                     returnUri = DatabaseContract.DiaryEntry.buildDiaryUri(_id);
                 else
-                    throw new android.database.SQLException("FAiled to insert row int " + uri);
+                    throw new android.database.SQLException("Failed to insert row int " + uri);
                 break;
             }
             default:
