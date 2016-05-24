@@ -24,13 +24,15 @@
                 android:weightSum="8">
 
                 <ImageView
+                    android:scaleType="fitXY"
                     android:id="@+id/fragment_day_card_imageview"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="7"
-                    android:background="#777"/>
+                    />
 
                 <TextView
+                    android:id="@+id/fragment_day_card_textview"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"

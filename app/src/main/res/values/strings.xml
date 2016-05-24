@@ -4,4 +4,8 @@
     <string name="no_current_image">You need to take todays picture!</string>
     <string name="has_current_image">Youre all set for today!</string>
     <string name="content_authority">com.pluviostudios.selfimage.app</string>
+
+    <string name="date_today">Today</string>
+    <string name="date_yesterday">Yesterday</string>
+
 </resources>

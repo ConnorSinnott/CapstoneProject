@@ -9,8 +9,6 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
-import com.orhanobut.logger.Logger;
-
 /**
  * Created by Spectre on 5/11/2016.
  */
@@ -96,9 +94,6 @@ public class SelfImageContentProvider extends ContentProvider {
             }
             case DATE_WITH_DATE: {
 
-                Logger.init();
-                Logger.i(uri.toString());
-
                 long startDate = DatabaseContract.DateEntry.getStartDateFromUri(uri);
 
                 String dateSettingSelection =
@@ -151,7 +146,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
         // The CursorPager being used causes the code below to force onLoadFinished to loop.
-        // retCursor.setNotificationUri(getContext().getContentResolver(), uri);
+        retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
 
     }
