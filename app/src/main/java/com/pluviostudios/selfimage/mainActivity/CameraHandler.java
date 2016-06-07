@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage;
+package com.pluviostudios.selfimage.mainActivity;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.pluviostudios.selfimage.Utilities;
 import com.pluviostudios.selfimage.data.DatabaseContract;
 
 import java.io.File;

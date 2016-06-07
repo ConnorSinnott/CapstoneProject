@@ -4,16 +4,30 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/add_food_fragment_edit_text"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_height="wrap_content">
 
-    <ListView
-        android:id="@+id/add_food_fragment_list_view"
+        <EditText
+            android:id="@+id/add_food_fragment_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/add_food_fragment_result_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"/>
+
+    </FrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/add_food_fragment_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         />
+
 </LinearLayout>

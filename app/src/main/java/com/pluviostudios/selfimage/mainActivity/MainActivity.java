@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage;
+package com.pluviostudios.selfimage.mainActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -15,15 +15,19 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.pluviostudios.selfimage.R;
+import com.pluviostudios.selfimage.Utilities;
 import com.pluviostudios.selfimage.data.DatabaseContract;
+import com.pluviostudios.selfimage.planActivity.MealPlanningActivity;
 import com.viewpagerindicator.LinePageIndicator;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    private static final String REFERENCE_ID = "MainActivity";
+
     private CameraHandler mCameraHandler;
     private TextView mPromptBar;
     private ViewPager mViewPager;
-    private CursorPagerAdapter<DayCardFragment> mPagerAdapter;
     private LinePageIndicator mTabPageIndicator;
     private FrameLayout mBottomFrame;
 
@@ -134,37 +138,25 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         Color.RED
         );
 
+        // Implement the ImagePagerAdapter
+        // TODO Update without creating a new adapter
+        mViewPager.setAdapter(new CursorPagerAdapter<>(getSupportFragmentManager(),
+                DayCardFragment.class,
+                new String[]{
+                        DatabaseContract.DateEntry.DATE_COL,
+                        DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL},
+                data));
 
-        // Setup the ImagePagerAdapter
-        if (mPagerAdapter == null) {
+        // Setup the ImagePagerAdapter's Indicator
+        mTabPageIndicator.setViewPager(mViewPager);
 
-            // Implement the ImagePagerAdapter
-            mPagerAdapter = new CursorPagerAdapter<DayCardFragment>(
-                    getSupportFragmentManager(),
-                    DayCardFragment.class,
-                    new String[]{
-                            DatabaseContract.DateEntry.DATE_COL,
-                            DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL},
-                    data) {
-            };
-            mViewPager.setAdapter(mPagerAdapter);
-
-
-            // Setup the ImagePagerAdapter's Indicator
-            mTabPageIndicator.setViewPager(mViewPager);
-
-            // Set the current page to the most recent image;
-            mViewPager.setCurrentItem(data.getCount() - 1);
-
-        } else {
-            mPagerAdapter.notifyDataSetChanged();
-        }
+        // Set the current page to the most recent image;
+        mViewPager.setCurrentItem(data.getCount() - 1);
 
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        mPagerAdapter.swapCursor(null);
     }
 
 }

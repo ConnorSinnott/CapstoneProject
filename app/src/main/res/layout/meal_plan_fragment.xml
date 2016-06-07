@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
 
-    <ExpandableListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/meal_plan_fragment_expandable_list_view"/>
-</LinearLayout>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:padding="16dp">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/meal_plan_fragment_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            />
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fragment_day_card_FAB"
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:layout_margin="16dp"
+        android:layout_marginTop="-36dp"
+        android:elevation="4sp"
+        android:src=""
+        app:layout_anchor="@id/meal_plan_fragment_recycler_view"
+        app:layout_anchorGravity="bottom|right|end"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
