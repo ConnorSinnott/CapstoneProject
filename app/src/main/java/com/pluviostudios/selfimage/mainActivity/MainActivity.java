@@ -11,14 +11,16 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.Utilities;
 import com.pluviostudios.selfimage.data.DatabaseContract;
-import com.pluviostudios.selfimage.planActivity.MealPlanningActivity;
+import com.pluviostudios.selfimage.planActivity.activity.MealPlanningActivity;
+import com.pluviostudios.selfimage.utilities.CursorPagerAdapter;
+import com.pluviostudios.selfimage.utilities.Utilities;
 import com.viewpagerindicator.LinePageIndicator;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -65,6 +67,43 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 startActivity(intent);
             }
         });
+
+        final String CreateDateTable = "CREATE TABLE " + DatabaseContract.DateEntry.TABLE_NAME + " ("
+                + DatabaseContract.DateEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + DatabaseContract.DateEntry.DATE_COL + " LONG NOT NULL,"
+                + DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL + " TEXT, "
+                + " UNIQUE (" + DatabaseContract.DateEntry.DATE_COL + ") ON CONFLICT REPLACE)";
+
+        final String CreateDiaryTable = "CREATE TABLE " + DatabaseContract.DiaryEntry.TABLE_NAME + " ("
+                + DatabaseContract.DiaryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + DatabaseContract.DiaryEntry.DATE_COL + " LONG NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_NAME_COL + " TEXT NOT NULL ,"
+                + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + " INTEGER NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_NDBNO_COL + " TEXT NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_QUANTITY_COL + " INTEGER NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_CALORIE_COL + " REAL NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_PROTEIN_COL + " REAL NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_FAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_CARBS_COL + " REAL NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_FIBER_COL + " REAL NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_SATFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_MONOFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_POLYFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_CHOLESTEROL_COL + " REAL NOT NULL, "
+                + " FOREIGN KEY (" + DatabaseContract.DiaryEntry.DATE_COL + ") REFERENCES "
+                + DatabaseContract.DateEntry.TABLE_NAME + " (" + DatabaseContract.DateEntry.DATE_COL + ")"
+                + " FOREIGN KEY (" + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + ") REFERENCES "
+                + DatabaseContract.CategoryEntry.TABLE_NAME + "(" + DatabaseContract.CategoryEntry._ID + ")"
+                + ")";
+
+        final String CreateCategoryTable = "CREATE TABLE " + DatabaseContract.CategoryEntry.TABLE_NAME + " ("
+                + DatabaseContract.CategoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + DatabaseContract.CategoryEntry.CATEGORY_INDEX_COL + " INTEGER UNIQUE NOT NULL, "
+                + DatabaseContract.CategoryEntry.CATEGORY_NAME_COL + " TEXT UNIQUE NOT NULL, "
+                + " UNIQUE (" + DatabaseContract.CategoryEntry.CATEGORY_NAME_COL + " ) ON CONFLICT ABORT)";
+
+        Log.d("TEST", CreateDiaryTable);
+
 
         getSupportLoaderManager().initLoader(0, null, this);
     }

@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".planActivity.MealPlanningActivity"/>
+        <activity android:name=".planActivity.activity.MealPlanningActivity"/>
 
         <provider
             android:name=".data.SelfImageContentProvider"

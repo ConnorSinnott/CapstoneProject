@@ -1,26 +1,21 @@
-package com.pluviostudios.selfimage.planActivity;
+package com.pluviostudios.selfimage.planActivity.search;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
+import com.pluviostudios.selfimage.planActivity.data.FoodItem;
+import com.pluviostudios.selfimage.planActivity.data.FoodItemNetworkContainer;
+import com.pluviostudios.selfimage.planActivity.data.FoodItemViewHolder;
 
 import java.util.ArrayList;
 
 /**
  * Created by Spectre on 5/26/2016.
  */
-public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRecyclerAdapter.FoodItemViewHolder> {
-
-    public interface OnFoodItemClickListener {
-        void onFoodItemClicked(FoodItem foodItem);
-    }
+public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodItemViewHolder> {
 
     private OnFoodItemClickListener mOnFoodItemClickListener;
 
@@ -99,28 +94,12 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
         }
     }
 
+    public interface OnFoodItemClickListener {
+        void onFoodItemClicked(FoodItem foodItem);
+    }
 
     public void setOnFoodItemClickListener(OnFoodItemClickListener onFoodItemClickListener) {
         mOnFoodItemClickListener = onFoodItemClickListener;
-    }
-
-    public static class FoodItemViewHolder extends RecyclerView.ViewHolder {
-
-        CardView card;
-        TextView name;
-        TextView cal;
-        ProgressBar progressBar;
-        ImageView error;
-
-        public FoodItemViewHolder(View itemView) {
-            super(itemView);
-            card = (CardView) itemView.findViewById(R.id.food_search_item_card);
-            name = (TextView) itemView.findViewById(R.id.food_item_search_name);
-            cal = (TextView) itemView.findViewById(R.id.food_item_search_cal);
-            progressBar = (ProgressBar) itemView.findViewById(R.id.food_item_progress_bar);
-            error = (ImageView) itemView.findViewById(R.id.food_item_search_error);
-        }
-
     }
 
 }

@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.planActivity;
+package com.pluviostudios.selfimage.planActivity.data;
 
 import android.content.Context;
 import android.net.Uri;
@@ -20,10 +20,6 @@ public class AsyncReportSearch extends AsyncBaseData<ArrayList<FoodItemNetworkCo
     private static final String REFERENCE_ID = "AsyncReportSearch";
 
     private OnAsyncReportSearchResult mOnAsyncReportSearchResult;
-
-    interface OnAsyncReportSearchResult {
-        void onResult(FoodItemNetworkContainer data);
-    }
 
     public AsyncReportSearch(Context context, OnAsyncReportSearchResult onAsyncReportSearchResult) {
         super(context);
@@ -98,6 +94,10 @@ public class AsyncReportSearch extends AsyncBaseData<ArrayList<FoodItemNetworkCo
             values[0].status = FoodItemNetworkContainer.COMPLETE;
             mOnAsyncReportSearchResult.onResult(values[0]);
         }
+    }
+
+    public interface OnAsyncReportSearchResult {
+        void onResult(FoodItemNetworkContainer data);
     }
 
 }

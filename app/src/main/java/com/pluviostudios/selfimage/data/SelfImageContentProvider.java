@@ -19,8 +19,13 @@ public class SelfImageContentProvider extends ContentProvider {
 
     static final int DATE = 100;
     static final int DATE_WITH_DATE = 101;
+
+    static final int CATEGORY = 300;
+
     static final int DIARY = 200;
     static final int DIARY_WITH_DATE = 201;
+    static final int DIARY_WITH_DATE_AND_CATEGORY = 202;
+    static final int DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO = 203;
 
     private static final SQLiteQueryBuilder sMealsByDateQueryBuilder;
 
@@ -30,21 +35,31 @@ public class SelfImageContentProvider extends ContentProvider {
                 DatabaseContract.DiaryEntry.TABLE_NAME + " INNER JOIN " +
                         DatabaseContract.DateEntry.TABLE_NAME +
                         " ON " + DatabaseContract.DiaryEntry.TABLE_NAME +
-                        "." + DatabaseContract.DiaryEntry.DATE_KEY_COL +
+                        "." + DatabaseContract.DiaryEntry.DATE_COL +
                         " = " + DatabaseContract.DateEntry.TABLE_NAME +
-                        "." + DatabaseContract.DateEntry._ID);
+                        "." + DatabaseContract.DateEntry.DATE_COL
+                        + " INNER JOIN " +
+                        DatabaseContract.CategoryEntry.TABLE_NAME +
+                        " ON " + DatabaseContract.DiaryEntry.TABLE_NAME +
+                        "." + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL +
+                        " = " + DatabaseContract.CategoryEntry.TABLE_NAME +
+                        "." + DatabaseContract.CategoryEntry._ID
+        );
     }
-
 
     static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         final String authority = DatabaseContract.CONTENT_AUTHORITY;
 
         matcher.addURI(authority, DatabaseContract.PATH_DATE, DATE);
-        matcher.addURI(authority, DatabaseContract.PATH_DATE + "/#", DATE_WITH_DATE);
+        matcher.addURI(authority, DatabaseContract.PATH_DATE + "/*", DATE_WITH_DATE);
 
         matcher.addURI(authority, DatabaseContract.PATH_DIARY, DIARY);
-        matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/#", DIARY_WITH_DATE);
+        matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/*", DIARY_WITH_DATE);
+        matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/*/*", DIARY_WITH_DATE_AND_CATEGORY);
+        matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/*/*/*", DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO);
+
+        matcher.addURI(authority, DatabaseContract.PATH_CATEGORY, CATEGORY);
 
         return matcher;
     }
@@ -66,9 +81,15 @@ public class SelfImageContentProvider extends ContentProvider {
             case DATE_WITH_DATE:
                 return DatabaseContract.DateEntry.CONTENT_ITEM_TYPE;
             case DIARY:
-                return DatabaseContract.DateEntry.CONTENT_TYPE;
+                return DatabaseContract.DiaryEntry.CONTENT_TYPE;
             case DIARY_WITH_DATE:
                 return DatabaseContract.DiaryEntry.CONTENT_TYPE;
+            case DIARY_WITH_DATE_AND_CATEGORY:
+                return DatabaseContract.DiaryEntry.CONTENT_TYPE;
+            case DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO:
+                return DatabaseContract.DiaryEntry.CONTENT_ITEM_TYPE;
+            case CATEGORY:
+                return DatabaseContract.CategoryEntry.CONTENT_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -96,16 +117,17 @@ public class SelfImageContentProvider extends ContentProvider {
 
                 long startDate = DatabaseContract.DateEntry.getStartDateFromUri(uri);
 
-                String dateSettingSelection =
-                        DatabaseContract.DateEntry.TABLE_NAME +
-                                "." + DatabaseContract.DateEntry.DATE_COL + " = ? ";
-                String[] selections = {String.valueOf(startDate)};
+                selection = createSelection(selection,
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        String.valueOf(startDate));
 
                 retCursor = mOpenHelper.getReadableDatabase().query(
                         DatabaseContract.DateEntry.TABLE_NAME,
                         projection,
-                        dateSettingSelection,
-                        selections,
+                        selection,
+                        selectionArgs,
                         null,
                         null,
                         null
@@ -125,30 +147,82 @@ public class SelfImageContentProvider extends ContentProvider {
                 break;
             }
             case DIARY_WITH_DATE: {
+
                 long startDate = DatabaseContract.DiaryEntry.getStartDateFromUri(uri);
 
-                String dateSettingSelection =
-                        DatabaseContract.DateEntry.TABLE_NAME +
-                                "." + DatabaseContract.DateEntry.DATE_COL + " = ? ";
-                String[] selections = {String.valueOf(startDate)};
+                selection = createSelection(selection,
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        String.valueOf(startDate));
 
                 retCursor = sMealsByDateQueryBuilder.query(mOpenHelper.getReadableDatabase(),
                         projection,
-                        dateSettingSelection,
-                        selections,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        null
+                );
+
+                break;
+            }
+            case DIARY_WITH_DATE_AND_CATEGORY: {
+
+                long startDate = DatabaseContract.DiaryEntry.getStartDateFromUri(uri);
+                int category = DatabaseContract.DiaryEntry.getCategoryFromUri(uri);
+
+                selection = createSelection(selection,
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL,
+                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        String.valueOf(startDate),
+                        String.valueOf(category));
+
+                retCursor = sMealsByDateQueryBuilder.query(mOpenHelper.getReadableDatabase(),
+                        projection,
+                        selection,
+                        selectionArgs,
                         null,
                         null,
                         null
                 );
                 break;
             }
+            case DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO: {
+
+                long startDate = DatabaseContract.DiaryEntry.getStartDateFromUri(uri);
+                int category = DatabaseContract.DiaryEntry.getCategoryFromUri(uri);
+                String ndbno = DatabaseContract.DiaryEntry.getNDBNOFromUri(uri);
+
+                selection = createSelection(selection,
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL,
+                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL,
+                        DatabaseContract.DiaryEntry.ITEM_NDBNO_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        String.valueOf(startDate),
+                        String.valueOf(category),
+                        ndbno);
+
+                retCursor = sMealsByDateQueryBuilder.query(mOpenHelper.getReadableDatabase(),
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        null
+
+                );
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
-        // The CursorPager being used causes the code below to force onLoadFinished to loop.
+
         retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
-
     }
 
     @Nullable
@@ -202,6 +276,28 @@ public class SelfImageContentProvider extends ContentProvider {
                         DatabaseContract.DiaryEntry.TABLE_NAME, selection, selectionArgs);
                 break;
             }
+            case DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO: {
+
+                long startDate = DatabaseContract.DiaryEntry.getStartDateFromUri(uri);
+                int category = DatabaseContract.DiaryEntry.getCategoryFromUri(uri);
+                String ndbno = DatabaseContract.DiaryEntry.getNDBNOFromUri(uri);
+
+                selection = createSelection(selection,
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL,
+                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL,
+                        DatabaseContract.DiaryEntry.ITEM_NDBNO_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        String.valueOf(startDate),
+                        String.valueOf(category),
+                        ndbno);
+
+                rowsDeleted = db.delete(DatabaseContract.DiaryEntry.TABLE_NAME,
+                        selection,
+                        selectionArgs);
+
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri " + uri);
         }
@@ -224,8 +320,27 @@ public class SelfImageContentProvider extends ContentProvider {
                 rowsUpdated = db.update(DatabaseContract.DateEntry.TABLE_NAME, values, selection, selectionArgs);
                 break;
             }
-            case DIARY: {
-                rowsUpdated = db.update(DatabaseContract.DateEntry.TABLE_NAME, values, selection, selectionArgs);
+            case DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO: {
+
+                long startDate = DatabaseContract.DiaryEntry.getStartDateFromUri(uri);
+                int category = DatabaseContract.DiaryEntry.getCategoryFromUri(uri);
+                String ndbno = DatabaseContract.DiaryEntry.getNDBNOFromUri(uri);
+
+                selection = createSelection(selection,
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL,
+                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL,
+                        DatabaseContract.DiaryEntry.ITEM_NDBNO_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        String.valueOf(startDate),
+                        String.valueOf(category),
+                        ndbno);
+
+                rowsUpdated = db.update(DatabaseContract.DiaryEntry.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs);
+
                 break;
             }
             default:
@@ -237,4 +352,27 @@ public class SelfImageContentProvider extends ContentProvider {
         return rowsUpdated;
     }
 
+    private String createSelection(String passedSelection, String... additionalSelectionColumNames) {
+        if (passedSelection != null && additionalSelectionColumNames != null) {
+
+            for (String x : additionalSelectionColumNames) {
+                passedSelection += " AND " + x + " = ? ";
+            }
+        }
+
+        return passedSelection;
+    }
+
+    private String[] createSelectionArgs(String[] passedSelectionArgs, String... additionalArgs) {
+        if (passedSelectionArgs != null && additionalArgs != null) {
+
+            String[] newSelection = new String[passedSelectionArgs.length + additionalArgs.length];
+            System.arraycopy(passedSelectionArgs, 0, newSelection, 0, passedSelectionArgs.length);
+            System.arraycopy(additionalArgs, 0, newSelection, passedSelectionArgs.length, additionalArgs.length);
+            return newSelection;
+
+        } else return passedSelectionArgs;
+    }
+
 }
+

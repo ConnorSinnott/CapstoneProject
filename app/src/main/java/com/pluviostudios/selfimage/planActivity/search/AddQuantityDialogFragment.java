@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.planActivity;
+package com.pluviostudios.selfimage.planActivity.search;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
+import com.pluviostudios.selfimage.planActivity.data.FoodItem;
 
 import java.util.MissingFormatArgumentException;
 
@@ -21,21 +22,14 @@ public class AddQuantityDialogFragment extends DialogFragment {
     public static final String REFERENCE_ID = "AddQuantityDialogFragment";
     public static final String EXTRA_FOOD_ITEM = "FoodItem";
 
-    public interface OnDialogQuantityConfirm {
-        void onDialogQuantityConfirm(FoodItem foodItem, int quantity);
-    }
-
     private View mRoot;
     private TextView textViewName;
     private Button buttonAdd, buttonSubtract, buttonConfirm;
     private EditText editTextQuantity;
 
-
-    private FoodItem mFoodItem;
-
-    private int mQuantity = 1;
-
     private OnDialogQuantityConfirm onQuantityDialogConfirm;
+    private FoodItem mFoodItem;
+    private int mQuantity = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,9 +84,6 @@ public class AddQuantityDialogFragment extends DialogFragment {
         editTextQuantity.setText(String.valueOf(quantity));
     }
 
-    public void setOnQuantityDialogConfirm(OnDialogQuantityConfirm onQuantityDialogConfirm) {
-        this.onQuantityDialogConfirm = onQuantityDialogConfirm;
-    }
 
     public static AddQuantityDialogFragment createAddQuantityDialogFragment(FoodItem foodItem, OnDialogQuantityConfirm onQuantityDialogFragmentConfirm) {
 
@@ -106,6 +97,14 @@ public class AddQuantityDialogFragment extends DialogFragment {
 
         return fragment;
 
+    }
+
+    public interface OnDialogQuantityConfirm {
+        void onDialogQuantityConfirm(FoodItem foodItem, int quantity);
+    }
+
+    public void setOnQuantityDialogConfirm(OnDialogQuantityConfirm onQuantityDialogConfirm) {
+        this.onQuantityDialogConfirm = onQuantityDialogConfirm;
     }
 
 }

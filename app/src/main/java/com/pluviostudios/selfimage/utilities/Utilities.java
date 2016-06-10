@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage;
+package com.pluviostudios.selfimage.utilities;
 
 import android.text.format.Time;
 

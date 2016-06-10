@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.planActivity;
+package com.pluviostudios.selfimage.planActivity.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,6 +12,7 @@ public class FoodItem implements Serializable {
     private String mName;
     private String mNdbmo;
 
+    //If params are added upon please update DB
     public static final int Calories = 0;
     public static final int Protein = 1;
     public static final int Fat = 2;

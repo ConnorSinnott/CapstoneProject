@@ -1,10 +1,8 @@
-package com.pluviostudios.selfimage.planActivity;
+package com.pluviostudios.selfimage.planActivity.search;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -16,13 +14,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
+import com.pluviostudios.selfimage.planActivity.activity.BaseMealPlanningFragment;
+import com.pluviostudios.selfimage.planActivity.data.AsyncNDBNOSearch;
+import com.pluviostudios.selfimage.planActivity.data.AsyncReportSearch;
+import com.pluviostudios.selfimage.planActivity.data.FoodItem;
+import com.pluviostudios.selfimage.planActivity.data.FoodItemNetworkContainer;
 
 import java.util.ArrayList;
 
 /**
  * Created by Spectre on 5/24/2016.
  */
-public class FoodSearchFragment extends Fragment {
+public class FoodSearchFragment extends BaseMealPlanningFragment {
 
     public static final String REFERENCE_TAG = "FoodSearchFragment";
 
@@ -99,15 +102,10 @@ public class FoodSearchFragment extends Fragment {
         AddQuantityDialogFragment fragment = AddQuantityDialogFragment.createAddQuantityDialogFragment(foodItem, new AddQuantityDialogFragment.OnDialogQuantityConfirm() {
             @Override
             public void onDialogQuantityConfirm(FoodItem foodItem, int quantity) {
-                addFoodToPlan(foodItem, quantity);
+                addToMealPlan(foodItem, quantity, -1);
             }
         });
         fragment.show(getFragmentManager(), AddQuantityDialogFragment.REFERENCE_ID);
-    }
-
-    private void addFoodToPlan(FoodItem foodItem, int quantity) {
-        //TODO Make undo snackbar
-        Snackbar.make(mRoot, foodItem.getName() + " " + quantity, Snackbar.LENGTH_LONG).show();
     }
 
     private void searchForNDBNO() {

@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.planActivity;
+package com.pluviostudios.selfimage.planActivity.data;
 
 import android.content.Context;
 import android.net.Uri;

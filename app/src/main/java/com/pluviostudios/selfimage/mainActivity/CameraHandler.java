@@ -10,7 +10,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.pluviostudios.selfimage.Utilities;
+import com.pluviostudios.selfimage.utilities.Utilities;
 import com.pluviostudios.selfimage.data.DatabaseContract;
 
 import java.io.File;

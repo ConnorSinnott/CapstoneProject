@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.mainActivity;
+package com.pluviostudios.selfimage.utilities;
 
 import android.database.Cursor;
 import android.os.Bundle;

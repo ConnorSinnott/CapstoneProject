@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.Utilities;
+import com.pluviostudios.selfimage.utilities.Utilities;
 import com.pluviostudios.selfimage.data.DatabaseContract;
 
 import java.util.Calendar;

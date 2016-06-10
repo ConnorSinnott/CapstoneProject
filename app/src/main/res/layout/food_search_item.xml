@@ -38,8 +38,8 @@
             <ProgressBar
                 android:id="@+id/food_item_progress_bar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
+                android:layout_height="match_parent"
+                android:visibility="invisible"/>
 
             <ImageView
                 android:id="@+id/food_item_search_error"

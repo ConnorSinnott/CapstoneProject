@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.planActivity;
+package com.pluviostudios.selfimage.planActivity.data;
 
 /**
  * Created by Spectre on 6/2/2016.

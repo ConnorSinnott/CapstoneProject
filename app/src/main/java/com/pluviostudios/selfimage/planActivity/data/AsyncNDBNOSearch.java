@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.planActivity;
+package com.pluviostudios.selfimage.planActivity.data;
 
 import android.content.Context;
 import android.net.Uri;
@@ -20,10 +20,6 @@ public class AsyncNDBNOSearch extends AsyncBaseData<String, Void, ArrayList<Food
     private static final String REFERENCE_ID = "AsyncNDBNOSearch";
 
     private OnAsyncNDBNOSearchResult mOnAsyncNDBNOSearchResult;
-
-    public interface OnAsyncNDBNOSearchResult {
-        void onResult(ArrayList<FoodItemNetworkContainer> data);
-    }
 
     public AsyncNDBNOSearch(Context context, OnAsyncNDBNOSearchResult onAsyncNDBNOSearchResult) {
         super(context);
@@ -78,6 +74,10 @@ public class AsyncNDBNOSearch extends AsyncBaseData<String, Void, ArrayList<Food
         if (foodItems != null && mOnAsyncNDBNOSearchResult != null) {
             mOnAsyncNDBNOSearchResult.onResult(foodItems);
         }
+    }
+
+    public interface OnAsyncNDBNOSearchResult {
+        void onResult(ArrayList<FoodItemNetworkContainer> data);
     }
 
 }
