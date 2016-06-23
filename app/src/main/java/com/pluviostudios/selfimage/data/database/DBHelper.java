@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.data;
+package com.pluviostudios.selfimage.data.database;
 
 import android.content.ContentValues;
 import android.content.Context;

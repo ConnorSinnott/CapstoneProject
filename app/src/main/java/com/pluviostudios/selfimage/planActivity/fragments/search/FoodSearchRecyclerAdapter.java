@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.planActivity.data.OnFoodItemSelected;
-import com.pluviostudios.usdanutritionalapi.FoodItem;
+import com.pluviostudios.selfimage.data.dataContainers.FoodItemWithDB;
 
 import java.util.ArrayList;
 
@@ -24,7 +23,7 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
 
     private OnFoodItemSelected mOnFoodItemSelected;
 
-    private ArrayList<FoodItem> mFoodData = new ArrayList<>();
+    private ArrayList<FoodItemWithDB> mFoodData = new ArrayList<>();
 
     public void setOnFoodItemSelected(OnFoodItemSelected onFoodItemSelected) {
         mOnFoodItemSelected = onFoodItemSelected;
@@ -39,7 +38,7 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
 
     @Override
     public void onBindViewHolder(FoodItemViewHolder holder, int position) {
-        FoodItem item = mFoodData.get(position);
+        FoodItemWithDB item = mFoodData.get(position);
 
         if (mOnFoodItemSelected != null) {
             holder.card.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +66,7 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
         return mFoodData.size();
     }
 
-    public void addFoodItem(FoodItem foodItem) {
+    public void addFoodItem(FoodItemWithDB foodItem) {
         mFoodData.add(foodItem);
         notifyDataSetChanged();
     }
@@ -101,4 +100,12 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
 
     }
 
+    /**
+     * Created by Spectre on 6/19/2016.
+     */
+    public static interface OnFoodItemSelected {
+
+        void onFoodItemSelected(FoodItemWithDB foodItem);
+
+    }
 }

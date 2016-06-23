@@ -14,14 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.data.DatabaseContract;
+import com.pluviostudios.selfimage.data.database.DatabaseContract;
+import com.pluviostudios.selfimage.data.dataContainers.DiaryItem;
+import com.pluviostudios.selfimage.data.dataContainers.FoodItemWithDB;
 import com.pluviostudios.selfimage.planActivity.MealPlanningActivity;
-import com.pluviostudios.selfimage.planActivity.data.OnFoodItemSelected;
 import com.pluviostudios.selfimage.planActivity.fragments.BaseMealPlanningFragment;
 import com.pluviostudios.selfimage.planActivity.fragments.FoodDetailsDialog;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
 import com.pluviostudios.selfimage.utilities.Utilities;
-import com.pluviostudios.usdanutritionalapi.FoodItem;
 
 import java.util.ArrayList;
 
@@ -108,43 +108,54 @@ public class MealPlanFragment extends BaseMealPlanningFragment implements Loader
         int currentCat = -1;
         if (data.moveToFirst()) {
             do {
-                int newCat = data.getInt(3);
-                if (currentCat < newCat) {
-                    currentCat = newCat;
+
+                int itemQuantity = data.getInt(2);
+                int itemCategory = data.getInt(3);
+
+                if (currentCat < itemCategory) {
+                    currentCat = itemCategory;
                     mList.add(new MealPlanRecyclerAdapter.LabeledRecyclerAdapterItem(data.getString(4)));
                 }
 
-                FoodItem foodItem = new FoodItem(data.getString(0), data.getString(1));
-                mList.add(new MealPlanRecyclerAdapter.LabeledRecyclerAdapterItem(foodItem));
+                String foodName = data.getString(0);
+                String foodNDBNO = data.getString(1);
+
+                FoodItemWithDB foodItemWithDB = new FoodItemWithDB(foodName, foodNDBNO);
+                DiaryItem diaryItem = new DiaryItem(foodItemWithDB, mDate, itemCategory, itemQuantity);
+
+                mList.add(new MealPlanRecyclerAdapter.LabeledRecyclerAdapterItem(diaryItem));
+
             } while (data.moveToNext());
+
         }
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         MealPlanRecyclerAdapter adapter = new MealPlanRecyclerAdapter(mList);
 
-        adapter.setOnFoodItemSelected(new OnFoodItemSelected() {
-            @Override
-            public void onFoodItemSelected(FoodItem foodItem) {
+        adapter.setOnDiaryItemSelected(new MealPlanRecyclerAdapter.OnDiaryItemSelected() {
 
-                FoodDetailsDialog detailsDialog = FoodDetailsDialog.buildFoodDetailsDialog(foodItem, new FoodDetailsDialog.OnDialogQuantityConfirm() {
-                    @Override
-                    public void onDialogQuantityConfirm(FoodItem foodItem, int category, int quantity) {
-//                        FoodItemDBHandler.updateDiaryItem(
-//                                getContext(),
-//                                Utilities.getCurrentNormalizedDate(),
-//                                foodItem,
-//                                category,
-//                                quantity,
-//
-//                        );
-                    }
-                });
-                detailsDialog.show(getFragmentManager(), FoodDetailsDialog.REFERENCE_ID);
+            @Override
+            public void onDiaryItemSelected(DiaryItem diaryItem) {
+                showFoodDetailsDialog(diaryItem);
             }
+
         });
 
         mRecyclerView.setAdapter(adapter);
+
+    }
+
+    private void showFoodDetailsDialog(DiaryItem diaryItem) {
+
+        FoodDetailsDialog detailsDialog = FoodDetailsDialog.buildFoodDetailsDialog(diaryItem, new FoodDetailsDialog.OnDetailsDialogConfirm() {
+            @Override
+            public void onDetailsDialogConfirm(DiaryItem diaryItem) {
+                diaryItem.save();
+            }
+        });
+
+        detailsDialog.show(getFragmentManager(), FoodDetailsDialog.REFERENCE_ID);
 
     }
 

@@ -27,7 +27,7 @@
         <activity android:name=".planActivity.MealPlanningActivity"/>
 
         <provider
-            android:name=".data.SelfImageContentProvider"
+            android:name=".data.database.SelfImageContentProvider"
             android:authorities="@string/content_authority"
             android:exported="false"
             android:syncable="true"/>

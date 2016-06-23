@@ -20,11 +20,12 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.data.DatabaseContract;
+import com.pluviostudios.selfimage.data.database.DatabaseContract;
 import com.pluviostudios.selfimage.notification.DailyNotification;
 import com.pluviostudios.selfimage.planActivity.MealPlanningActivity;
 import com.pluviostudios.selfimage.utilities.CursorPagerAdapter;
 import com.pluviostudios.selfimage.utilities.Utilities;
+import com.pluviostudios.selfimage.views.CalorieBar;
 import com.viewpagerindicator.LinePageIndicator;
 
 public class MainActivity extends AppCompatActivity {

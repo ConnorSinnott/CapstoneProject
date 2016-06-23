@@ -1,10 +1,11 @@
-package com.pluviostudios.selfimage.planActivity.data;
+package com.pluviostudios.selfimage.data.dataContainers;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.pluviostudios.selfimage.data.DatabaseContract;
+import com.pluviostudios.selfimage.data.database.DatabaseContract;
+import com.pluviostudios.selfimage.data.dataContainers.FoodItemWithDB;
 import com.pluviostudios.selfimage.utilities.Utilities;
 import com.pluviostudios.usdanutritionalapi.FoodItem;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  */
 public class FoodItemDBHandler {
 
-    public static void insertIntoMealPlan(Context context, long date, FoodItem foodItem, int quantity, int category) {
+    public static void insertIntoMealPlan(Context context, long date, FoodItemWithDB foodItem, int quantity, int category) {
 
         if (!foodItem.hasNutrientData()) {
             throw new RuntimeException("Food item is missing nutrient data");
@@ -61,7 +62,7 @@ public class FoodItemDBHandler {
 
     }
 
-    public static void updateDiaryItem(Context context, long date, FoodItem foodItem, int category, int newQuantity, int newCategory) {
+    public static void updateDiaryItem(Context context, long date, FoodItemWithDB foodItem, int category, int newQuantity, int newCategory) {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL, newCategory);
@@ -79,7 +80,7 @@ public class FoodItemDBHandler {
 
     }
 
-    public static int removeFromMealPlan(Context context, long date, FoodItem foodItem, int category) {
+    public static int removeFromMealPlan(Context context, long date, FoodItemWithDB foodItem, int category) {
 
         int rowsDeleted = context.getContentResolver().delete(
                 DatabaseContract.DiaryEntry.buildDiaryWithStartDateAndCategoryAndNDBNO(
@@ -93,7 +94,7 @@ public class FoodItemDBHandler {
 
     }
 
-    public static boolean hasFoodInDatabase(Context context, FoodItem foodItem) {
+    public static boolean hasFoodInDatabase(Context context, FoodItemWithDB foodItem) {
 
         boolean out = false;
 
@@ -110,7 +111,7 @@ public class FoodItemDBHandler {
 
     }
 
-    public static void pullNutritionalArrayFromDatabase(Context context, FoodItem foodItem, FoodItem.OnDataPulled onDataPulled) {
+    public static void pullNutritionalArrayFromDatabase(Context context, FoodItemWithDB foodItem, FoodItemWithDB.OnDataPulledWithDB onDataPulledWithDB) {
 
         ArrayList<Double> nutritionalData = null;
 
@@ -144,15 +145,15 @@ public class FoodItemDBHandler {
 
             foodItem.putNutrientData(nutritionalData);
 
-            if (onDataPulled != null) {
-                onDataPulled.OnDataPulled(foodItem);
+            if (onDataPulledWithDB != null) {
+                onDataPulledWithDB.onDataPulled(foodItem);
             }
 
         }
 
     }
 
-    public static int getFoodQuantity(Context context, FoodItem foodItem, int category) {
+    public static int getFoodQuantity(Context context, FoodItemWithDB foodItem, int category) {
 
         int itemQuantity = 0;
 

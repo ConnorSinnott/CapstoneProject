@@ -1,7 +1,6 @@
 package com.pluviostudios.selfimage.planActivity.fragments;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -12,9 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.data.DatabaseContract;
-import com.pluviostudios.selfimage.planActivity.data.FoodItemDBHandler;
+import com.pluviostudios.selfimage.data.dataContainers.DiaryItem;
+import com.pluviostudios.selfimage.data.dataContainers.FoodItemWithDB;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
+import com.pluviostudios.selfimage.utilities.Utilities;
 import com.pluviostudios.usdanutritionalapi.FoodItem;
 
 /**
@@ -24,7 +24,9 @@ public class FoodDetailsDialog extends DialogFragment {
 
     public static final String REFERENCE_ID = "AddQuantityDialogFragment";
 
-    public static final String EXTRA_FOOD_ITEM = "foodItem";
+    public static final String EXTRA_FOOD_ITEM = "extra_foodItem";
+    public static final String EXTRA_DIARY_ITEM = "extra_diaryItem";
+    public static final String EXTRA_DATE = "extra_date";
 
     public static final int CATEGORY_REQUEST_CODE = 1;
 
@@ -44,18 +46,29 @@ public class FoodDetailsDialog extends DialogFragment {
     private TextView textPolyFat;
     private TextView textCholesterol;
 
-    private FoodItem mFoodItem;
+    private OnDetailsDialogConfirm mOnDetailsDialogConfirm;
 
-    private OnDialogQuantityConfirm onQuantityDialogConfirm;
+    private DiaryItem mDiaryItem;
+    private long mDate;
     private int mQuantity = 1;
     private int mCategory = 0;
 
-    public static FoodDetailsDialog buildFoodDetailsDialog(FoodItem foodData, OnDialogQuantityConfirm mOnConfirm) {
+    public static FoodDetailsDialog buildFoodDetailsDialog(FoodItemWithDB foodItem, OnDetailsDialogConfirm mOnConfirm) {
         FoodDetailsDialog newFragment = new FoodDetailsDialog();
         Bundle args = new Bundle();
-        args.putSerializable(EXTRA_FOOD_ITEM, foodData);
+        args.putSerializable(EXTRA_FOOD_ITEM, foodItem);
+        args.putLong(EXTRA_DATE, Utilities.getCurrentNormalizedDate());
         newFragment.setArguments(args);
-        newFragment.setOnQuantityDialogConfirm(mOnConfirm);
+        newFragment.setOnDetailsDialogConfirm(mOnConfirm);
+        return newFragment;
+    }
+
+    public static FoodDetailsDialog buildFoodDetailsDialog(DiaryItem diaryItem, OnDetailsDialogConfirm mOnConfirm) {
+        FoodDetailsDialog newFragment = new FoodDetailsDialog();
+        Bundle args = new Bundle();
+        args.putSerializable(EXTRA_DIARY_ITEM, diaryItem);
+        newFragment.setArguments(args);
+        newFragment.setOnDetailsDialogConfirm(mOnConfirm);
         return newFragment;
     }
 
@@ -63,18 +76,46 @@ public class FoodDetailsDialog extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         Bundle args = getArguments();
-        if (!args.containsKey(EXTRA_FOOD_ITEM)) {
-            throw new MissingExtraException(EXTRA_FOOD_ITEM);
+
+        if (args.containsKey(EXTRA_FOOD_ITEM)) {
+
+            // If a FoodItemWithDB has been sent create the Diary Object
+
+            if (!args.containsKey(EXTRA_DATE)) {
+                throw new MissingExtraException(EXTRA_DATE);
+            }
+
+            FoodItemWithDB foodItem = (FoodItemWithDB) args.getSerializable(EXTRA_FOOD_ITEM);
+            mDate = args.getLong(EXTRA_DATE);
+
+            mDiaryItem = new DiaryItem(foodItem, mDate, mCategory, mQuantity);
+
+        } else if (args.containsKey(EXTRA_DIARY_ITEM)) {
+
+            // If a DiaryItem has been sent
+
+            mDiaryItem = (DiaryItem) args.getSerializable(EXTRA_DIARY_ITEM);
+            mDate = mDiaryItem.date;
+            mCategory = mDiaryItem.category;
+            mQuantity = mDiaryItem.quantity;
+
+        } else {
+            throw new MissingExtraException(EXTRA_FOOD_ITEM + " and " + EXTRA_DATE + " or " + EXTRA_DIARY_ITEM);
         }
 
         mRoot = inflater.inflate(R.layout.dialog_add_quantity, container, false);
         init();
 
-        mFoodItem = (FoodItem) args.getSerializable(EXTRA_FOOD_ITEM);
+        // Set Name
+        textName.setText(mDiaryItem.foodItem.getFoodName());
 
-        textName.setText(args.getString(DatabaseContract.FoodEntry.ITEM_NAME_COL));
+        // Set Quantity
         updateQuantityUI(mQuantity);
 
+        // Set Category
+        updateCategory();
+
+        // Initialize Add and Subtract
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,16 +129,7 @@ public class FoodDetailsDialog extends DialogFragment {
             }
         });
 
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (onQuantityDialogConfirm != null) {
-                    onQuantityDialogConfirm.onDialogQuantityConfirm(mFoodItem, mCategory, mQuantity);
-                    dismiss();
-                }
-            }
-        });
-
+        // Initialize Category List
         buttonCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,26 +141,28 @@ public class FoodDetailsDialog extends DialogFragment {
             }
         });
 
-        if (!mFoodItem.hasNutrientData()) {
+        // Initialize Confirm
+        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mOnDetailsDialogConfirm != null) {
+                    mOnDetailsDialogConfirm.onDetailsDialogConfirm(mDiaryItem);
+                    dismiss();
+                }
+            }
+        });
 
-            FoodItem.OnDataPulled onDataPulled = new FoodItem.OnDataPulled() {
+        // Pull nutrient data if is has yet to be loaded. Then Display
+        if (!mDiaryItem.foodItem.hasNutrientData()) {
+            mDiaryItem.foodItem.pullNutrientDataWithDB(getContext(), new FoodItemWithDB.OnDataPulledWithDB() {
                 @Override
-                public void OnDataPulled(FoodItem foodItem) {
+                public void onDataPulled(FoodItemWithDB foodItemWithDB) {
                     populateData();
                 }
-            };
-
-            if (FoodItemDBHandler.hasFoodInDatabase(getContext(), mFoodItem)) {
-                FoodItemDBHandler.pullNutritionalArrayFromDatabase(getContext(), mFoodItem, onDataPulled);
-            } else {
-                mFoodItem.pullNutrientData(getContext(), onDataPulled);
-            }
-
+            });
         } else {
             populateData();
         }
-
-        updateCategory();
 
         return mRoot;
 
@@ -136,6 +170,7 @@ public class FoodDetailsDialog extends DialogFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Receive the activity result from the category picker
         if (requestCode == CATEGORY_REQUEST_CODE) {
             mCategory = data.getExtras().getInt(DialogFragmentCategoryPicker.EXTRA_CATEGORY);
             updateCategory();
@@ -165,43 +200,41 @@ public class FoodDetailsDialog extends DialogFragment {
     }
 
     private void populateData() {
-        textCalories.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.Calories) * mQuantity));
-        textProtein.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.Protein) * mQuantity));
-        textFat.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.Fat) * mQuantity));
-        textCarbs.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.Carbs) * mQuantity));
-        textFiber.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.Fiber) * mQuantity));
-        textSatFat.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.SatFat) * mQuantity));
-        textMonoFat.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.MonoFat) * mQuantity));
-        textPolyFat.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.PolyFat) * mQuantity));
-        textCholesterol.setText(String.valueOf(mFoodItem.getNutrientData().get(FoodItem.Cholesterol) * mQuantity));
+        textCalories.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Calories) * mQuantity));
+        textProtein.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Protein) * mQuantity));
+        textFat.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Fat) * mQuantity));
+        textCarbs.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Carbs) * mQuantity));
+        textFiber.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Fiber) * mQuantity));
+        textSatFat.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.SatFat) * mQuantity));
+        textMonoFat.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.MonoFat) * mQuantity));
+        textPolyFat.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.PolyFat) * mQuantity));
+        textCholesterol.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Cholesterol) * mQuantity));
     }
 
     private void updateQuantityUI(int quantity) {
-        editTextQuantity.setText(String.valueOf(quantity));
-        if (mFoodItem.hasNutrientData()) {
+        mDiaryItem.quantity = quantity;
+        editTextQuantity.setText(String.valueOf(mDiaryItem.quantity));
+        if (mDiaryItem.foodItem.hasNutrientData()) {
             populateData();
         }
     }
 
-    public interface OnDialogQuantityConfirm {
-        void onDialogQuantityConfirm(FoodItem foodItem, int category, int quantity);
-    }
-
-    public void setOnQuantityDialogConfirm(OnDialogQuantityConfirm onQuantityDialogConfirm) {
-        this.onQuantityDialogConfirm = onQuantityDialogConfirm;
-    }
-
     private void updateCategory() {
-        Cursor c = getContext().getContentResolver().query(
-                DatabaseContract.CategoryEntry.buildCategoryWithIndex(mCategory),
-                new String[]{DatabaseContract.CategoryEntry.CATEGORY_NAME_COL},
-                null,
-                null,
-                null);
-        if (c != null && c.moveToFirst()) {
-            buttonCategory.setText(c.getString(0));
-            c.close();
-        }
+        mDiaryItem.category = mCategory;
+        buttonCategory.setText(mDiaryItem.getCategoryName(getContext()));
     }
 
+    public void setOnDetailsDialogConfirm(OnDetailsDialogConfirm onDetailsDialogConfirm) {
+        mOnDetailsDialogConfirm = onDetailsDialogConfirm;
+    }
+
+    /**
+     * Created by Spectre on 6/22/2016.
+     */
+    public static class OnDetailsDialogConfirm {
+
+        public void onDetailsDialogConfirm(DiaryItem diaryItem) {
+        }
+
+    }
 }

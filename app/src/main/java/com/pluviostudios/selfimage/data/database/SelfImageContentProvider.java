@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.data;
+package com.pluviostudios.selfimage.data.database;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 /**
  * Created by Spectre on 5/11/2016.
@@ -187,18 +186,6 @@ public class SelfImageContentProvider extends ContentProvider {
                         null,
                         null
                 );
-
-                if (selection != null) {
-                    Log.i(REFERENCE_ID, "Selection: " + selection);
-                }
-                if (selectionArgs != null) {
-                    Log.i(REFERENCE_ID, "Selection Args: ");
-                    for (String x : selectionArgs) {
-                        Log.i(REFERENCE_ID, x);
-                    }
-                }
-                Log.i(REFERENCE_ID, String.valueOf(retCursor.getCount()));
-
                 break;
             }
             case DIARY_WITH_DATE_AND_CATEGORY: {
@@ -515,8 +502,6 @@ public class SelfImageContentProvider extends ContentProvider {
                 out += " AND ";
             }
         }
-
-        Log.i(REFERENCE_ID, " OUT : " + out);
 
         return out;
     }

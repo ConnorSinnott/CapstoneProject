@@ -3,7 +3,6 @@ package com.pluviostudios.selfimage.planActivity.fragments.search;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -16,12 +15,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
+import com.pluviostudios.selfimage.data.dataContainers.DiaryItem;
+import com.pluviostudios.selfimage.data.dataContainers.FoodItemWithDB;
 import com.pluviostudios.selfimage.planActivity.MealPlanningActivity;
-import com.pluviostudios.selfimage.planActivity.data.OnFoodItemSelected;
 import com.pluviostudios.selfimage.planActivity.fragments.BaseMealPlanningFragment;
-import com.pluviostudios.selfimage.planActivity.data.FoodItemDBHandler;
 import com.pluviostudios.selfimage.planActivity.fragments.FoodDetailsDialog;
-import com.pluviostudios.selfimage.utilities.Utilities;
 import com.pluviostudios.usdanutritionalapi.AsyncFoodItemSearch;
 import com.pluviostudios.usdanutritionalapi.FoodItem;
 
@@ -98,18 +96,18 @@ public class FoodSearchFragment extends BaseMealPlanningFragment {
         mListView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mAdapter = new FoodSearchRecyclerAdapter();
-        mAdapter.setOnFoodItemSelected(new OnFoodItemSelected() {
+        mAdapter.setOnFoodItemSelected(new FoodSearchRecyclerAdapter.OnFoodItemSelected() {
             @Override
-            public void onFoodItemSelected(FoodItem foodItem) {
+            public void onFoodItemSelected(FoodItemWithDB foodItem) {
 
-                FoodDetailsDialog fragment = FoodDetailsDialog.buildFoodDetailsDialog(foodItem, new FoodDetailsDialog.OnDialogQuantityConfirm() {
+                FoodDetailsDialog dialog = FoodDetailsDialog.buildFoodDetailsDialog(foodItem, new FoodDetailsDialog.OnDetailsDialogConfirm() {
                     @Override
-                    public void onDialogQuantityConfirm(FoodItem foodData, int category, int quantity) {
-                        FoodItemDBHandler.insertIntoMealPlan(getContext(), Utilities.getCurrentNormalizedDate(), foodData, quantity, category);
-                        Snackbar.make(mRoot, "Added " + foodData.getFoodName(), Snackbar.LENGTH_SHORT).show();
+                    public void onDetailsDialogConfirm(DiaryItem diaryItem) {
+                        diaryItem.save();
                     }
                 });
-                fragment.show(getFragmentManager(), FoodDetailsDialog.REFERENCE_ID);
+
+                dialog.show(getFragmentManager(), FoodDetailsDialog.REFERENCE_ID);
 
             }
         });
@@ -134,7 +132,7 @@ public class FoodSearchFragment extends BaseMealPlanningFragment {
             public void onResult(ArrayList<FoodItem> data) {
                 mTextResultCount.setText(getString(R.string.results_found, data.size()));
                 for (FoodItem x : data) {
-                    mAdapter.addFoodItem(x);
+                    mAdapter.addFoodItem(new FoodItemWithDB(x));
                 }
             }
         });

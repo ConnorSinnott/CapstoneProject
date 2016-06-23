@@ -10,8 +10,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.planActivity.data.OnFoodItemSelected;
-import com.pluviostudios.usdanutritionalapi.FoodItem;
+import com.pluviostudios.selfimage.data.dataContainers.DiaryItem;
+import com.pluviostudios.selfimage.data.dataContainers.FoodItemWithDB;
 
 import java.util.ArrayList;
 
@@ -25,11 +25,11 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
 
     Context mContext;
 
-    private OnFoodItemSelected mOnFoodItemSelected;
+    private OnDiaryItemSelected mOnDiaryItemSelected;
     private ArrayList<LabeledRecyclerAdapterItem> mData = new ArrayList<>();
 
-    public void setOnFoodItemSelected(OnFoodItemSelected onFoodItemSelected) {
-        mOnFoodItemSelected = onFoodItemSelected;
+    public void setOnDiaryItemSelected(OnDiaryItemSelected onDiaryItemSelected) {
+        mOnDiaryItemSelected = onDiaryItemSelected;
     }
 
     public MealPlanRecyclerAdapter(ArrayList<LabeledRecyclerAdapterItem> mList) {
@@ -54,25 +54,26 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
         if (getItemViewType(position) == VIEW_TYPE_LABEL) {
             holder.name.setText(mData.get(position).getLabel());
         } else {
-            FoodItem foodItem = mData.get(position).getFoodItem();
+            DiaryItem diaryItem = mData.get(position).getDiaryItem();
+            FoodItemWithDB foodItem = diaryItem.foodItem;
             holder.name.setText(foodItem.getFoodName());
             holder.root.setOnClickListener(new View.OnClickListener() {
 
-                private FoodItem mItem;
+                private DiaryItem mItem;
 
                 @Override
                 public void onClick(View v) {
-                    if (mOnFoodItemSelected != null) {
-                        mOnFoodItemSelected.onFoodItemSelected(mItem);
+                    if (mOnDiaryItemSelected != null) {
+                        mOnDiaryItemSelected.onDiaryItemSelected(mItem);
                     }
                 }
 
-                public View.OnClickListener setItem(FoodItem item) {
+                public View.OnClickListener setItem(DiaryItem item) {
                     mItem = item;
                     return this;
                 }
 
-            }.setItem(foodItem));
+            }.setItem(diaryItem));
         }
     }
 
@@ -92,23 +93,23 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
      */
     public static class LabeledRecyclerAdapterItem {
 
-        private FoodItem mFoodItem;
+        private DiaryItem mDiaryItem;
         private String mLabel;
 
         public boolean isLabel() {
             return mLabel != null;
         }
 
-        public LabeledRecyclerAdapterItem(FoodItem foodItem) {
-            mFoodItem = foodItem;
+        public LabeledRecyclerAdapterItem(DiaryItem diaryItem) {
+            mDiaryItem = diaryItem;
         }
 
         public LabeledRecyclerAdapterItem(String label) {
             mLabel = label;
         }
 
-        public FoodItem getFoodItem() {
-            return mFoodItem;
+        public DiaryItem getDiaryItem() {
+            return mDiaryItem;
         }
 
         public String getLabel() {
@@ -166,4 +167,13 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
         }
     }
 
+    /**
+     * Created by Spectre on 6/22/2016.
+     */
+    public static interface OnDiaryItemSelected {
+
+        void onDiaryItemSelected(DiaryItem foodItem);
+
+
+    }
 }

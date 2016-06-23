@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.mainActivity;
+package com.pluviostudios.selfimage.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

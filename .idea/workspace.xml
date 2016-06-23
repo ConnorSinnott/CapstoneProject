@@ -21,88 +21,28 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7125bef-d2ce-4240-a41e-553c6e493c73" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_24_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_24_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/cardview_v7_24_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/core_3_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/design_24_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mockito_core_1_9_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/objenesis_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_24_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_24_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_24_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_24_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/CalorieBar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/notification/DailyNotification.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItemDBHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/OnFoodItemSelected.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/BaseMealPlanningFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/DialogFragmentCategoryPicker.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/FoodDetailsDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanRecyclerAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchRecyclerAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/MissingExtraException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/SimpleStringArrayDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_info_black_24dp.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notifications_black_24dp.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_sync_black_24dp.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_edit_categories.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_edit_categories_list_item.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/src/androidTest/java/com/pluviostudios/usdanutritionalapi/ApplicationTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/src/main/java/com/pluviostudios/usdanutritionalapi/AsyncBaseDAta.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/src/main/java/com/pluviostudios/usdanutritionalapi/AsyncFoodItemSearch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/src/main/java/com/pluviostudios/usdanutritionalapi/FoodItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/src/main/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/src/test/java/com/pluviostudios/usdanutritionalapi/ExampleUnitTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/usda_nutritional_api/usda_nutritional_api.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/activity/BaseMealPlanningFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/AsyncBaseData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/AsyncNDBNOSearch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/AsyncReportSearch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItemNetworkContainer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItemViewHolder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/planning/LabeledRecyclerAdapteritem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/planning/MealPlanFragmentRecyclerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/search/AddQuantityDialogFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/search/FoodSearchRecyclerAdapter.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/activity/MealPlanningActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/MealPlanningActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/planning/MealPlanFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/search/FoodSearchFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="c7125bef-d2ce-4240-a41e-553c6e493c73" name="Default" comment="Added a DiaryItem object which will be responsible for managing its own data.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/dataContainers/DiaryItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/dataContainers/FoodItemWithDB.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/OnFoodItemSelected.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/planning/MealPlanFragmentRecyclerItem.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DBHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/DBHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DatabaseContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/DatabaseContract.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/SelfImageContentProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/SelfImageContentProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/CalorieBar.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/views/CalorieBar.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItemDBHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/dataContainers/FoodItemDBHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DBHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DBHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DatabaseContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DatabaseContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/SelfImageContentProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/SelfImageContentProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/CameraHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/CameraHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/DayCardFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/DayCardFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/Utilities.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/Utilities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/DialogFragmentCategoryPicker.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/DialogFragmentCategoryPicker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/FoodDetailsDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/FoodDetailsDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanRecyclerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanRecyclerAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchRecyclerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchRecyclerAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/add_food_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/add_food_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_add_quantity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_add_quantity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/food_search_divider.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/food_search_divider.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/food_search_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/food_search_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_day_card.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_day_card.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viewPagerIndicator/viewPagerIndicator.iml" afterPath="$PROJECT_DIR$/viewPagerIndicator/viewPagerIndicator.iml" />
     </list>
     <ignored path="CapstoneProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -130,38 +70,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DailyNotification.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/notification/DailyNotification.java">
+      <file leaf-file-name="FoodDetailsDialog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/FoodDetailsDialog.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="75" />
+              <caret line="215" column="68" selection-start-line="215" selection-start-column="68" selection-end-line="215" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#746#792#0" expanded="true" />
-                <element signature="e#834#882#0" expanded="true" />
+                <element signature="e#5661#5870#0" expanded="true" />
+                <element signature="e#5869#5870#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <file leaf-file-name="SelfImageContentProvider.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/SelfImageContentProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.846153">
-              <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DayCardFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/DayCardFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="74" />
+              <folding>
+                <element signature="e#3229#3446#0" expanded="true" />
+                <element signature="e#3445#3446#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalorieBar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/views/CalorieBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FoodSearchFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchFragment.java">
+      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/DBHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9473686">
-              <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="84" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.11724138">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -169,33 +132,36 @@
       <file leaf-file-name="MealPlanRecyclerAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanRecyclerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.4528303">
-              <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MealPlanFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6445264">
-              <caret line="140" column="21" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="21" />
+            <state vertical-scroll-proportion="-10.684211">
+              <caret line="172" column="28" selection-start-line="172" selection-start-column="28" selection-end-line="172" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4856#5756#0" expanded="true" />
-                <element signature="e#5071#5640#0" expanded="true" />
-                <element signature="e#5755#5756#0" expanded="true" />
+                <element signature="e#1188#1189#0" expanded="true" />
+                <element signature="e#1217#1218#0" expanded="true" />
+                <element signature="e#2871#2872#0" expanded="true" />
+                <element signature="e#2906#2907#0" expanded="true" />
+                <element signature="e#3318#3319#0" expanded="true" />
+                <element signature="e#3363#3364#0" expanded="true" />
+                <element signature="e#3429#3430#0" expanded="true" />
+                <element signature="e#3475#3476#0" expanded="true" />
+                <element signature="e#3534#3535#0" expanded="true" />
+                <element signature="e#3572#3573#0" expanded="true" />
+                <element signature="e#3615#3616#0" expanded="true" />
+                <element signature="e#3656#3657#0" expanded="true" />
+                <element signature="e#3692#3693#0" expanded="true" />
+                <element signature="e#3729#3730#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="18.807018">
+              <caret line="128" column="56" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -205,37 +171,31 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchRecyclerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
-              <folding />
+              <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FoodItemDBHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItemDBHandler.java">
+      <file leaf-file-name="DiaryItem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/dataContainers/DiaryItem.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelfImageContentProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/SelfImageContentProvider.java">
+      <file leaf-file-name="SimpleStringArrayDialog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/SimpleStringArrayDialog.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="361" column="0" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="162" column="69" selection-start-line="162" selection-start-column="69" selection-end-line="162" selection-end-column="69" />
+              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -246,11 +206,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="valueResourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile_vertical" />
         <option value="resourceFile" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -4357,15 +4317,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/usda_nutritional_api/src/main/java/com/pluviostudios/AsyncBaseData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/foodItem/AsyncBaseData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/NamedViewHolder.java" />
-        <option value="$PROJECT_DIR$/Usda_Nutritional_Api/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/Usda_Nutritional_Api/src/main/res/values/api_key.xml" />
-        <option value="$PROJECT_DIR$/Usda_Nutritional_Api/src/main/java/com/pluviostudios/usdanutritionalapi/AsyncBaseData.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/search/FoodItemRecyclerAdapterNew.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/search/FoodItemRecyclerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItemWithDB.java" />
         <option value="$PROJECT_DIR$/Usda_Nutritional_Api/src/main/java/com/pluviostudios/usdanutritionalapi/AsyncFoodItemSearch.java" />
         <option value="$PROJECT_DIR$/Usda_Nutritional_Api/src/main/java/com/pluviostudios/usdanutritionalapi/FoodItem.java" />
@@ -4384,20 +4335,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/MissingExtraException.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/SimpleCursorListDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/SimpleStringArrayDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/OnFoodItemSelected.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/loaders/BaseMainActivityLoader.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/loaders/DayCardLoader.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/loaders/CalorieCountLoader.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/CalorieBar.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/FoodDetailsDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_notification.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/DayCardFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/Utilities.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/MealPlanningActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_day_card.xml" />
@@ -4405,9 +4352,22 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/notification/DailyNotification.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/OnFoodItemSelected.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItemDBHandler.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanRecyclerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/FoodItemWithDB.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/OnDetailsDialogConfirm.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/DiaryDetailsDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DiaryItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/FoodDetailsDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/SelfImageContentProvider.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/OnDiaryItemSelected.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/OnDiaryItemSelected.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanRecyclerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchRecyclerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/dataContainers/DiaryItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/DayCardFragment.java" />
       </list>
     </option>
   </component>
@@ -4547,6 +4507,28 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CapstoneProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="selfimage" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="utilities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -4658,32 +4640,6 @@
               <option name="myItemId" value="planActivity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="planActivity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -4748,6 +4704,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataContainers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CapstoneProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="selfimage" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4920,6 +4906,7 @@
       <recent name="com.pluviostudios.selfimage.planActivity.foodItem.FoodItem" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="com.pluviostudios.selfimage.planActivity.foodItem" />
       <recent name="com.pluviostudios.selfimage" />
     </key>
@@ -5243,7 +5230,13 @@
       <option name="project" value="LOCAL" />
       <updated>1465523398724</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Extending the MealPlanFragment's ability to edit items">
+      <created>1466642342313</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1466642342313</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -5265,6 +5258,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4075724" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="1313" y="-910" width="619" height="902" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5946548" sideWeight="0.78091687" order="0" side_tool="false" content_ui="tabs" x="626" y="507" width="1300" height="1022" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44209355" sideWeight="0.4936034" order="4" side_tool="false" content_ui="tabs" x="-197" y="-769" width="1876" height="505" />
@@ -5274,7 +5268,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.4978678" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32293987" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32293987" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -5285,7 +5279,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
@@ -5307,7 +5300,9 @@
     <MESSAGE value="Begin work on meal planning activity" />
     <MESSAGE value="Creating Plan Activity" />
     <MESSAGE value="Will change food item to be SQL only" />
-    <option name="LAST_COMMIT_MESSAGE" value="Will change food item to be SQL only" />
+    <MESSAGE value="Extending the MealPlanFragment's ability to edit items" />
+    <MESSAGE value="Added a DiaryItem object which will be responsible for managing its own data." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a DiaryItem object which will be responsible for managing its own data." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5316,44 +5311,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/notification/DailyNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/MealPlanningActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/content/ContentResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="430" column="34" selection-start-line="430" selection-start-column="34" selection-end-line="430" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/util/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21494253">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/javax/security/auth/callback/Callback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15632184">
@@ -5429,7 +5386,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DatabaseContract.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/DatabaseContract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="145" column="77" selection-start-line="145" selection-start-column="77" selection-end-line="145" selection-end-column="77" />
@@ -5470,13 +5427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Usda_Nutritional_Api/src/main/java/com/pluviostudios/usdanutritionalapi/FoodItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="51" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Usda_Nutritional_Api/src/main/java/com/pluviostudios/usdanutritionalapi/AsyncFoodItemSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -5508,18 +5458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/SimpleStringArrayDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1888#2470#0" expanded="false" />
-            <element signature="e#2469#2470#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/BaseMealPlanningFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -5527,13 +5465,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/OnFoodItemSelected.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -5546,13 +5477,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/CalorieBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
@@ -5576,19 +5500,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/DayCardFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="41" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
-          <folding>
-            <element signature="e#2722#2752#0" expanded="true" />
-            <element signature="e#2884#2918#0" expanded="true" />
-            <element signature="e#3220#3437#0" expanded="true" />
-            <element signature="e#3436#3437#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5636,24 +5547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/FoodDetailsDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/DBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="79" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_day_card.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.018182">
@@ -5669,14 +5562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="69" selection-start-line="162" selection-start-column="69" selection-end-line="162" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -5709,58 +5594,175 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchRecyclerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/Usda_Nutritional_Api/src/main/java/com/pluviostudios/usdanutritionalapi/FoodItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="78" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/dataContainers/FoodItemDBHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/dataContainers/FoodItemWithDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#299#300#0" expanded="true" />
+            <element signature="e#341#342#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9473686">
-          <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="84" />
+        <state vertical-scroll-proportion="-0.84210527">
+          <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3385#3974#0" expanded="true" />
+            <element signature="e#3625#3863#0" expanded="true" />
+            <element signature="e#3862#3863#0" expanded="true" />
+            <element signature="e#3973#3974#0" expanded="true" />
+            <element signature="e#4145#4297#0" expanded="true" />
+            <element signature="e#4296#4297#0" expanded="true" />
+            <element signature="e#4452#4826#0" expanded="true" />
+            <element signature="e#4629#4675#0" expanded="true" />
+            <element signature="e#4825#4826#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/SelfImageContentProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="361" column="0" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/data/FoodItemDBHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanRecyclerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6445264">
-          <caret line="140" column="21" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="21" />
+        <state vertical-scroll-proportion="-5.9122806">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4856#5756#0" expanded="true" />
-            <element signature="e#5071#5640#0" expanded="true" />
-            <element signature="e#5755#5756#0" expanded="true" />
+            <element signature="e#5164#5380#0" expanded="true" />
+            <element signature="e#5379#5380#0" expanded="true" />
+            <element signature="e#5592#5790#0" expanded="true" />
+            <element signature="e#5789#5790#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/FoodDetailsDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="215" column="68" selection-start-line="215" selection-start-column="68" selection-end-line="215" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5661#5870#0" expanded="true" />
+            <element signature="e#5869#5870#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/planning/MealPlanRecyclerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.684211">
+          <caret line="172" column="28" selection-start-line="172" selection-start-column="28" selection-end-line="172" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1188#1189#0" expanded="true" />
+            <element signature="e#1217#1218#0" expanded="true" />
+            <element signature="e#2871#2872#0" expanded="true" />
+            <element signature="e#2906#2907#0" expanded="true" />
+            <element signature="e#3318#3319#0" expanded="true" />
+            <element signature="e#3363#3364#0" expanded="true" />
+            <element signature="e#3429#3430#0" expanded="true" />
+            <element signature="e#3475#3476#0" expanded="true" />
+            <element signature="e#3534#3535#0" expanded="true" />
+            <element signature="e#3572#3573#0" expanded="true" />
+            <element signature="e#3615#3616#0" expanded="true" />
+            <element signature="e#3656#3657#0" expanded="true" />
+            <element signature="e#3692#3693#0" expanded="true" />
+            <element signature="e#3729#3730#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/planActivity/fragments/search/FoodSearchRecyclerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/dataContainers/DiaryItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/SimpleStringArrayDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/SelfImageContentProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="18.807018">
+          <caret line="128" column="56" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/DayCardFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="74" />
+          <folding>
+            <element signature="e#3229#3446#0" expanded="true" />
+            <element signature="e#3445#3446#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/views/CalorieBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11724138">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.data.DatabaseContract;
+import com.pluviostudios.selfimage.data.database.DatabaseContract;
 import com.pluviostudios.selfimage.planActivity.MealPlanningActivity;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
 import com.pluviostudios.selfimage.utilities.Utilities;

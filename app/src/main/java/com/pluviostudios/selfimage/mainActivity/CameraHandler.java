@@ -11,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.pluviostudios.selfimage.utilities.Utilities;
-import com.pluviostudios.selfimage.data.DatabaseContract;
+import com.pluviostudios.selfimage.data.database.DatabaseContract;
 
 import java.io.File;
 import java.io.IOException;

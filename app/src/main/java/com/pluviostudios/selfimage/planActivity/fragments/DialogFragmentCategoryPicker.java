@@ -18,7 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.data.DatabaseContract;
+import com.pluviostudios.selfimage.data.database.DatabaseContract;
 
 /**
  * Created by Spectre on 6/12/2016.

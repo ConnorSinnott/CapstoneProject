@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.data;
+package com.pluviostudios.selfimage.data.database;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
