@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CapstoneProject.iml" filepath="$PROJECT_DIR$/CapstoneProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Usda_Nutritional_Api/usda_nutritional_api.iml" filepath="$PROJECT_DIR$/Usda_Nutritional_Api/usda_nutritional_api.iml" />
       <module fileurl="file://$PROJECT_DIR$/viewPagerIndicator/viewPagerIndicator.iml" filepath="$PROJECT_DIR$/viewPagerIndicator/viewPagerIndicator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/zxing-android-embedded.iml" filepath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/zxing-android-embedded.iml" />
     </modules>
   </component>
 </project>

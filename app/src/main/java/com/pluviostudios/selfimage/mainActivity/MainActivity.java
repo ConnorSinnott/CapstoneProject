@@ -12,18 +12,22 @@ import android.support.v4.content.Loader;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.DatabaseContract;
-import com.pluviostudios.selfimage.planActivity.activity.MealPlanningActivity;
+import com.pluviostudios.selfimage.notification.DailyNotification;
+import com.pluviostudios.selfimage.planActivity.MealPlanningActivity;
 import com.pluviostudios.selfimage.utilities.CursorPagerAdapter;
 import com.pluviostudios.selfimage.utilities.Utilities;
 import com.viewpagerindicator.LinePageIndicator;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class MainActivity extends AppCompatActivity {
 
     private static final String REFERENCE_ID = "MainActivity";
 
@@ -32,14 +36,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private ViewPager mViewPager;
     private LinePageIndicator mTabPageIndicator;
     private FrameLayout mBottomFrame;
-
-    private static final String[] mainActivityQueryProjection = {
-            DatabaseContract.DateEntry.DATE_COL,
-            DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL
-    };
-    private static final String mainActivityQuerySortOrder = DatabaseContract.DateEntry.DATE_COL + " ASC ";
-    private static final int mainActivityQueryIndexDate = 0;
-    private static final int mainActivityQueryIndexImageDir = 1;
+    private CalorieBar mCalBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +47,25 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mViewPager = (ViewPager) findViewById(R.id.activity_main_view_pager);
         mTabPageIndicator = (LinePageIndicator) findViewById(R.id.activity_main_tab_page_indicator);
         mBottomFrame = (FrameLayout) findViewById(R.id.activity_main_bottom_frame);
+        mCalBar = (CalorieBar) findViewById(R.id.activity_main_calorie_bar);
+
+        final String CreateFoodTable = "CREATE TABLE " + DatabaseContract.FoodEntry.TABLE_NAME + " ("
+                + DatabaseContract.CategoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + DatabaseContract.FoodEntry.ITEM_NDBNO_COL + " TEXT NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_NAME_COL + " TEXT NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_LAST_ACCESSED + " LONG NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_CALORIE_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_PROTEIN_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_FAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_CARBS_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_FIBER_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_SATFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_MONOFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_POLYFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_CHOLESTEROL_COL + " REAL NOT NULL, "
+                + " UNIQUE (" + DatabaseContract.FoodEntry.ITEM_NDBNO_COL + ") ON CONFLICT ABORT) ";
+
+        Log.i(REFERENCE_ID, CreateFoodTable);
 
         mCameraHandler = new CameraHandler(this);
 
@@ -63,99 +79,117 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mBottomFrame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MealPlanningActivity.class);
-                startActivity(intent);
+                startActivity(MealPlanningActivity.buildMealPlanActivityIntent(
+                        MainActivity.this,
+                        Utilities.getCurrentNormalizedDate()));
             }
         });
 
-        final String CreateDateTable = "CREATE TABLE " + DatabaseContract.DateEntry.TABLE_NAME + " ("
-                + DatabaseContract.DateEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + DatabaseContract.DateEntry.DATE_COL + " LONG NOT NULL,"
-                + DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL + " TEXT, "
-                + " UNIQUE (" + DatabaseContract.DateEntry.DATE_COL + ") ON CONFLICT REPLACE)";
+        getSupportLoaderManager().initLoader(0, null, new LoaderManager.LoaderCallbacks<Cursor>() {
 
-        final String CreateDiaryTable = "CREATE TABLE " + DatabaseContract.DiaryEntry.TABLE_NAME + " ("
-                + DatabaseContract.DiaryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + DatabaseContract.DiaryEntry.DATE_COL + " LONG NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_NAME_COL + " TEXT NOT NULL ,"
-                + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + " INTEGER NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_NDBNO_COL + " TEXT NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_QUANTITY_COL + " INTEGER NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_CALORIE_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_PROTEIN_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_FAT_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_CARBS_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_FIBER_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_SATFAT_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_MONOFAT_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_POLYFAT_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_CHOLESTEROL_COL + " REAL NOT NULL, "
-                + " FOREIGN KEY (" + DatabaseContract.DiaryEntry.DATE_COL + ") REFERENCES "
-                + DatabaseContract.DateEntry.TABLE_NAME + " (" + DatabaseContract.DateEntry.DATE_COL + ")"
-                + " FOREIGN KEY (" + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + ") REFERENCES "
-                + DatabaseContract.CategoryEntry.TABLE_NAME + "(" + DatabaseContract.CategoryEntry._ID + ")"
-                + ")";
+            private final String[] projection = {
+                    DatabaseContract.DateEntry.DATE_COL,
+                    DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL
+            };
 
-        final String CreateCategoryTable = "CREATE TABLE " + DatabaseContract.CategoryEntry.TABLE_NAME + " ("
-                + DatabaseContract.CategoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + DatabaseContract.CategoryEntry.CATEGORY_INDEX_COL + " INTEGER UNIQUE NOT NULL, "
-                + DatabaseContract.CategoryEntry.CATEGORY_NAME_COL + " TEXT UNIQUE NOT NULL, "
-                + " UNIQUE (" + DatabaseContract.CategoryEntry.CATEGORY_NAME_COL + " ) ON CONFLICT ABORT)";
+            private final String mainActivityQuerySortOrder = DatabaseContract.DateEntry.DATE_COL + " ASC ";
 
-        Log.d("TEST", CreateDiaryTable);
+            @Override
+            public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+                return new CursorLoader(MainActivity.this,
+                        DatabaseContract.DateEntry.CONTENT_URI,
+                        projection,
+                        null,
+                        null,
+                        mainActivityQuerySortOrder
+                );
+            }
 
+            @Override
+            public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+                setDayData(data);
+            }
 
-        getSupportLoaderManager().initLoader(0, null, this);
+            @Override
+            public void onLoaderReset(Loader<Cursor> loader) {
+
+            }
+        });
+
+        getSupportLoaderManager().initLoader(1, null, new LoaderManager.LoaderCallbacks<Cursor>() {
+
+            private final String[] projection = {
+                    DatabaseContract.FoodEntry.ITEM_CALORIE_COL,
+                    DatabaseContract.DiaryEntry.ITEM_QUANTITY_COL
+            };
+
+            @Override
+            public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+                return new CursorLoader(MainActivity.this,
+                        DatabaseContract.DiaryEntry.buildDiaryWithStartDate(Utilities.getCurrentNormalizedDate()),
+                        projection,
+                        null,
+                        null,
+                        null);
+            }
+
+            @Override
+            public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+                updateCalories(data);
+            }
+
+            @Override
+            public void onLoaderReset(Loader<Cursor> loader) {
+
+            }
+        });
+
     }
 
-    private void displayPromptMessage(String message, int color) {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.options_settings:
+//                Intent intent = new Intent(this, SettingsActivity.class);
+//                startActivity(intent);
+                DailyNotification.pushNotification(MainActivity.this);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    protected void updateCalories(Cursor data) {
+        int cal = 0;
+        if (data.moveToFirst()) {
+            do {
+                cal += (data.getInt(0) * data.getInt(1));
+            } while (data.moveToNext());
+        }
+        mCalBar.setProgress(cal);
+    }
+
+    protected void displayPromptMessage(String message, int color) {
         mPromptBar.setText(message);
         mPromptBar.setBackgroundColor(color);
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            // CameraHandler will request permissions if they are required. Try again upon result.
-            case CameraHandler.CAMERA_ACTIVITY_REQUEST_CODE: {
-                mCameraHandler.takeCameraImage(this);
-                break;
-            }
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            // CameraHandler uses MainActivity to make requests. Redirect responses back to CameraHandler.
-            case CameraHandler.CAMERA_ACTIVITY_REQUEST_CODE: {
-                mCameraHandler.onActivityResult(resultCode, data);
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new CursorLoader(this,
-                DatabaseContract.DateEntry.CONTENT_URI,
-                mainActivityQueryProjection,
-                null,
-                null,
-                mainActivityQuerySortOrder
-        );
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    protected void setDayData(Cursor data) {
 
         long currentDate = Utilities.getCurrentNormalizedDate();
 
         long processedDate = 0;
         if (data.moveToLast()) {
             // What is the most recent date we have in SQL?
-            processedDate = Long.parseLong(data.getString(mainActivityQueryIndexDate));
+            processedDate = Long.parseLong(data.getString(0));
         }
 
         boolean hasCurrentSlot = processedDate == currentDate;
@@ -167,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             return; // Will trigger a refresh
         }
 
-        boolean hasCurrentImage = !data.isNull(mainActivityQueryIndexImageDir);
+        boolean hasCurrentImage = !data.isNull(1);
         displayPromptMessage(
                 hasCurrentImage ?
                         getString(R.string.has_current_image) :
@@ -195,7 +229,26 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            // CameraHandler will request permissions if they are required. Try again upon result.
+            case CameraHandler.CAMERA_ACTIVITY_REQUEST_CODE: {
+                mCameraHandler.takeCameraImage(this);
+                break;
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            // CameraHandler uses MainActivity to make requests. Redirect responses back to CameraHandler.
+            case CameraHandler.CAMERA_ACTIVITY_REQUEST_CODE: {
+                mCameraHandler.onActivityResult(resultCode, data);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

@@ -8,4 +8,14 @@
     <string name="date_today">Today</string>
     <string name="date_yesterday">Yesterday</string>
 
+    <string name="button_scan">Scan</string>
+    <string name="results_found">%d results</string>
+    <string name="plan_title">Plan</string>
+
+    <string name="settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="Notification_Title">SelfImage</string>
+    <string name="Notification_Content">You have yet to take today\'s picture!</string>
+
 </resources>

@@ -28,25 +28,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/food_item_search_cal"
+            <ImageButton
+                android:id="@+id/food_search_item_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|center_vertical"
-                android:visibility="visible"/>
-
-            <ProgressBar
-                android:id="@+id/food_item_progress_bar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="invisible"/>
-
-            <ImageView
-                android:id="@+id/food_item_search_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"
-                android:src="@android:drawable/ic_delete"
                 android:visibility="invisible"/>
 
         </FrameLayout>

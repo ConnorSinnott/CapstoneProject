@@ -1,5 +1,6 @@
 package com.pluviostudios.selfimage.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -27,25 +28,33 @@ public class DBHelper extends SQLiteOpenHelper {
 
         final String CreateDiaryTable = "CREATE TABLE " + DatabaseContract.DiaryEntry.TABLE_NAME + " ("
                 + DatabaseContract.DiaryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + DatabaseContract.DiaryEntry.DATE_COL + " LONG NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_NAME_COL + " TEXT NOT NULL ,"
-                + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + " INTEGER NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_DATE_COL + " LONG NOT NULL, "
                 + DatabaseContract.DiaryEntry.ITEM_NDBNO_COL + " TEXT NOT NULL, "
+                + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + " INTEGER NOT NULL, "
                 + DatabaseContract.DiaryEntry.ITEM_QUANTITY_COL + " INTEGER NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_CALORIE_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_PROTEIN_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_FAT_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_CARBS_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_FIBER_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_SATFAT_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_MONOFAT_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_POLYFAT_COL + " REAL NOT NULL, "
-                + DatabaseContract.DiaryEntry.ITEM_CHOLESTEROL_COL + " REAL NOT NULL, "
-                + " FOREIGN KEY (" + DatabaseContract.DiaryEntry.DATE_COL + ") REFERENCES "
+                + " FOREIGN KEY (" + DatabaseContract.DiaryEntry.ITEM_DATE_COL + ") REFERENCES "
                 + DatabaseContract.DateEntry.TABLE_NAME + " (" + DatabaseContract.DateEntry.DATE_COL + ")"
                 + " FOREIGN KEY (" + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + ") REFERENCES "
                 + DatabaseContract.CategoryEntry.TABLE_NAME + "(" + DatabaseContract.CategoryEntry._ID + ")"
+                + " FOREIGN KEY (" + DatabaseContract.DiaryEntry.ITEM_NDBNO_COL + ") REFERENCES "
+                + DatabaseContract.FoodEntry.TABLE_NAME + "(" + DatabaseContract.FoodEntry.ITEM_NDBNO_COL + ")"
                 + ")";
+
+        final String CreateFoodTable = "CREATE TABLE " + DatabaseContract.FoodEntry.TABLE_NAME + " ("
+                + DatabaseContract.CategoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + DatabaseContract.FoodEntry.ITEM_NDBNO_COL + " TEXT NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_NAME_COL + " TEXT NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_LAST_ACCESSED + " LONG NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_CALORIE_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_PROTEIN_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_FAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_CARBS_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_FIBER_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_SATFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_MONOFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_POLYFAT_COL + " REAL NOT NULL, "
+                + DatabaseContract.FoodEntry.ITEM_CHOLESTEROL_COL + " REAL NOT NULL, "
+                + " UNIQUE (" + DatabaseContract.FoodEntry.ITEM_NDBNO_COL + ") ON CONFLICT ABORT) ";
 
         final String CreateCategoryTable = "CREATE TABLE " + DatabaseContract.CategoryEntry.TABLE_NAME + " ("
                 + DatabaseContract.CategoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -55,7 +64,25 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL(CreateDateTable);
         db.execSQL(CreateDiaryTable);
+        db.execSQL(CreateFoodTable);
         db.execSQL(CreateCategoryTable);
+
+        String[] cats = new String[]{
+                "Breakfast",
+                "Pre-Lunch Snack",
+                "Lunch",
+                "Post-Lunch Snack",
+                "Dinner",
+                "Dessert"
+        };
+
+        for (int i = 0; i < cats.length; i++) {
+            ContentValues values = new ContentValues();
+            values.put(DatabaseContract.CategoryEntry.CATEGORY_INDEX_COL, i);
+            values.put(DatabaseContract.CategoryEntry.CATEGORY_NAME_COL, cats[i]);
+            db.insert(DatabaseContract.CategoryEntry.TABLE_NAME, null, values);
+        }
+
 
     }
 
@@ -64,6 +91,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.DateEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.DiaryEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.CategoryEntry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.FoodEntry.TABLE_NAME);
     }
 
 }

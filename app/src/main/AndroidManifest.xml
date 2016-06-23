@@ -13,11 +13,10 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_camera_front_white_24dp"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".mainActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -25,13 +24,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".planActivity.activity.MealPlanningActivity"/>
+        <activity android:name=".planActivity.MealPlanningActivity"/>
 
         <provider
             android:name=".data.SelfImageContentProvider"
             android:authorities="@string/content_authority"
             android:exported="false"
             android:syncable="true"/>
+
+        <!--<activity-->
+        <!--android:name=".SettingsActivity"-->
+        <!--android:label="@string/title_activity_settings">-->
+        <!--</activity>-->
     </application>
 
 </manifest>

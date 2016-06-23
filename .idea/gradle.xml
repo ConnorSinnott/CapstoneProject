@@ -9,14 +9,18 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Usda_Nutritional_Api" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded" />
             <option value="$PROJECT_DIR$/viewPagerIndicator" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Usda_Nutritional_Api" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded" />
             <option value="$PROJECT_DIR$/viewPagerIndicator" />
           </set>
         </option>

@@ -10,6 +10,21 @@ import java.util.Calendar;
  */
 public class Utilities {
 
+    private static Long currentNormalizedDate = null;
+
+    public static long getCurrentNormalizedDate() {
+        if (currentNormalizedDate != null) {
+            return currentNormalizedDate;
+        } else {
+            updateCurrentNormalizedDate();
+            return currentNormalizedDate;
+        }
+    }
+
+    public static void updateCurrentNormalizedDate() {
+        currentNormalizedDate = normalizeDate(Calendar.getInstance().getTimeInMillis());
+    }
+
     public static long normalizeDate(long startDate) {
         // normalize the start date to the beginning of the (UTC) day
         Time time = new Time();
@@ -18,8 +33,8 @@ public class Utilities {
         return time.setJulianDay(julianDay);
     }
 
-    public static long getCurrentNormalizedDate() {
-        return normalizeDate(Calendar.getInstance().getTimeInMillis());
+    public static boolean isTodaysDate(long date) {
+        return date == getCurrentNormalizedDate();
     }
 
     public static String formatDateFromMillis(long startDate) {

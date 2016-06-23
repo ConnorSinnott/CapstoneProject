@@ -8,11 +8,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 /**
  * Created by Spectre on 5/11/2016.
  */
 public class SelfImageContentProvider extends ContentProvider {
+
+    public static final String REFERENCE_ID = "ContentProvider";
 
     private static final UriMatcher sUriMatcher = buildUriMatcher();
     private DBHelper mOpenHelper;
@@ -20,12 +23,16 @@ public class SelfImageContentProvider extends ContentProvider {
     static final int DATE = 100;
     static final int DATE_WITH_DATE = 101;
 
-    static final int CATEGORY = 300;
-
     static final int DIARY = 200;
     static final int DIARY_WITH_DATE = 201;
     static final int DIARY_WITH_DATE_AND_CATEGORY = 202;
     static final int DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO = 203;
+
+    static final int CATEGORY = 300;
+    static final int CATEGORY_WITH_INDEX = 301;
+
+    static final int FOOD = 400;
+    static final int FOOD_WITH_NDBNO = 401;
 
     private static final SQLiteQueryBuilder sMealsByDateQueryBuilder;
 
@@ -35,7 +42,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 DatabaseContract.DiaryEntry.TABLE_NAME + " INNER JOIN " +
                         DatabaseContract.DateEntry.TABLE_NAME +
                         " ON " + DatabaseContract.DiaryEntry.TABLE_NAME +
-                        "." + DatabaseContract.DiaryEntry.DATE_COL +
+                        "." + DatabaseContract.DiaryEntry.ITEM_DATE_COL +
                         " = " + DatabaseContract.DateEntry.TABLE_NAME +
                         "." + DatabaseContract.DateEntry.DATE_COL
                         + " INNER JOIN " +
@@ -44,6 +51,12 @@ public class SelfImageContentProvider extends ContentProvider {
                         "." + DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL +
                         " = " + DatabaseContract.CategoryEntry.TABLE_NAME +
                         "." + DatabaseContract.CategoryEntry._ID
+                        + " INNER JOIN " +
+                        DatabaseContract.FoodEntry.TABLE_NAME +
+                        " ON " + DatabaseContract.DiaryEntry.TABLE_NAME +
+                        "." + DatabaseContract.DiaryEntry.ITEM_NDBNO_COL +
+                        " = " + DatabaseContract.FoodEntry.TABLE_NAME +
+                        "." + DatabaseContract.FoodEntry.ITEM_NDBNO_COL
         );
     }
 
@@ -59,7 +72,11 @@ public class SelfImageContentProvider extends ContentProvider {
         matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/*/*", DIARY_WITH_DATE_AND_CATEGORY);
         matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/*/*/*", DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO);
 
+        matcher.addURI(authority, DatabaseContract.PATH_FOOD, FOOD);
+        matcher.addURI(authority, DatabaseContract.PATH_FOOD + "/*", FOOD_WITH_NDBNO);
+
         matcher.addURI(authority, DatabaseContract.PATH_CATEGORY, CATEGORY);
+        matcher.addURI(authority, DatabaseContract.PATH_CATEGORY + "/*", CATEGORY_WITH_INDEX);
 
         return matcher;
     }
@@ -88,8 +105,14 @@ public class SelfImageContentProvider extends ContentProvider {
                 return DatabaseContract.DiaryEntry.CONTENT_TYPE;
             case DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO:
                 return DatabaseContract.DiaryEntry.CONTENT_ITEM_TYPE;
+            case FOOD:
+                return DatabaseContract.FoodEntry.CONTENT_TYPE;
+            case FOOD_WITH_NDBNO:
+                return DatabaseContract.FoodEntry.CONTENT_ITEM_TYPE;
             case CATEGORY:
                 return DatabaseContract.CategoryEntry.CONTENT_TYPE;
+            case CATEGORY_WITH_INDEX:
+                return DatabaseContract.CategoryEntry.CONTENT_ITEM_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -165,10 +188,20 @@ public class SelfImageContentProvider extends ContentProvider {
                         null
                 );
 
+                if (selection != null) {
+                    Log.i(REFERENCE_ID, "Selection: " + selection);
+                }
+                if (selectionArgs != null) {
+                    Log.i(REFERENCE_ID, "Selection Args: ");
+                    for (String x : selectionArgs) {
+                        Log.i(REFERENCE_ID, x);
+                    }
+                }
+                Log.i(REFERENCE_ID, String.valueOf(retCursor.getCount()));
+
                 break;
             }
             case DIARY_WITH_DATE_AND_CATEGORY: {
-
                 long startDate = DatabaseContract.DiaryEntry.getStartDateFromUri(uri);
                 int category = DatabaseContract.DiaryEntry.getCategoryFromUri(uri);
 
@@ -217,6 +250,69 @@ public class SelfImageContentProvider extends ContentProvider {
                 );
                 break;
             }
+            case CATEGORY: {
+                retCursor = mOpenHelper.getReadableDatabase().query(
+                        DatabaseContract.CategoryEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
+                break;
+            }
+            case CATEGORY_WITH_INDEX: {
+
+                int category = DatabaseContract.CategoryEntry.getIndexFromUri(uri);
+
+                selection = createSelection(null, DatabaseContract.CategoryEntry.CATEGORY_INDEX_COL);
+
+                selectionArgs = createSelectionArgs(null, String.valueOf(category));
+
+                retCursor = mOpenHelper.getReadableDatabase().query(
+                        DatabaseContract.CategoryEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
+                break;
+            }
+            case FOOD: {
+                retCursor = mOpenHelper.getReadableDatabase().query(
+                        DatabaseContract.FoodEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
+                break;
+            }
+            case FOOD_WITH_NDBNO: {
+                String ndbno = DatabaseContract.FoodEntry.getNDBNOFromUri(uri);
+
+                selection = createSelection(selection,
+                        DatabaseContract.FoodEntry.ITEM_NDBNO_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        ndbno);
+
+                retCursor = mOpenHelper.getReadableDatabase().query(
+                        DatabaseContract.FoodEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -250,6 +346,22 @@ public class SelfImageContentProvider extends ContentProvider {
                     throw new android.database.SQLException("Failed to insert row int " + uri);
                 break;
             }
+            case CATEGORY: {
+                long _id = db.insert(DatabaseContract.CategoryEntry.TABLE_NAME, null, values);
+                if (_id > 0)
+                    returnUri = DatabaseContract.CategoryEntry.buildCategoryUri(_id);
+                else
+                    throw new android.database.SQLException("Failed to insert row int " + uri);
+                break;
+            }
+            case FOOD: {
+                long _id = db.insert(DatabaseContract.FoodEntry.TABLE_NAME, null, values);
+                if (_id > 0)
+                    returnUri = DatabaseContract.FoodEntry.buildFoodUri(_id);
+                else
+                    throw new android.database.SQLException("Failed to insert row int " + uri);
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -274,6 +386,16 @@ public class SelfImageContentProvider extends ContentProvider {
             case DIARY: {
                 rowsDeleted = db.delete(
                         DatabaseContract.DiaryEntry.TABLE_NAME, selection, selectionArgs);
+                break;
+            }
+            case CATEGORY: {
+                rowsDeleted = db.delete(
+                        DatabaseContract.CategoryEntry.TABLE_NAME, selection, selectionArgs);
+                break;
+            }
+            case FOOD: {
+                rowsDeleted = db.delete(
+                        DatabaseContract.FoodEntry.TABLE_NAME, selection, selectionArgs);
                 break;
             }
             case DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO: {
@@ -327,7 +449,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 String ndbno = DatabaseContract.DiaryEntry.getNDBNOFromUri(uri);
 
                 selection = createSelection(selection,
-                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL,
+                        DatabaseContract.DiaryEntry.ITEM_DATE_COL,
                         DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL,
                         DatabaseContract.DiaryEntry.ITEM_NDBNO_COL);
 
@@ -343,6 +465,25 @@ public class SelfImageContentProvider extends ContentProvider {
 
                 break;
             }
+            case FOOD_WITH_NDBNO: {
+
+                String ndbno = DatabaseContract.FoodEntry.getNDBNOFromUri(uri);
+
+                selection = createSelection(selection,
+                        DatabaseContract.FoodEntry.ITEM_NDBNO_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        ndbno);
+
+                rowsUpdated = mOpenHelper.getReadableDatabase().update(
+                        DatabaseContract.FoodEntry.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs
+                );
+
+                break;
+            }
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -352,26 +493,45 @@ public class SelfImageContentProvider extends ContentProvider {
         return rowsUpdated;
     }
 
-    private String createSelection(String passedSelection, String... additionalSelectionColumNames) {
-        if (passedSelection != null && additionalSelectionColumNames != null) {
+    private String createSelection(String passedSelection, String... additionalSelection) {
 
-            for (String x : additionalSelectionColumNames) {
-                passedSelection += " AND " + x + " = ? ";
+        String[] selectionArray;
+        if (passedSelection != null) {
+            if (additionalSelection != null) {
+                selectionArray = new String[additionalSelection.length + 1];
+                selectionArray[0] = passedSelection;
+                System.arraycopy(additionalSelection, 0, selectionArray, 1, additionalSelection.length);
+            } else return passedSelection;
+        } else {
+            selectionArray = additionalSelection;
+        }
+
+        String out = "";
+
+        for (int i = 0; i < selectionArray.length; i++) {
+            String curr = additionalSelection[i];
+            out += curr + " = ? ";
+            if (i < selectionArray.length - 1) {
+                out += " AND ";
             }
         }
 
-        return passedSelection;
+        Log.i(REFERENCE_ID, " OUT : " + out);
+
+        return out;
     }
 
     private String[] createSelectionArgs(String[] passedSelectionArgs, String... additionalArgs) {
-        if (passedSelectionArgs != null && additionalArgs != null) {
 
+        if (passedSelectionArgs == null || additionalArgs == null) {
+            return passedSelectionArgs == null ? additionalArgs : passedSelectionArgs;
+        } else {
             String[] newSelection = new String[passedSelectionArgs.length + additionalArgs.length];
             System.arraycopy(passedSelectionArgs, 0, newSelection, 0, passedSelectionArgs.length);
             System.arraycopy(additionalArgs, 0, newSelection, passedSelectionArgs.length, additionalArgs.length);
             return newSelection;
+        }
 
-        } else return passedSelectionArgs;
     }
 
 }
