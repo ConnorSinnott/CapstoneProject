@@ -8,6 +8,13 @@
         android:id="@+id/food_search_divider_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/not_yet_implemented"/>
+        android:layout_margin="6dp"
+        android:text="@string/not_yet_implemented"
+        android:textSize="16sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#757575"/>
 
 </LinearLayout>

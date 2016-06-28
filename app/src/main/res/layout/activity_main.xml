@@ -1,52 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/main_frame"
+
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+    android:id="@+id/activity_main_sliding_up_panel"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e9e9e9"
-    tools:context=".mainActivity.MainActivity">
+    android:gravity="bottom"
+    sothree:umanoPanelHeight="@android:dimen/app_icon_size"
+    sothree:umanoShadowHeight="4dp">
 
-    <TextView
-        android:id="@+id/activity_main_prompt_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:background="#e894ff"
-        android:gravity="center"
-        android:text="@string/not_yet_implemented"
-        android:textColor="#eeeeee"
-        android:textSize="24sp"/>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/activity_main_view_pager"
+    <RelativeLayout
+        android:id="@+id/main_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/activity_main_tab_page_indicator"
-        android:layout_below="@id/activity_main_prompt_bar"
-        />
+        android:background="#e9e9e9"
+        tools:context=".mainActivity.MainActivity">
 
-    <com.viewpagerindicator.LinePageIndicator
-        android:id="@id/activity_main_tab_page_indicator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/activity_main_bottom_frame"
-        android:layout_marginBottom="6dp"
-        />
+        <TextView
+            android:id="@+id/activity_main_prompt_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:background="#e894ff"
+            android:gravity="center"
+            android:text="@string/not_yet_implemented"
+            android:textColor="#eeeeee"
+            android:textSize="24sp"/>
 
-    <FrameLayout
-        android:id="@id/activity_main_bottom_frame"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/activity_main_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/activity_main_prompt_bar"
+            />
+
+        <com.viewpagerindicator.LinePageIndicator
+            android:id="@+id/activity_main_tab_page_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_main_view_pager"
+            android:layout_marginBottom="6dp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:layout_alignParentBottom="true"
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <com.pluviostudios.selfimage.views.CalorieBar
             android:id="@+id/activity_main_calorie_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="@android:dimen/app_icon_size"/>
 
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/activity_main_meal_plan_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/activity_main_calorie_bar"/>
 
+    </RelativeLayout>
 
-</RelativeLayout>
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

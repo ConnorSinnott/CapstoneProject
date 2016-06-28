@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.planActivity.fragments;
+package com.pluviostudios.selfimage.mainActivity.planning;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +30,7 @@ public class DialogFragmentCategoryPicker extends DialogFragment implements Load
     private View mRoot;
     private ListView mListView;
 
-    public static final DialogFragmentCategoryPicker createCategoryDialog(Fragment fragment, int requestCode) {
+    public static DialogFragmentCategoryPicker createCategoryDialog(Fragment fragment, int requestCode) {
         DialogFragmentCategoryPicker dialogFragmentCategoryPicker = new DialogFragmentCategoryPicker();
         dialogFragmentCategoryPicker.setTargetFragment(fragment, requestCode);
         return dialogFragmentCategoryPicker;
@@ -68,15 +67,13 @@ public class DialogFragmentCategoryPicker extends DialogFragment implements Load
         mListView.setAdapter(new CursorAdapter(getContext(), data) {
             @Override
             public View newView(Context context, Cursor cursor, ViewGroup parent) {
-                View v = LayoutInflater.from(context).inflate(R.layout.fragment_edit_categories_list_item, parent, false);
-                return v;
+                return LayoutInflater.from(context).inflate(R.layout.fragment_edit_categories_list_item, parent, false);
             }
 
             @Override
             public void bindView(View view, Context context, Cursor cursor) {
-                Log.i(REFERENCE_ID, cursor.getString(2));
-                TextView textView = (TextView) view.findViewById(R.id.fragment_edit_categories_list_item_text_view);
-                textView.setOnClickListener(new View.OnClickListener() {
+                ((TextView) view.findViewById(R.id.fragment_edit_categories_list_item_text_view)).setText(cursor.getString(2));
+                view.findViewById(R.id.fragment_edit_categories_list_item_ll).setOnClickListener(new View.OnClickListener() {
 
                     private int category;
 
@@ -101,7 +98,6 @@ public class DialogFragmentCategoryPicker extends DialogFragment implements Load
                     }
 
                 }.setCategory(cursor.getInt(1)));
-                textView.setText(cursor.getString(2));
             }
         });
     }

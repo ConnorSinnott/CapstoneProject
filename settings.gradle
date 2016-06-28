@@ -1,3 +1,2 @@
-include ':app', ':zxing-android-embedded', ':usda_nutritional_api', ':Usda_Nutritional_Api'
-include ':viewPagerIndicator'
+include ':app', ':zxing-android-embedded', ':viewPagerIndicator', ':usda_nutritional_api'
 project(':zxing-android-embedded').projectDir = new File('app/libs/zxing-android-embedded-master/zxing-android-embedded')

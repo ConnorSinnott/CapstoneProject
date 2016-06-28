@@ -1,6 +1,5 @@
 package com.pluviostudios.usdanutritionalapi;
 
-import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
@@ -19,8 +18,8 @@ public class AsyncFoodItemSearch extends AsyncBaseData<String, Void, ArrayList<F
 
     private OnAsyncNDBNOSearchResult mOnAsyncNDBNOSearchResult;
 
-    public AsyncFoodItemSearch(Context context, OnAsyncNDBNOSearchResult onAsyncNDBNOSearchResult) {
-        super(context);
+    public AsyncFoodItemSearch(String api, OnAsyncNDBNOSearchResult onAsyncNDBNOSearchResult) {
+        super(api);
         this.mOnAsyncNDBNOSearchResult = onAsyncNDBNOSearchResult;
     }
 
@@ -28,7 +27,7 @@ public class AsyncFoodItemSearch extends AsyncBaseData<String, Void, ArrayList<F
     protected ArrayList<FoodItem> doInBackground(String... params) {
 
         Uri searchURI = BASE_URI_NDBMO.buildUpon()
-                .appendQueryParameter(API_PARAM, getContext().getString(R.string.api_key))
+                .appendQueryParameter(API_PARAM, mAPIKey)
                 .appendQueryParameter("q", params[0]).build();
 
         Log.v(REFERENCE_ID, "Searching for ndbno with args: " + params[0]);

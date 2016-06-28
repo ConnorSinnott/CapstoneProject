@@ -1,7 +1,6 @@
 package com.pluviostudios.selfimage.mainActivity;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -10,11 +9,11 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.pluviostudios.selfimage.utilities.Utilities;
-import com.pluviostudios.selfimage.data.database.DatabaseContract;
+import com.pluviostudios.selfimage.data.dataContainers.date.DateItem;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -22,12 +21,15 @@ import java.util.Calendar;
  */
 public class CameraHandler {
 
-    private static final String REFERENCE_TAG = "CameraHandler";
+    private static final String REFERENCE_ID = "CameraHandler";
+
+    public static final String EXTRA_DATE_ITEM = "extra_date_item";
 
     public static final int CAMERA_ACTIVITY_REQUEST_CODE = 200;
 
     private AppCompatActivity mContext;
     private Uri mCurrentStorageUri;
+    private static SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("MM-d-yyyy");
 
     private static final String[] REQUIRED_PERMISSIONS = {
             "android.permission.WRITE_EXTERNAL_STORAGE",
@@ -55,7 +57,7 @@ public class CameraHandler {
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
-                Log.e(REFERENCE_TAG, ex.getMessage());
+                Log.e(REFERENCE_ID, ex.getMessage());
             }
 
             if (photoFile != null) {
@@ -71,12 +73,18 @@ public class CameraHandler {
     public boolean onActivityResult(int resultCode, Intent data) {
 
         if (resultCode == mContext.RESULT_OK) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL, mCurrentStorageUri.toString());
-            mContext.getContentResolver().update(
-                    DatabaseContract.DateEntry.CONTENT_URI, contentValues,
-                    DatabaseContract.DateEntry.DATE_COL + " = ?", new String[]{String.valueOf(Utilities.getCurrentNormalizedDate())}
-            );
+
+
+            DateItem dateItem = (DateItem) data.getExtras().getSerializable(EXTRA_DATE_ITEM);
+            dateItem.img_dir = mCurrentStorageUri.toString();
+            dateItem.save(mContext);
+
+//            ContentValues contentValues = new ContentValues();
+//            contentValues.put(DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL, );
+//            mContext.getContentResolver().update(
+//                    DatabaseContract.DateEntry.CONTENT_URI, contentValues,
+//                    DatabaseContract.DateEntry.DATE_COL + " = ?", new String[]{String.valueOf(DateUtils.getCurrentNormalizedDate())}
+//            );
             return true;
         } else if (resultCode == mContext.RESULT_CANCELED) {
             return false;
@@ -89,8 +97,7 @@ public class CameraHandler {
     }
 
     public static File createImageFile() throws IOException {
-        Calendar cal = Calendar.getInstance();
-        String timeStamp = Utilities.formatDateFromMillis(Calendar.getInstance().getTimeInMillis()).replace("/", "_");
+        String timeStamp = mSimpleDateFormat.format(Calendar.getInstance().getTimeInMillis());
         String imageFileName = "SelfImg_" + timeStamp;
         File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
@@ -99,7 +106,7 @@ public class CameraHandler {
             image.delete();
         }
 
-        Log.d(REFERENCE_TAG, image.getAbsolutePath());
+        Log.d(REFERENCE_ID, image.getAbsolutePath());
 
         return image;
     }

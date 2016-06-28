@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SelfImage</string>
     <string name="not_yet_implemented">Awaiting Implementation</string>
+    <string name="awaiting_data">-</string>
     <string name="no_current_image">You need to take todays picture!</string>
     <string name="has_current_image">Youre all set for today!</string>
     <string name="content_authority">com.pluviostudios.selfimage.app</string>
@@ -17,5 +18,8 @@
 
     <string name="Notification_Title">SelfImage</string>
     <string name="Notification_Content">You have yet to take today\'s picture!</string>
+    <string name="retrieving_data">Retrieving Data</string>
+
+    <string name="calorie">%1$d cal</string>
 
 </resources>

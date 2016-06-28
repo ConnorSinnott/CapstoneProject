@@ -5,7 +5,7 @@ import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-import com.pluviostudios.selfimage.utilities.Utilities;
+import com.pluviostudios.selfimage.utilities.DateUtils;
 
 /**
  * Created by Spectre on 5/11/2016.
@@ -39,12 +39,16 @@ public class DatabaseContract {
         }
 
         public static Uri buildDateWithStartDate(long startDate) {
-            long normalizedDate = Utilities.normalizeDate(startDate);
+            long normalizedDate = DateUtils.normalizeDate(startDate);
             return CONTENT_URI.buildUpon().appendPath(String.valueOf(normalizedDate)).build();
         }
 
         public static long getStartDateFromUri(Uri uri) {
             return Long.parseLong(uri.getPathSegments().get(1));
+        }
+
+        public static long getIdFromUri(Uri uri) {
+            return ContentUris.parseId(uri);
         }
 
     }
@@ -99,8 +103,12 @@ public class DatabaseContract {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
+        public static long getIdFromUri(Uri uri) {
+            return ContentUris.parseId(uri);
+        }
+
         public static Uri buildDiaryWithStartDate(long startDate) {
-            long normalizedDate = Utilities.normalizeDate(startDate);
+            long normalizedDate = DateUtils.normalizeDate(startDate);
             return CONTENT_URI.buildUpon().appendPath(String.valueOf(normalizedDate)).build();
         }
 

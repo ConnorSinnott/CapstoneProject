@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="calbar_progress">#d8d8d9</color>
+    <color name="calbar_remaining">#747475</color>
+    <color name="calbar_divider">#fbaf01</color>
+    <color name="calbar_textColor">#ff9d00</color>
+
 </resources>

@@ -1,7 +1,5 @@
 package com.pluviostudios.usdanutritionalapi;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -10,34 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by Spectre on 6/20/2016.
+ * Created by Spectre on 6/23/2016.
  */
-public abstract class AsyncBaseData<V, V1, V2> extends AsyncTask<V, V1, V2> {
-
-    private Context mContext;
-
-    protected static final String API_PARAM = "api_key";
-
-    protected static Uri BASE_URI = new Uri.Builder().scheme("http").authority("api.nal.usda.gov").appendPath("ndb")
-            .appendQueryParameter("format", "json")
-            .build();
-
-    protected static Uri BASE_URI_NDBMO = BASE_URI.buildUpon().appendPath("search")
-            .appendQueryParameter("max", "10")
-            .build();
-
-    protected static Uri BASE_URI_CAL = BASE_URI.buildUpon().appendPath("reports")
-            .appendQueryParameter("name", "Energy")
-            .appendQueryParameter("type", "b")
-            .build();
-
-    public AsyncBaseData(Context context) {
-        mContext = context;
-    }
-
-    protected Context getContext() {
-        return mContext;
-    }
+public abstract class AsyncWithGetData<V, V1, V2> extends AsyncTask<V, V1, V2> {
 
     protected String getDataFromURL(String referenceID, String address) {
 

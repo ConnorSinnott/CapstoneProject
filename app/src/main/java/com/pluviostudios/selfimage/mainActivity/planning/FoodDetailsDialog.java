@@ -1,20 +1,22 @@
-package com.pluviostudios.selfimage.planActivity.fragments;
+package com.pluviostudios.selfimage.mainActivity.planning;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.data.dataContainers.DiaryItem;
-import com.pluviostudios.selfimage.data.dataContainers.FoodItemWithDB;
+import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItem;
+import com.pluviostudios.selfimage.data.dataContainers.food.FoodItemWithDB;
+import com.pluviostudios.selfimage.utilities.DateUtils;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
-import com.pluviostudios.selfimage.utilities.Utilities;
 import com.pluviostudios.usdanutritionalapi.FoodItem;
 
 /**
@@ -31,6 +33,7 @@ public class FoodDetailsDialog extends DialogFragment {
     public static final int CATEGORY_REQUEST_CODE = 1;
 
     private View mRoot;
+    private ViewFlipper mViewFlipper;
     private TextView textName;
     private Button buttonAdd, buttonSubtract, buttonConfirm;
     private Button buttonCategory;
@@ -57,7 +60,7 @@ public class FoodDetailsDialog extends DialogFragment {
         FoodDetailsDialog newFragment = new FoodDetailsDialog();
         Bundle args = new Bundle();
         args.putSerializable(EXTRA_FOOD_ITEM, foodItem);
-        args.putLong(EXTRA_DATE, Utilities.getCurrentNormalizedDate());
+        args.putLong(EXTRA_DATE, DateUtils.getCurrentNormalizedDate());
         newFragment.setArguments(args);
         newFragment.setOnDetailsDialogConfirm(mOnConfirm);
         return newFragment;
@@ -78,22 +81,16 @@ public class FoodDetailsDialog extends DialogFragment {
         Bundle args = getArguments();
 
         if (args.containsKey(EXTRA_FOOD_ITEM)) {
-
             // If a FoodItemWithDB has been sent create the Diary Object
-
             if (!args.containsKey(EXTRA_DATE)) {
                 throw new MissingExtraException(EXTRA_DATE);
             }
-
             FoodItemWithDB foodItem = (FoodItemWithDB) args.getSerializable(EXTRA_FOOD_ITEM);
             mDate = args.getLong(EXTRA_DATE);
-
             mDiaryItem = new DiaryItem(foodItem, mDate, mCategory, mQuantity);
 
         } else if (args.containsKey(EXTRA_DIARY_ITEM)) {
-
             // If a DiaryItem has been sent
-
             mDiaryItem = (DiaryItem) args.getSerializable(EXTRA_DIARY_ITEM);
             mDate = mDiaryItem.date;
             mCategory = mDiaryItem.category;
@@ -103,7 +100,7 @@ public class FoodDetailsDialog extends DialogFragment {
             throw new MissingExtraException(EXTRA_FOOD_ITEM + " and " + EXTRA_DATE + " or " + EXTRA_DIARY_ITEM);
         }
 
-        mRoot = inflater.inflate(R.layout.dialog_add_quantity, container, false);
+        mRoot = inflater.inflate(R.layout.dialog_food_details, container, false);
         init();
 
         // Set Name
@@ -153,16 +150,13 @@ public class FoodDetailsDialog extends DialogFragment {
         });
 
         // Pull nutrient data if is has yet to be loaded. Then Display
-        if (!mDiaryItem.foodItem.hasNutrientData()) {
-            mDiaryItem.foodItem.pullNutrientDataWithDB(getContext(), new FoodItemWithDB.OnDataPulledWithDB() {
-                @Override
-                public void onDataPulled(FoodItemWithDB foodItemWithDB) {
-                    populateData();
-                }
-            });
-        } else {
-            populateData();
-        }
+        mDiaryItem.foodItem.getNutrientDataWithDB(getContext(), new FoodItemWithDB.OnDataPulledWithDB() {
+            @Override
+            public void onDataPulled(FoodItemWithDB foodItemWithDB) {
+                populateData();
+                mViewFlipper.showNext();
+            }
+        });
 
         return mRoot;
 
@@ -184,6 +178,8 @@ public class FoodDetailsDialog extends DialogFragment {
         buttonAdd = (Button) mRoot.findViewById(R.id.dialog_food_details_add);
         buttonSubtract = (Button) mRoot.findViewById(R.id.dialog_food_details_subtract);
         buttonCategory = (Button) mRoot.findViewById(R.id.dialog_food_details_category);
+
+        mViewFlipper = (ViewFlipper) mRoot.findViewById(R.id.dialog_food_details_view_flipper);
 
         textName = (TextView) mRoot.findViewById(R.id.dialog_food_details_name);
         textCalories = (TextView) mRoot.findViewById(R.id.dialog_food_details_calories);
@@ -231,10 +227,9 @@ public class FoodDetailsDialog extends DialogFragment {
     /**
      * Created by Spectre on 6/22/2016.
      */
-    public static class OnDetailsDialogConfirm {
+    public interface OnDetailsDialogConfirm {
 
-        public void onDetailsDialogConfirm(DiaryItem diaryItem) {
-        }
+        void onDetailsDialogConfirm(DiaryItem diaryItem);
 
     }
 }

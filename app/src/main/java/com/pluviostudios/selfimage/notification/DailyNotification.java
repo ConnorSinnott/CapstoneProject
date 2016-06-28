@@ -19,7 +19,7 @@ public class DailyNotification {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
-                        .setSmallIcon(R.drawable.ic_camera_front_white_24dp)
+                        .setSmallIcon(R.mipmap.ic_launcher)
                         .setContentTitle(context.getString(R.string.Notification_Title))
                         .setContentText(context.getString(R.string.Notification_Content));
 

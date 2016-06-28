@@ -1,6 +1,5 @@
 package com.pluviostudios.usdanutritionalapi;
 
-import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
@@ -70,8 +69,8 @@ public class FoodItem implements Serializable {
         mNutrientData = data;
     }
 
-    public void pullNutrientData(Context context, OnDataPulled onDataPulled) {
-        new AsyncReportSearch(context, onDataPulled).execute(foodNDBNO);
+    public void pullNutrientData(String apiKey, OnDataPulled onDataPulled) {
+        new AsyncReportSearch(apiKey, onDataPulled).execute(foodNDBNO);
     }
 
     public interface OnDataPulled {
@@ -84,8 +83,8 @@ public class FoodItem implements Serializable {
 
         private OnDataPulled mOnDataPulled;
 
-        public AsyncReportSearch(Context context, OnDataPulled onDataPulled) {
-            super(context);
+        public AsyncReportSearch(String APIKey, OnDataPulled onDataPulled) {
+            super(APIKey);
             mOnDataPulled = onDataPulled;
         }
 
@@ -95,8 +94,8 @@ public class FoodItem implements Serializable {
             ArrayList<Double> out = new ArrayList<>();
 
             Uri searchURI = BASE_URI_CAL.buildUpon()
+                    .appendQueryParameter(API_PARAM, mAPIKey)
                     .appendQueryParameter("ndbno", String.valueOf(params[0]))
-                    .appendQueryParameter(API_PARAM, getContext().getString(R.string.api_key))
                     .build();
 
             Log.v(REFERENCE_ID, "[" + params[0] + "]");

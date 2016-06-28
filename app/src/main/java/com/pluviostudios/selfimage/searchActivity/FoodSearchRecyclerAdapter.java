@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.planActivity.fragments.search;
+package com.pluviostudios.selfimage.searchActivity;
 
 /**
  * Created by Spectre on 6/20/2016.
@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
-import com.pluviostudios.selfimage.data.dataContainers.FoodItemWithDB;
+import com.pluviostudios.selfimage.data.dataContainers.food.FoodItemWithDB;
 
 import java.util.ArrayList;
 
@@ -71,10 +71,6 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
         notifyDataSetChanged();
     }
 
-    public void updateFoodItems() {
-        notifyDataSetChanged();
-    }
-
     public void clearAll() {
         if (mFoodData.size() > 0) {
             mFoodData = new ArrayList<>();
@@ -103,7 +99,7 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
     /**
      * Created by Spectre on 6/19/2016.
      */
-    public static interface OnFoodItemSelected {
+    public interface OnFoodItemSelected {
 
         void onFoodItemSelected(FoodItemWithDB foodItem);
 

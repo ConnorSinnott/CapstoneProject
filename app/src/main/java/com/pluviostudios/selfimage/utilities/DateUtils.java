@@ -1,6 +1,7 @@
 package com.pluviostudios.selfimage.utilities;
 
 import android.text.format.Time;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -8,10 +9,11 @@ import java.util.Calendar;
 /**
  * Created by Spectre on 5/11/2016.
  */
-public class Utilities {
+public class DateUtils {
 
     private static Long currentNormalizedDate = null;
 
+    // There will be an issue if the user is using this past midnight
     public static long getCurrentNormalizedDate() {
         if (currentNormalizedDate != null) {
             return currentNormalizedDate;
@@ -37,11 +39,25 @@ public class Utilities {
         return date == getCurrentNormalizedDate();
     }
 
-    public static String formatDateFromMillis(long startDate) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(startDate);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-        return format.format(cal.getTime());
+    public static String getSpecialFormattedDate(long date) {
+
+        date = normalizeDate(date);
+        int diff = Math.round((date - getCurrentNormalizedDate()) / 86400000);
+
+        Log.d("TEST", String.valueOf(diff));
+
+        if (diff == 0) {
+            return "Today";
+        } else if (diff == -1) {
+            return "Yesterday";
+        } else if (diff >= -7) {
+            SimpleDateFormat format = new SimpleDateFormat("EEEE");
+            return format.format(date);
+        } else {
+            SimpleDateFormat format = new SimpleDateFormat("MMM d");
+            return format.format(date);
+        }
+
     }
 
 

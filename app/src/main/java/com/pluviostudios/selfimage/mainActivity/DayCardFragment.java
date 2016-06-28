@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,8 @@ import android.widget.TextView;
 
 import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.database.DatabaseContract;
-import com.pluviostudios.selfimage.planActivity.MealPlanningActivity;
+import com.pluviostudios.selfimage.utilities.DateUtils;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
-import com.pluviostudios.selfimage.utilities.Utilities;
 
 import java.util.Calendar;
 
@@ -35,7 +33,7 @@ public class DayCardFragment extends Fragment {
         ImageView imageView = (ImageView) root.findViewById(R.id.fragment_day_card_imageview);
         ImageButton calorieButton = (ImageButton) root.findViewById(R.id.fragment_day_card_calories);
 
-        long todayDate = Utilities.normalizeDate(Calendar.getInstance().getTimeInMillis());
+        long todayDate = DateUtils.normalizeDate(Calendar.getInstance().getTimeInMillis());
 
         if (!getArguments().containsKey(DatabaseContract.DateEntry.DATE_COL))
             throw new MissingExtraException("Did not receive ITEM_DATE_COL and IMAGE_DIRECTORY_COL in arg bundle");
@@ -50,7 +48,6 @@ public class DayCardFragment extends Fragment {
 
         String dateString;
         if (date == todayDate) {
-            Log.v(REFERENCE_ID, "TodayCreate!");
             FloatingActionButton fab = (FloatingActionButton) root.findViewById(R.id.fragment_day_card_FAB);
             fab.setVisibility(View.VISIBLE);
             fab.setOnClickListener(mOnFABClickListener);
@@ -62,7 +59,7 @@ public class DayCardFragment extends Fragment {
         } else if ((todayDate - 86400000) == date) {
             dateString = getString(R.string.date_yesterday);
         } else {
-            dateString = Utilities.formatDateFromMillis(date);
+            dateString = DateUtils.getSpecialFormattedDate(date);
         }
 
         textView.setText(dateString);
@@ -72,12 +69,12 @@ public class DayCardFragment extends Fragment {
             imageView.setImageURI(imageUri);
         }
 
-        calorieButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(MealPlanningActivity.buildMealPlanActivityIntent(getContext(), date));
-            }
-        });
+//        calorieButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(MealPlanningActivity.buildMealPlanActivityIntent(getContext(), date));
+//            }
+//        });
 
         return root;
     }
