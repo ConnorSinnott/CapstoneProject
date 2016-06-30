@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -18,30 +19,37 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mainActivity.MainActivity">
+
+        <activity
+            android:name=".mainActivity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".searchActivity.FoodSearchActivity"/>
 
-        <provider
-            android:name=".data.database.SelfImageContentProvider"
-            android:authorities="@string/content_authority"
-            android:exported="false"
-            android:syncable="true"/>
+        <activity
+            android:name=".searchActivity.FoodSearchActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".utilities.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation"/>
 
-        <!--<activity-->
-        <!--android:mTextName=".SettingsActivity"-->
-        <!--android:label="@string/title_activity_settings">-->
-        <!--</activity>-->
+        <provider
+            android:name=".data.database.SelfImageContentProvider"
+            android:authorities="@string/content_authority"
+            android:exported="false"
+            android:syncable="true"/>
+        <receiver android:name=".notification.DailyNotification"/>
     </application>
 
 </manifest>

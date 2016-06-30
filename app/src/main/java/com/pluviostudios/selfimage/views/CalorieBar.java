@@ -3,6 +3,7 @@ package com.pluviostudios.selfimage.views;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -18,7 +19,6 @@ public class CalorieBar extends View {
     Paint mTextPaint;
     Paint mBarPaint;
 
-    float mMax = 2000;
     float mProgress = 0;
     float mTextHeight = 0;
 
@@ -37,18 +37,6 @@ public class CalorieBar extends View {
         init();
     }
 
-    public CalorieBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
-
-    public void setMax(int max) {
-        mMax = max;
-        invalidate();
-        requestLayout();
-
-    }
-
     public void setProgress(int progress) {
         mProgress = progress;
         invalidate();
@@ -56,9 +44,6 @@ public class CalorieBar extends View {
 
     }
 
-    public void setTextHeight(int textHeight) {
-        mTextHeight = textHeight;
-    }
 
     private void init() {
 
@@ -76,12 +61,9 @@ public class CalorieBar extends View {
 
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setColor(getResources().getColor(R.color.calbar_textColor));
-        if (mTextHeight == 0) {
-            mTextPaint.setTextSize(60);
-            mTextHeight = mTextPaint.getTextSize();
-        } else {
-            mTextPaint.setTextSize(mTextHeight);
-        }
+
+        mTextPaint.setTextSize(60);
+        mTextHeight = mTextPaint.getTextSize();
 
     }
 
@@ -89,14 +71,16 @@ public class CalorieBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        float progressX = (getRight() - getLeft()) * ((mProgress / mMax));
+        int max = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(getContext()).getString(
+                getContext().getString(R.string.pref_cal_quota_key),
+                getContext().getString(R.string.pref_cal_quota_default)));
+        float progressX = (getRight() - getLeft()) * (Math.min((mProgress / max), max));
+        String text = getContext().getString(R.string.calorie_string) + ": " +
+                Math.round(mProgress) + "/" + Math.round(max);
 
         canvas.drawRect(getLeft(), getTop(), getRight(), getBottom(), mBasePaint);
         canvas.drawRect(getLeft(), getTop(), getLeft() + progressX, getBottom(), mProgressPaint);
         canvas.drawRect((getLeft() + progressX) - 5, getTop(), (getLeft() + progressX) + 5, getBottom(), mBarPaint);
-
-        String text = "Cal: " + Math.round(mProgress) + "/" + Math.round(mMax);
-
         canvas.drawText(text,
                 getLeft() + ((getRight() - getLeft()) / 2) - mTextPaint.measureText(text) / 2,
                 getTop() + getBottom() / 2 + mTextHeight / 2,

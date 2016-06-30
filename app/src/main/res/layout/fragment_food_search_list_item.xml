@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start|center_vertical"
         android:padding="16dp"
-        android:text="egg"
         android:textSize="24sp"/>
 
 </android.support.v7.widget.CardView>

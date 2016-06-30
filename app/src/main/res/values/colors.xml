@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="has_today">#4eff4e</color>
+    <color name="needs_today">#ff2a2a</color>
+
     <color name="calbar_progress">#d8d8d9</color>
     <color name="calbar_remaining">#747475</color>
     <color name="calbar_divider">#fbaf01</color>

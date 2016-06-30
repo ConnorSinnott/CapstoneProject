@@ -70,30 +70,12 @@ public class CameraHandler {
 
     }
 
-    public boolean onActivityResult(int resultCode, Intent data) {
-
+    public void onActivityResult(int resultCode, Intent data) {
         if (resultCode == mContext.RESULT_OK) {
-
-
             DateItem dateItem = (DateItem) data.getExtras().getSerializable(EXTRA_DATE_ITEM);
             dateItem.img_dir = mCurrentStorageUri.toString();
             dateItem.save(mContext);
-
-//            ContentValues contentValues = new ContentValues();
-//            contentValues.put(DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL, );
-//            mContext.getContentResolver().update(
-//                    DatabaseContract.DateEntry.CONTENT_URI, contentValues,
-//                    DatabaseContract.DateEntry.DATE_COL + " = ?", new String[]{String.valueOf(DateUtils.getCurrentNormalizedDate())}
-//            );
-            return true;
-        } else if (resultCode == mContext.RESULT_CANCELED) {
-            return false;
-            // User cancelled the image capture
-        } else {
-            return false;
-            // Image capture failed, advise user
         }
-
     }
 
     public static File createImageFile() throws IOException {

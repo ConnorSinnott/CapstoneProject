@@ -8,7 +8,6 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 
 import com.pluviostudios.selfimage.data.database.DatabaseContract;
-import com.pluviostudios.selfimage.utilities.DateUtils;
 
 import java.util.ArrayList;
 
@@ -44,7 +43,7 @@ public class DiaryItemNutrientTotals implements LoaderManager.LoaderCallbacks<Cu
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(mContext,
-                DatabaseContract.DiaryEntry.buildDiaryWithStartDate(DateUtils.getCurrentNormalizedDate()),
+                DatabaseContract.DiaryEntry.buildDiaryWithStartDate(mDate),
                 projection,
                 null,
                 null,
@@ -54,16 +53,17 @@ public class DiaryItemNutrientTotals implements LoaderManager.LoaderCallbacks<Cu
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         ArrayList<Double> out = new ArrayList<>();
-
         for (int i = 0; i < projection.length; i++) {
             out.add(0.0);
         }
-
         if (data.moveToFirst()) {
             do {
                 for (int i = 1; i < projection.length; i++) {
-                    double curr = out.get(i - 1);
-                    out.set(i - 1, curr + (data.getDouble(i) * data.getInt(0)));
+                    double currTotalValue = out.get(i - 1);
+                    double addValue = data.getDouble(i) * data.getInt(0);
+                    if(addValue > 0) {
+                        out.set(i - 1, currTotalValue + (data.getDouble(i) * data.getInt(0)));
+                    }
                 }
             } while (data.moveToNext());
         }

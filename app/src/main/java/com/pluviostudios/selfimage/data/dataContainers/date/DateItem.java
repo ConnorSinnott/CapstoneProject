@@ -35,7 +35,7 @@ public class DateItem implements Serializable {
         manager.initLoader(loadId, null, callbacks);
     }
 
-    public static void getDateItems(Context context, LoaderManager manager, int loadId, long date, DateItemLoaderCallbacks.OnDateItemsReceived onDateItemsReceived) {
+    public static void getDateItemsWithDate(Context context, LoaderManager manager, int loadId, long date, DateItemLoaderCallbacks.OnDateItemsReceived onDateItemsReceived) {
         DateItemLoaderCallbacksWithDate callbacks = new DateItemLoaderCallbacksWithDate(context, date, onDateItemsReceived);
         manager.initLoader(loadId, null, callbacks);
     }
@@ -58,8 +58,10 @@ public class DateItem implements Serializable {
             context.getContentResolver().update(
                     DatabaseContract.DateEntry.CONTENT_URI,
                     contentValues,
-                    null,
-                    null
+                    DatabaseContract.DateEntry._ID + " = ?",
+                    new String[]{
+                            String.valueOf(id)
+                    }
             );
 
         }

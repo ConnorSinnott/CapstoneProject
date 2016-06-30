@@ -3,7 +3,6 @@ package com.pluviostudios.selfimage.mainActivity.planning;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import android.widget.ViewFlipper;
 import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItem;
 import com.pluviostudios.selfimage.data.dataContainers.food.FoodItemWithDB;
-import com.pluviostudios.selfimage.utilities.DateUtils;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
 import com.pluviostudios.usdanutritionalapi.FoodItem;
 
@@ -56,11 +54,11 @@ public class FoodDetailsDialog extends DialogFragment {
     private int mQuantity = 1;
     private int mCategory = 0;
 
-    public static FoodDetailsDialog buildFoodDetailsDialog(FoodItemWithDB foodItem, OnDetailsDialogConfirm mOnConfirm) {
+    public static FoodDetailsDialog buildFoodDetailsDialog(FoodItemWithDB foodItem, long date, OnDetailsDialogConfirm mOnConfirm) {
         FoodDetailsDialog newFragment = new FoodDetailsDialog();
         Bundle args = new Bundle();
         args.putSerializable(EXTRA_FOOD_ITEM, foodItem);
-        args.putLong(EXTRA_DATE, DateUtils.getCurrentNormalizedDate());
+        args.putLong(EXTRA_DATE, date);
         newFragment.setArguments(args);
         newFragment.setOnDetailsDialogConfirm(mOnConfirm);
         return newFragment;
@@ -122,7 +120,8 @@ public class FoodDetailsDialog extends DialogFragment {
         buttonSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateQuantityUI(--mQuantity);
+                if (mQuantity > 1)
+                    updateQuantityUI(--mQuantity);
             }
         });
 
@@ -196,15 +195,24 @@ public class FoodDetailsDialog extends DialogFragment {
     }
 
     private void populateData() {
-        textCalories.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Calories) * mQuantity));
-        textProtein.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Protein) * mQuantity));
-        textFat.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Fat) * mQuantity));
-        textCarbs.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Carbs) * mQuantity));
-        textFiber.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Fiber) * mQuantity));
-        textSatFat.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.SatFat) * mQuantity));
-        textMonoFat.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.MonoFat) * mQuantity));
-        textPolyFat.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.PolyFat) * mQuantity));
-        textCholesterol.setText(String.valueOf(mDiaryItem.foodItem.getNutrientData().get(FoodItem.Cholesterol) * mQuantity));
+        textCalories.setText(getDisplayNutrientString(FoodItem.Calories));
+        textProtein.setText(getDisplayNutrientString(FoodItem.Protein));
+        textFat.setText(getDisplayNutrientString(FoodItem.Fat));
+        textCarbs.setText(getDisplayNutrientString(FoodItem.Carbs));
+        textFiber.setText(getDisplayNutrientString(FoodItem.Fiber));
+        textSatFat.setText(getDisplayNutrientString(FoodItem.SatFat));
+        textMonoFat.setText(getDisplayNutrientString(FoodItem.MonoFat));
+        textPolyFat.setText(getDisplayNutrientString(FoodItem.PolyFat));
+        textCholesterol.setText(getDisplayNutrientString(FoodItem.Cholesterol));
+    }
+
+    private String getDisplayNutrientString(int index) {
+        int value = (int) Math.round(mDiaryItem.foodItem.getNutrientData().get(index) * mQuantity);
+        if (value >= 0) {
+            return String.valueOf(value);
+        } else {
+            return "n/a";
+        }
     }
 
     private void updateQuantityUI(int quantity) {

@@ -2,7 +2,6 @@ package com.pluviostudios.selfimage.mainActivity.planning;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +33,7 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
 
     @Override
     public NamedViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        int viewResource = (viewType == VIEW_TYPE_LABEL) ? R.layout.diary_item_divider : R.layout.diary_item;
+        int viewResource = (viewType == VIEW_TYPE_LABEL) ? R.layout.diary_item_label : R.layout.diary_item;
         View v = LayoutInflater.from(parent.getContext()).inflate(viewResource, parent, false);
         NamedViewHolder viewHolder;
         if (viewType == VIEW_TYPE_LABEL) {
@@ -73,7 +72,7 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
                 @Override
                 public void onDataPulled(FoodItemWithDB foodItemWithDB) {
                     int calories = (int) Math.round(foodItemWithDB.getNutrientData().get(FoodItemWithDB.Calories)) * diaryItem.quantity;
-                    vh.textCalories.setText(mParent.getString(R.string.calorie, calories));
+                    vh.textCalories.setText(mParent.getString(R.string.calorie_view, calories));
                 }
 
             }.setData(diaryItemVH, diaryItem));

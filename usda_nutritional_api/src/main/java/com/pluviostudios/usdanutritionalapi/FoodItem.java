@@ -121,10 +121,11 @@ public class FoodItem implements Serializable {
                     for (int u = 0; u < nutrientIds.size(); u++) {
                         if (ID == nutrientIds.get(u)) {
                             debug += ("Val " + u + " : " + currObject.optDouble("value") + " | ");
-                            out.add(u, currObject.optDouble("value"));
+                            out.add(u, currObject.optDouble("value", -1.0));
                             break;
                         }
                     }
+                    out.add(-1.0);
 
                 }
 

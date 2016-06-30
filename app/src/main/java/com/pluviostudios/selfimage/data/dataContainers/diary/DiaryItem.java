@@ -39,16 +39,6 @@ public class DiaryItem implements Serializable {
         loaderManager.initLoader(loadId, null, callbacks);
     }
 
-    public static void getDiaryItemsWithCategory(Context context, LoaderManager loaderManager, int loadId, long date, int category, DiaryItemLoaderCallbacks.OnDiaryItemsReceived onDiaryItemsReceived) {
-        DiaryItemLoaderCallbacksWithCategory callbacks = new DiaryItemLoaderCallbacksWithCategory(context, date, category, onDiaryItemsReceived);
-        loaderManager.initLoader(loadId, null, callbacks);
-    }
-
-    public static void getDiaryItemsWithCategoryAndNDBNO(Context context, LoaderManager loaderManager, int loadId, long date, int category, String ndbno, DiaryItemLoaderCallbacks.OnDiaryItemsReceived onDiaryItemsReceived) {
-        DiaryItemLoaderCallbacksWithCategoryAndNdbno callbacks = new DiaryItemLoaderCallbacksWithCategoryAndNdbno(context, date, category, ndbno, onDiaryItemsReceived);
-        loaderManager.initLoader(loadId, null, callbacks);
-    }
-
     public static void getNutrientTotals(Context context, LoaderManager loaderManager, int loadId, long date, DiaryItemNutrientTotals.OnNutrientTotalsReceived onNutrientTotalsReceived) {
         DiaryItemNutrientTotals callback = new DiaryItemNutrientTotals(context, date, onNutrientTotalsReceived);
         loaderManager.initLoader(loadId, null, callback);
@@ -71,11 +61,10 @@ public class DiaryItem implements Serializable {
 
     public void save(Context context) {
 
-        if (id != null) {
+        if (id != null || mergeWithExisting(context)) {
             ContentValues values = new ContentValues();
             values.put(DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL, category);
             values.put(DatabaseContract.DiaryEntry.ITEM_QUANTITY_COL, quantity);
-
             context.getContentResolver().update(
                     DatabaseContract.DiaryEntry.CONTENT_URI,
                     values,
@@ -95,6 +84,32 @@ public class DiaryItem implements Serializable {
         }
 
         foodItem.save(context);
+
+    }
+
+    private boolean mergeWithExisting(Context context) {
+
+        Cursor c = context.getContentResolver().query(
+                DatabaseContract.DiaryEntry.buildDiaryWithStartDateAndCategoryAndNDBNO(date, foodItem.getFoodNDBNO(), category),
+                new String[]{
+                        DatabaseContract.DiaryEntry.TABLE_NAME + "." + DatabaseContract.DiaryEntry._ID,
+                        DatabaseContract.DiaryEntry.ITEM_QUANTITY_COL},
+                null,
+                null,
+                null,
+                null
+        );
+
+        if (c != null) {
+            if (c.moveToFirst()) {
+                id = c.getLong(0);
+                quantity += c.getInt(1);
+                c.close();
+                return true;
+            }
+            c.close();
+        }
+        return false;
 
     }
 

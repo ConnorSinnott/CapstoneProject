@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">SelfImage</string>
-    <string name="not_yet_implemented">Awaiting Implementation</string>
-    <string name="awaiting_data">-</string>
-    <string name="no_current_image">You need to take todays picture!</string>
-    <string name="has_current_image">Youre all set for today!</string>
     <string name="content_authority">com.pluviostudios.selfimage.app</string>
+    <string name="no_current_image">You need to take todays picture!</string>
+    <string name="has_current_image">"You're all set for today!"</string>
 
     <string name="date_today">Today</string>
     <string name="date_yesterday">Yesterday</string>
@@ -14,12 +12,43 @@
     <string name="plan_title">Plan</string>
 
     <string name="settings">Settings</string>
-    <string name="title_activity_settings">Settings</string>
 
     <string name="Notification_Title">SelfImage</string>
-    <string name="Notification_Content">You have yet to take today\'s picture!</string>
+    <string name="Notification_Content">Hello %1$s, You have yet to take today\'s picture!</string>
     <string name="retrieving_data">Retrieving Data</string>
 
-    <string name="calorie">%1$d cal</string>
+    <string name="no_network_connection">Unable to connect to the internet</string>
+
+    <string name="calorie_string">Cal</string>
+    <string name="calorie_view">%1$d cal</string>
+
+    <!-- Strings related to Settings -->
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_display_name">Display Name</string>
+    <string name="pref_display_name_key">display_name</string>
+
+    <string name="pref_cal_quota">Calorie Quota</string>
+    <string name="pref_cal_quota_key">calorie_quota</string>
+    <string name="pref_cal_quota_default">2000</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_notification_key">use_notifications</string>
+    <string name="pref_title_new_message_notifications">Use daily notifications</string>
+    <string name="calories">Calories</string>
+    <string name="protein">Protein</string>
+    <string name="fat">Fat</string>
+    <string name="carbs">Carbs</string>
+    <string name="fiber">Fiber</string>
+    <string name="saturated_fat">Saturated Fat</string>
+    <string name="monounsaturated_fat">Monounsaturated Fat</string>
+    <string name="polyunsaturated_fats">Polyunsaturated Fats</string>
+    <string name="cholesterol">Cholesterol</string>
+    <string name="save">Save</string>
+
 
 </resources>

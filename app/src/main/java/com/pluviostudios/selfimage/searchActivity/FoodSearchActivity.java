@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,8 @@ import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItem;
 import com.pluviostudios.selfimage.data.dataContainers.food.FoodItemWithDB;
 import com.pluviostudios.selfimage.mainActivity.planning.FoodDetailsDialog;
+import com.pluviostudios.selfimage.utilities.MissingExtraException;
+import com.pluviostudios.selfimage.utilities.NetworkUtils;
 import com.pluviostudios.usdanutritionalapi.AsyncFoodItemSearch;
 import com.pluviostudios.usdanutritionalapi.FoodItem;
 
@@ -33,10 +36,13 @@ public class FoodSearchActivity extends AppCompatActivity {
 
     public static final String REFERENCE_ID = "FoodSearchActivity";
 
+    public static final String EXTRA_DATE = "extra_date";
+
     private EditText mEditText;
     private Button mButtonScan;
     private RecyclerView mListView;
 
+    private long mDate;
     private CountDownTimer mCountDownTimer;
     private FoodSearchRecyclerAdapter mAdapter;
 
@@ -67,12 +73,25 @@ public class FoodSearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_food_fragment);
+        setContentView(R.layout.fragment_food_search);
+
+        if (!getIntent().hasExtra(EXTRA_DATE)) {
+            throw new MissingExtraException(EXTRA_DATE);
+        }
+
+        mDate = getIntent().getExtras().getLong(EXTRA_DATE);
 
         // Init views
         mEditText = (EditText) findViewById(R.id.add_food_fragment_edit_text);
         mListView = (RecyclerView) findViewById(R.id.add_food_fragment_recycler_view);
         mButtonScan = (Button) findViewById(R.id.add_food_fragment_button_scan);
+
+        if (!NetworkUtils.hasNetworkConnection(getApplicationContext())) {
+            Snackbar.make(mListView, R.string.no_network_connection, Snackbar.LENGTH_LONG).show();
+            mEditText.setEnabled(false);
+            mEditText.setFocusable(false);
+            mButtonScan.setEnabled(false);
+        }
 
         // Do search if text is left unchanged for 1 second
         mEditText.addTextChangedListener(new TextWatcher() {
@@ -110,7 +129,7 @@ public class FoodSearchActivity extends AppCompatActivity {
         mAdapter.setOnFoodItemSelected(new FoodSearchRecyclerAdapter.OnFoodItemSelected() {
             @Override
             public void onFoodItemSelected(FoodItemWithDB foodItem) {
-                FoodDetailsDialog dialog = FoodDetailsDialog.buildFoodDetailsDialog(foodItem, mOnDetailsDialogConfirm);
+                FoodDetailsDialog dialog = FoodDetailsDialog.buildFoodDetailsDialog(foodItem, mDate, mOnDetailsDialogConfirm);
                 dialog.show(getSupportFragmentManager(), FoodDetailsDialog.REFERENCE_ID);
             }
         });

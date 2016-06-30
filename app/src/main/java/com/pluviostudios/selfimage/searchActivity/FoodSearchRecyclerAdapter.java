@@ -31,7 +31,7 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
 
     @Override
     public FoodItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_search_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_food_search_list_item, parent, false);
         FoodItemViewHolder viewHolder = new FoodItemViewHolder(v);
         return viewHolder;
     }

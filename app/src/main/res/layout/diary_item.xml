@@ -21,7 +21,6 @@
             android:layout_gravity="start|center_vertical"
             android:layout_weight="14"
             android:padding="4dp"
-            android:text="egg"
             android:textSize="14sp"/>
 
 
@@ -31,7 +30,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
             android:layout_weight="4"
-            android:text="100 cal"
             android:textSize="14sp"/>
 
         <ImageButton

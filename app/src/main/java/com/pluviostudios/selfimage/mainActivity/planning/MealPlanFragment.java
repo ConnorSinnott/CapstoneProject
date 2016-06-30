@@ -14,9 +14,11 @@ import android.view.ViewGroup;
 import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItem;
 import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItemLoaderCallbacks;
+import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItemNutrientTotals;
+import com.pluviostudios.selfimage.data.dataContainers.food.FoodItemWithDB;
 import com.pluviostudios.selfimage.searchActivity.FoodSearchActivity;
-import com.pluviostudios.selfimage.utilities.DateUtils;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
+import com.pluviostudios.selfimage.views.CalorieBar;
 
 import java.util.ArrayList;
 
@@ -31,6 +33,7 @@ public class MealPlanFragment extends Fragment {
     private View mRoot;
     private RecyclerView mRecyclerView;
     private FloatingActionButton mFloatingActionButton;
+    private CalorieBar mCalBar;
     private long mDate;
 
     public static MealPlanFragment buildMealPlanFragment(long date) {
@@ -49,27 +52,30 @@ public class MealPlanFragment extends Fragment {
             throw new MissingExtraException(EXTRA_DATE);
         }
 
-        mRoot = inflater.inflate(R.layout.meal_plan_fragment, container, false);
-        mFloatingActionButton = (FloatingActionButton) mRoot.findViewById(R.id.meal_plan_fragment_FAB);
-        mRecyclerView = (RecyclerView) mRoot.findViewById(R.id.meal_plan_fragment_recycler_view);
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRoot = inflater.inflate(R.layout.fragment_meal_planning, container, false);
+        mFloatingActionButton = (FloatingActionButton) mRoot.findViewById(R.id.fragment_meal_planning_add_FAB);
+        mRecyclerView = (RecyclerView) mRoot.findViewById(R.id.fragment_meal_planning_RecyclerView);
+        mCalBar = (CalorieBar) mRoot.findViewById(R.id.fragment_meal_planning_calorie_bar);
 
         mDate = extras.getLong(EXTRA_DATE);
-        boolean isToday = DateUtils.isTodaysDate(mDate);
 
-        if (isToday) {
-            mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), FoodSearchActivity.class);
-                    startActivity(intent);
-                }
-            });
-        } else {
-            mFloatingActionButton.setVisibility(View.GONE);
-        }
+        DiaryItem.getNutrientTotals(getContext(), getLoaderManager(), 1, mDate, new DiaryItemNutrientTotals.OnNutrientTotalsReceived() {
+            @Override
+            public void onNutrientTotalsReceived(ArrayList<Double> totals) {
+                mCalBar.setProgress((int) Math.round(totals.get(FoodItemWithDB.Calories)));
+            }
+        });
 
+        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FoodSearchActivity.class);
+                intent.putExtra(FoodSearchActivity.EXTRA_DATE, mDate);
+                startActivity(intent);
+            }
+        });
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         populateAdapter();
 
         return mRoot;

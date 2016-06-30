@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/not_yet_implemented"
         android:textSize="22sp"/>
 
     <LinearLayout
@@ -43,9 +42,10 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -72,90 +72,90 @@
 
             <TableRow>
 
-                <TextView android:text="Calories"/>
+                <TextView android:text="@string/calories"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_calories"
-                    android:text="@string/not_yet_implemented"/>
+                    />
 
             </TableRow>
 
             <TableRow>
 
-                <TextView android:text="Protein"/>
+                <TextView android:text="@string/protein"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_protein"
-                    android:text="@string/not_yet_implemented"/>
+                    />
 
             </TableRow>
 
             <TableRow>
 
-                <TextView android:text="Fat"/>
+                <TextView android:text="@string/fat"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_fat"
-                    android:text="@string/not_yet_implemented"/>
+                    />
 
             </TableRow>
 
             <TableRow>
 
-                <TextView android:text="Carbs"/>
+                <TextView android:text="@string/carbs"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_carbs"
-                    android:text="@string/not_yet_implemented"/>
+                    />
 
             </TableRow>
 
             <TableRow>
 
-                <TextView android:text="Fiber"/>
+                <TextView android:text="@string/fiber"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_fiber"
-                    android:text="@string/not_yet_implemented"/>
+                    />
 
             </TableRow>
 
             <TableRow>
 
-                <TextView android:text="Saturated Fat"/>
+                <TextView android:text="@string/saturated_fat"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_satfat"
-                    android:text="@string/not_yet_implemented"/>
+                    />
 
             </TableRow>
 
             <TableRow>
 
-                <TextView android:text="Monounsaturated Fat"/>
+                <TextView android:text="@string/monounsaturated_fat"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_monofat"
-                    android:text="@string/not_yet_implemented"/>
+                    />
 
             </TableRow>
 
             <TableRow>
 
-                <TextView android:text="Polyunsaturated Fats"/>
+                <TextView android:text="@string/polyunsaturated_fats"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_polyfat"
-                    android:text="@string/not_yet_implemented"/>
+                    />
             </TableRow>
 
             <TableRow>
 
-                <TextView android:text="Cholesterol"/>
+                <TextView android:text="@string/cholesterol"/>
 
                 <TextView
                     android:id="@+id/dialog_food_details_cholesterol"
-                    android:text="@string/not_yet_implemented"/>
+                    />
 
             </TableRow>
 
@@ -167,13 +167,13 @@
         android:id="@+id/dialog_food_details_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/not_yet_implemented"/>
+        />
 
     <Button
         android:id="@+id/dialog_food_details_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"/>
+        android:text="@string/save"/>
 
 
 </LinearLayout>

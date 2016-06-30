@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +16,7 @@ import com.pluviostudios.selfimage.data.database.DatabaseContract;
 import com.pluviostudios.selfimage.utilities.DateUtils;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
 
+import java.io.File;
 import java.util.Calendar;
 
 public class DayCardFragment extends Fragment {
@@ -31,7 +31,6 @@ public class DayCardFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_day_card, container, false);
         TextView textView = (TextView) root.findViewById(R.id.fragment_day_card_textview);
         ImageView imageView = (ImageView) root.findViewById(R.id.fragment_day_card_imageview);
-        ImageButton calorieButton = (ImageButton) root.findViewById(R.id.fragment_day_card_calories);
 
         long todayDate = DateUtils.normalizeDate(Calendar.getInstance().getTimeInMillis());
 
@@ -55,7 +54,6 @@ public class DayCardFragment extends Fragment {
                     R.drawable.ic_add_a_photo_white_24dp :
                     R.drawable.ic_photo_camera_white_24dp);
             dateString = getString(R.string.date_today);
-            calorieButton.setVisibility(View.GONE);
         } else if ((todayDate - 86400000) == date) {
             dateString = getString(R.string.date_yesterday);
         } else {
@@ -64,17 +62,10 @@ public class DayCardFragment extends Fragment {
 
         textView.setText(dateString);
 
-        if (imageUri != null) {
+        if (imageUri != null && new File(imageUri.getPath()).exists()) {
             imageView.setImageURI(null);
             imageView.setImageURI(imageUri);
         }
-
-//        calorieButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(MealPlanningActivity.buildMealPlanActivityIntent(getContext(), date));
-//            }
-//        });
 
         return root;
     }

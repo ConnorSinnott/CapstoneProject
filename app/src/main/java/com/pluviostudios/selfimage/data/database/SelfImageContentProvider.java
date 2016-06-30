@@ -25,6 +25,7 @@ public class SelfImageContentProvider extends ContentProvider {
     static final int DIARY = 200;
     static final int DIARY_WITH_DATE = 201;
     static final int DIARY_WITH_DATE_AND_CATEGORY = 202;
+    static final int DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO = 203;
 
     static final int CATEGORY = 300;
     static final int CATEGORY_WITH_INDEX = 301;
@@ -62,6 +63,7 @@ public class SelfImageContentProvider extends ContentProvider {
         matcher.addURI(authority, DatabaseContract.PATH_DIARY, DIARY);
         matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/*", DIARY_WITH_DATE);
         matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/*/*", DIARY_WITH_DATE_AND_CATEGORY);
+        matcher.addURI(authority, DatabaseContract.PATH_DIARY + "/*/*/*", DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO);
 
         matcher.addURI(authority, DatabaseContract.PATH_FOOD, FOOD);
         matcher.addURI(authority, DatabaseContract.PATH_FOOD + "/*", FOOD_WITH_NDBNO);
@@ -94,6 +96,8 @@ public class SelfImageContentProvider extends ContentProvider {
                 return DatabaseContract.DiaryEntry.CONTENT_TYPE;
             case DIARY_WITH_DATE_AND_CATEGORY:
                 return DatabaseContract.DiaryEntry.CONTENT_TYPE;
+            case DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO:
+                return DatabaseContract.DiaryEntry.CONTENT_ITEM_TYPE;
             case FOOD:
                 return DatabaseContract.FoodEntry.CONTENT_TYPE;
             case FOOD_WITH_NDBNO:
@@ -189,6 +193,31 @@ public class SelfImageContentProvider extends ContentProvider {
                 selectionArgs = createSelectionArgs(selectionArgs,
                         String.valueOf(startDate),
                         String.valueOf(category));
+
+                retCursor = sMealsByDateQueryBuilder.query(mOpenHelper.getReadableDatabase(),
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
+                break;
+            }
+            case DIARY_WITH_DATE_AND_CATEGORY_AND_NDBNO: {
+                long startDate = DatabaseContract.DiaryEntry.getStartDateFromUri(uri);
+                int category = DatabaseContract.DiaryEntry.getCategoryFromUri(uri);
+                String ndbno = DatabaseContract.DiaryEntry.getNDBNOFromUri(uri);
+
+                selection = createSelection(selection,
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL,
+                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL,
+                        DatabaseContract.DiaryEntry.ITEM_NDBNO_COL);
+
+                selectionArgs = createSelectionArgs(selectionArgs,
+                        String.valueOf(startDate),
+                        String.valueOf(category),
+                        String.valueOf(ndbno));
 
                 retCursor = sMealsByDateQueryBuilder.query(mOpenHelper.getReadableDatabase(),
                         projection,

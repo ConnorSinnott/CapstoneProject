@@ -22,16 +22,17 @@
             android:id="@+id/activity_main_prompt_bar"
             android:layout_width="match_parent"
             android:layout_height="@android:dimen/app_icon_size"
-            android:background="#e894ff"
+            android:background="@color/needs_today"
             android:gravity="center"
-            android:text="@string/not_yet_implemented"
+            android:text="@string/no_current_image"
             android:textColor="#eeeeee"
             android:textSize="24sp"/>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/activity_main_view_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/activity_main_tab_page_indicator"
             android:layout_below="@id/activity_main_prompt_bar"
             />
 
@@ -39,28 +40,17 @@
             android:id="@+id/activity_main_tab_page_indicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/activity_main_view_pager"
+            android:layout_alignParentBottom="true"
             android:layout_marginBottom="6dp"
             />
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <FrameLayout
+        android:id="@+id/activity_main_meal_plan_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        />
 
-        <com.pluviostudios.selfimage.views.CalorieBar
-            android:id="@+id/activity_main_calorie_bar"
-            android:layout_width="match_parent"
-            android:layout_height="@android:dimen/app_icon_size"/>
-
-        <FrameLayout
-            android:id="@+id/activity_main_meal_plan_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/activity_main_calorie_bar"/>
-
-    </RelativeLayout>
 
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>

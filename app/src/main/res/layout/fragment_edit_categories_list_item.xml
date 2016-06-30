@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="4"
-        android:text="@string/not_yet_implemented"
         android:textSize="22sp"/>
 
 </LinearLayout>
