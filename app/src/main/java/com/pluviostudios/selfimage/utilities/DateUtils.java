@@ -1,7 +1,9 @@
 package com.pluviostudios.selfimage.utilities;
 
+import android.content.Context;
 import android.text.format.Time;
-import android.util.Log;
+
+import com.pluviostudios.selfimage.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -39,17 +41,15 @@ public class DateUtils {
         return date == getCurrentNormalizedDate();
     }
 
-    public static String getSpecialFormattedDate(long date) {
+    public static String getSpecialFormattedDate(Context context, long date) {
 
         date = normalizeDate(date);
         int diff = Math.round((date - getCurrentNormalizedDate()) / 86400000);
 
-        Log.d("TEST", String.valueOf(diff));
-
         if (diff == 0) {
-            return "Today";
+            return context.getString(R.string.date_today);
         } else if (diff == -1) {
-            return "Yesterday";
+            return context.getString(R.string.date_yesterday);
         } else if (diff >= -7) {
             SimpleDateFormat format = new SimpleDateFormat("EEEE");
             return format.format(date);

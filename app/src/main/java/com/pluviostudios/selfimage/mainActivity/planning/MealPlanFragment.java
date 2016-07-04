@@ -47,25 +47,31 @@ public class MealPlanFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        // If date is not passed as an extra, throw exception
         Bundle extras = getArguments();
         if (!extras.containsKey(EXTRA_DATE)) {
             throw new MissingExtraException(EXTRA_DATE);
         }
 
+        // Initialize views
         mRoot = inflater.inflate(R.layout.fragment_meal_planning, container, false);
         mFloatingActionButton = (FloatingActionButton) mRoot.findViewById(R.id.fragment_meal_planning_add_FAB);
         mRecyclerView = (RecyclerView) mRoot.findViewById(R.id.fragment_meal_planning_RecyclerView);
         mCalBar = (CalorieBar) mRoot.findViewById(R.id.fragment_meal_planning_calorie_bar);
 
+        // Get date from extras
         mDate = extras.getLong(EXTRA_DATE);
 
-        DiaryItem.getNutrientTotals(getContext(), getLoaderManager(), 1, mDate, new DiaryItemNutrientTotals.OnNutrientTotalsReceived() {
+        // Get the caloric nutritional total from all items within date's diary
+        DiaryItem.getNutrientTotals(getContext(), getLoaderManager(), 1, mDate, null, null, new DiaryItemNutrientTotals.OnNutrientTotalsReceived() {
             @Override
             public void onNutrientTotalsReceived(ArrayList<Double> totals) {
+                // Display it on the CalorieBar
                 mCalBar.setProgress((int) Math.round(totals.get(FoodItemWithDB.Calories)));
             }
         });
 
+        // FAB -> Start FoodSearchActivity with date
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +89,8 @@ public class MealPlanFragment extends Fragment {
 
     private void populateAdapter() {
 
-        DiaryItem.getDiaryItems(getContext(), getLoaderManager(), 0, mDate, new DiaryItemLoaderCallbacks.OnDiaryItemsReceived() {
+        // Get all of date's diary items and display them on the Recycler Adapter
+        DiaryItem.getDiaryItems(getContext(), getLoaderManager(), 0, mDate, null, null, new DiaryItemLoaderCallbacks.OnDiaryItemsReceived() {
             @Override
             public void onDiaryItemsReceived(ArrayList<DiaryItem> diaryItems) {
 
@@ -92,11 +99,14 @@ public class MealPlanFragment extends Fragment {
                 int currentCat = -1;
                 for (DiaryItem x : diaryItems) {
 
+                    // Create a category label for each category
                     if (currentCat < x.category) {
                         currentCat = x.category;
+
                         mList.add(new MealPlanRecyclerAdapter.LabeledRecyclerAdapterItem(x.getCategoryName(getContext())));
                     }
 
+                    // Create a view for the DiaryItem
                     mList.add(new MealPlanRecyclerAdapter.LabeledRecyclerAdapterItem(x));
 
                 }
@@ -106,6 +116,7 @@ public class MealPlanFragment extends Fragment {
 
             }
         });
+
     }
 
 }

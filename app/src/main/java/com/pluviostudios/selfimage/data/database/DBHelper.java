@@ -106,7 +106,7 @@ public class DBHelper extends SQLiteOpenHelper {
         dateItem.save(context);
 
         FoodItemWithDB foodItemEgg = new FoodItemWithDB("Egg, whole, cooked, fried", "01128");
-        foodItemEgg.putNutrientData(new ArrayList<Double>() {{
+        foodItemEgg.setNutrientData(new ArrayList<Double>() {{
             add(196.0);
             add(13.61);
             add(14.84);
@@ -118,29 +118,8 @@ public class DBHelper extends SQLiteOpenHelper {
             add(401.0);
         }});
         FoodItemWithDB foodItemMilk = new FoodItemWithDB("Milk, lowfat, fluid, 1% milkfat, with added nonfat milk solids, vitamin A and vitamin D", "01083");
-        foodItemMilk.putNutrientData(new ArrayList<Double>() {{
-            add(43.0);
-            add(3.48);
-            add(0.97);
-            add(4.97);
-            add(0.0);
-            add(0.604);
-            add(0.28);
-            add(0.036);
-            add(4.0);
-        }});
         FoodItemWithDB foodItemBagel = new FoodItemWithDB("Bagels, egg", "18003");
-        foodItemBagel.putNutrientData(new ArrayList<Double>() {{
-            add(278.0);
-            add(10.6);
-            add(2.1);
-            add(53.0);
-            add(2.3);
-            add(0.421);
-            add(0.42);
-            add(0.642);
-            add(24.0);
-        }});
+
         foodItemEgg.save(context);
         foodItemMilk.save(context);
         foodItemBagel.save(context);
@@ -150,29 +129,8 @@ public class DBHelper extends SQLiteOpenHelper {
         new DiaryItem(foodItemBagel, dateItem.date, 0, 1).save(context);
 
         FoodItemWithDB foodItemSub = new FoodItemWithDB("SUBWAY, SUBWAY CLUB sub on white bread with lettuce and tomato", "21152");
-        foodItemSub.putNutrientData(new ArrayList<Double>() {{
-            add(146.0);
-            add(10.66);
-            add(2.42);
-            add(20.36);
-            add(1.4);
-            add(0.57);
-            add(0.615);
-            add(0.844);
-            add(16.0);
-        }});
         FoodItemWithDB foodItemSprite = new FoodItemWithDB("Beverages, carbonated, SPRITE, lemon-lime, without caffeine", "14145");
-        foodItemSprite.putNutrientData(new ArrayList<Double>() {{
-            add(40.0);
-            add(0.05);
-            add(0.02);
-            add(10.14);
-            add(0.0);
-            add(0.0);
-            add(0.0);
-            add(0.0);
-            add(0.0);
-        }});
+
         foodItemSprite.save(context);
         foodItemSprite.save(context);
 
@@ -180,49 +138,16 @@ public class DBHelper extends SQLiteOpenHelper {
         new DiaryItem(foodItemSprite, dateItem.date, 2, 1).save(context);
 
         FoodItemWithDB foodItemPretzel = new FoodItemWithDB("Pretzels, soft", "43109");
-        foodItemPretzel.putNutrientData(new ArrayList<Double>() {{
-            add(338.0);
-            add(8.2);
-            add(3.1);
-            add(69.39);
-            add(1.7);
-            add(0.695);
-            add(1.071);
-            add(0.948);
-            add(0.0);
-        }});
         foodItemPretzel.save(context);
 
         new DiaryItem(foodItemPretzel, dateItem.date, 3, 2).save(context);
 
         FoodItemWithDB foodItemBeef = new FoodItemWithDB("Beef, chuck, under blade pot roast, boneless, separable lean only, trimmed to 0\" fat, all grades, cooked, braised", "13285");
-        foodItemBeef.putNutrientData(new ArrayList<Double>() {{
-            add(216.0);
-            add(30.68);
-            add(9.44);
-            add(0.0);
-            add(0.0);
-            add(3.487);
-            add(4.164);
-            add(0.52);
-            add(102.0);
-        }});
         foodItemBeef.save(context);
 
         new DiaryItem(foodItemBeef, dateItem.date, 4, 2).save(context);
 
         FoodItemWithDB foodItemIceCream = new FoodItemWithDB("Ice cream sandwich, made with light ice cream, vanilla", "01241");
-        foodItemIceCream.putNutrientData(new ArrayList<Double>() {{
-            add(186.0);
-            add(4.29);
-            add(3.04);
-            add(39.64);
-            add(0.0);
-            add(0.821);
-            add(0.942);
-            add(0.805);
-            add(7.0);
-        }});
         foodItemIceCream.save(context);
 
         new DiaryItem(foodItemIceCream, dateItem.date, 5, 1).save(context);

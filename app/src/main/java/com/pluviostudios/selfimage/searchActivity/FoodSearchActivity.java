@@ -16,12 +16,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItem;
 import com.pluviostudios.selfimage.data.dataContainers.food.FoodItemWithDB;
-import com.pluviostudios.selfimage.mainActivity.planning.FoodDetailsDialog;
+import com.pluviostudios.selfimage.detailsFragment.FoodDetailsDialog;
 import com.pluviostudios.selfimage.utilities.MissingExtraException;
 import com.pluviostudios.selfimage.utilities.NetworkUtils;
 import com.pluviostudios.usdanutritionalapi.AsyncFoodItemSearch;
@@ -33,6 +36,7 @@ import java.util.ArrayList;
  * Created by Spectre on 5/24/2016.
  */
 public class FoodSearchActivity extends AppCompatActivity {
+
 
     public static final String REFERENCE_ID = "FoodSearchActivity";
 
@@ -146,6 +150,16 @@ public class FoodSearchActivity extends AppCompatActivity {
             }
         });
 
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
+//                .addTestDevice("AC98C820A50B4AD8A2106EDE96FB87D4")  // An example device ID
+                .build();
+        mAdView.loadAd(adRequest);
+
 
     }
 
@@ -159,8 +173,11 @@ public class FoodSearchActivity extends AppCompatActivity {
 
 
     private void searchForFoodItemsWithTags(String searchString) {
-        mAdapter.clearAll();
-        FoodItemWithDB.getFoodItems(this, mOnAsyncNDBNOSearchResult, searchString);
+        searchString = searchString.trim();
+        if (searchString.length() > 0) {
+            mAdapter.clearAll();
+            FoodItemWithDB.getFoodItems(this, mOnAsyncNDBNOSearchResult, searchString);
+        }
     }
 
     private void searchForFoodItemsWithUPC(String upc) {

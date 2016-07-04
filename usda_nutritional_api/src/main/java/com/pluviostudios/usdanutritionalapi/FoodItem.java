@@ -40,21 +40,13 @@ public class FoodItem implements Serializable {
         nutrientIds.add(Cholesterol, 601);
     }
 
-    private String foodName;
-    private String foodNDBNO;
+    public String foodName;
+    public String foodNDBNO;
     private ArrayList<Double> mNutrientData = null;
 
     public FoodItem(String foodName, String foodNDBNO) {
         this.foodName = foodName;
         this.foodNDBNO = foodNDBNO;
-    }
-
-    public String getFoodName() {
-        return foodName;
-    }
-
-    public String getFoodNDBNO() {
-        return foodNDBNO;
     }
 
     public boolean hasNutrientData() {
@@ -65,7 +57,7 @@ public class FoodItem implements Serializable {
         return mNutrientData;
     }
 
-    public void putNutrientData(ArrayList<Double> data) {
+    public void setNutrientData(ArrayList<Double> data) {
         mNutrientData = data;
     }
 
@@ -110,6 +102,9 @@ public class FoodItem implements Serializable {
                 JSONObject root = new JSONObject(foodData);
                 JSONObject report = root.getJSONObject("report");
                 JSONObject food = report.getJSONObject("food");
+
+                foodName = food.getString("name");
+
                 JSONArray nutrients = food.getJSONArray("nutrients");
 
                 String debug = "    ";

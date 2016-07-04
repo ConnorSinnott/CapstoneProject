@@ -8,6 +8,11 @@
         app:showAsAction="never"/>
 
     <item
+        android:id="@+id/options_timelapse"
+        android:title="@string/timelapse"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/options_test_notify"
         android:title="Test Notification"
         app:showAsAction="never"/>

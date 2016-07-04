@@ -57,7 +57,7 @@ public class FoodSearchRecyclerAdapter extends RecyclerView.Adapter<FoodSearchRe
             }.setPosition(position));
         }
 
-        holder.name.setText(item.getFoodName());
+        holder.name.setText(item.foodName);
     }
 
 

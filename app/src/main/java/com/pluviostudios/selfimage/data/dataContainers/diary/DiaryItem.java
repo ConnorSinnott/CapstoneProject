@@ -34,13 +34,13 @@ public class DiaryItem implements Serializable {
         this.id = id;
     }
 
-    public static void getDiaryItems(Context context, LoaderManager loaderManager, int loadId, long date, DiaryItemLoaderCallbacks.OnDiaryItemsReceived onDiaryItemsReceived) {
-        DiaryItemLoaderCallbacks callbacks = new DiaryItemLoaderCallbacks(context, date, onDiaryItemsReceived);
+    public static void getDiaryItems(Context context, LoaderManager loaderManager, int loadId, long date, String selection, String[] selectionArgs, DiaryItemLoaderCallbacks.OnDiaryItemsReceived onDiaryItemsReceived) {
+        DiaryItemLoaderCallbacks callbacks = new DiaryItemLoaderCallbacks(context, date, selection, selectionArgs, onDiaryItemsReceived);
         loaderManager.initLoader(loadId, null, callbacks);
     }
 
-    public static void getNutrientTotals(Context context, LoaderManager loaderManager, int loadId, long date, DiaryItemNutrientTotals.OnNutrientTotalsReceived onNutrientTotalsReceived) {
-        DiaryItemNutrientTotals callback = new DiaryItemNutrientTotals(context, date, onNutrientTotalsReceived);
+    public static void getNutrientTotals(Context context, LoaderManager loaderManager, int loadId, long date, String selection, String[] selectionArgs, DiaryItemNutrientTotals.OnNutrientTotalsReceived onNutrientTotalsReceived) {
+        DiaryItemNutrientTotals callback = new DiaryItemNutrientTotals(context, date, selection, selectionArgs, onNutrientTotalsReceived);
         loaderManager.initLoader(loadId, null, callback);
     }
 
@@ -76,7 +76,7 @@ public class DiaryItem implements Serializable {
         } else {
             ContentValues contentValues = new ContentValues();
             contentValues.put(DatabaseContract.DiaryEntry.ITEM_DATE_COL, date);
-            contentValues.put(DatabaseContract.DiaryEntry.ITEM_NDBNO_COL, foodItem.getFoodNDBNO());
+            contentValues.put(DatabaseContract.DiaryEntry.ITEM_NDBNO_COL, foodItem.foodNDBNO);
             contentValues.put(DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL, category);
             contentValues.put(DatabaseContract.DiaryEntry.ITEM_QUANTITY_COL, quantity);
             id = DatabaseContract.DiaryEntry.getIdFromUri(
@@ -90,7 +90,7 @@ public class DiaryItem implements Serializable {
     private boolean mergeWithExisting(Context context) {
 
         Cursor c = context.getContentResolver().query(
-                DatabaseContract.DiaryEntry.buildDiaryWithStartDateAndCategoryAndNDBNO(date, foodItem.getFoodNDBNO(), category),
+                DatabaseContract.DiaryEntry.buildDiaryWithStartDateAndCategoryAndNDBNO(date, foodItem.foodNDBNO, category),
                 new String[]{
                         DatabaseContract.DiaryEntry.TABLE_NAME + "." + DatabaseContract.DiaryEntry._ID,
                         DatabaseContract.DiaryEntry.ITEM_QUANTITY_COL},

@@ -49,6 +49,10 @@
     <string name="polyunsaturated_fats">Polyunsaturated Fats</string>
     <string name="cholesterol">Cholesterol</string>
     <string name="save">Save</string>
+    <string name="timelapse">TimeLapse</string>
+    <string name="subtract">-</string>
+    <string name="add">+</string>
+    <string name="scan">Scan</string>
 
 
 </resources>

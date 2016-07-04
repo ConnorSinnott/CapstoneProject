@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.mainActivity;
+package com.pluviostudios.selfimage.mainActivity.main;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

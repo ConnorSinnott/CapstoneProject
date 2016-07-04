@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItem;
 import com.pluviostudios.selfimage.data.dataContainers.food.FoodItemWithDB;
+import com.pluviostudios.selfimage.detailsFragment.FoodDetailsDialog;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,6 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
     private static final int VIEW_TYPE_FOOD = 1;
 
     private Fragment mParent;
-
     private ArrayList<LabeledRecyclerAdapterItem> mData = new ArrayList<>();
 
     public MealPlanRecyclerAdapter(Fragment parent, ArrayList<LabeledRecyclerAdapterItem> mList) {
@@ -33,31 +33,44 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
 
     @Override
     public NamedViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        // Determine whether this is a Label or a DiaryItem
         int viewResource = (viewType == VIEW_TYPE_LABEL) ? R.layout.diary_item_label : R.layout.diary_item;
+
+        // Inflate the view
         View v = LayoutInflater.from(parent.getContext()).inflate(viewResource, parent, false);
+
+        // Create view holder
         NamedViewHolder viewHolder;
         if (viewType == VIEW_TYPE_LABEL) {
             viewHolder = new MealPlanRecyclerAdapter.NamedViewHolder.LabelViewHolder(v);
         } else {
             viewHolder = new NamedViewHolder.DiaryItemViewHolder(v);
         }
+
         return viewHolder;
+
     }
 
     @Override
     public void onBindViewHolder(NamedViewHolder holder, int position) {
         if (getItemViewType(position) == VIEW_TYPE_LABEL) {
+
+            // Display the label name
             holder.textName.setText(mData.get(position).getLabel());
+
         } else {
 
+            // Get diary and food item for this position
             DiaryItem diaryItem = mData.get(position).getDiaryItem();
-            final FoodItemWithDB foodItem = diaryItem.foodItem;
+            FoodItemWithDB foodItem = diaryItem.foodItem;
 
             NamedViewHolder.DiaryItemViewHolder diaryItemVH = (NamedViewHolder.DiaryItemViewHolder) holder;
 
             // Set Name
-            diaryItemVH.textName.setText(foodItem.getFoodName() + " x" + diaryItem.quantity);
+            diaryItemVH.textName.setText(foodItem.foodName + " x" + diaryItem.quantity);
 
+            // Make a request for nutritional data for this food item
             foodItem.getNutrientDataWithDB(mParent.getContext(), new FoodItemWithDB.OnDataPulledWithDB() {
 
                 NamedViewHolder.DiaryItemViewHolder vh;
@@ -71,12 +84,14 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
 
                 @Override
                 public void onDataPulled(FoodItemWithDB foodItemWithDB) {
+                    // Display the food item's calories
                     int calories = (int) Math.round(foodItemWithDB.getNutrientData().get(FoodItemWithDB.Calories)) * diaryItem.quantity;
                     vh.textCalories.setText(mParent.getString(R.string.calorie_view, calories));
                 }
 
             }.setData(diaryItemVH, diaryItem));
 
+            // ButtonEdit -> Show food detail dialog
             diaryItemVH.buttonEdit.setOnClickListener(new OnClickListenerWithDiaryItem() {
                 @Override
                 public void onClick(View v) {
@@ -92,6 +107,7 @@ public class MealPlanRecyclerAdapter extends RecyclerView.Adapter<MealPlanRecycl
                 }
             }.setItem(diaryItem));
 
+            // ButtonDelete -> Delete diary item from database
             diaryItemVH.buttonDelete.setOnClickListener(new OnClickListenerWithDiaryItem() {
 
                 @Override

@@ -19,10 +19,14 @@ public class DiaryItemLoaderCallbacks implements LoaderManager.LoaderCallbacks<C
 
     protected Context mContext;
     protected long mDate;
+    protected String mSelection;
+    protected String[] mSelectionArgs;
     protected OnDiaryItemsReceived mOnDiaryItemsReceived;
 
-    public DiaryItemLoaderCallbacks(Context context, long date, OnDiaryItemsReceived onDiaryItemsReceived) {
+    public DiaryItemLoaderCallbacks(Context context, long date, String selection, String[] selectionArgs, OnDiaryItemsReceived onDiaryItemsReceived) {
         mDate = date;
+        mSelection = selection;
+        mSelectionArgs = selectionArgs;
         mOnDiaryItemsReceived = onDiaryItemsReceived;
         mContext = context;
     }

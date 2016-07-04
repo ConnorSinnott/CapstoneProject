@@ -41,7 +41,6 @@ public class CalorieBar extends View {
         mProgress = progress;
         invalidate();
         requestLayout();
-
     }
 
 
@@ -62,7 +61,7 @@ public class CalorieBar extends View {
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setColor(getResources().getColor(R.color.calbar_textColor));
 
-        mTextPaint.setTextSize(60);
+        mTextPaint.setTextSize(50);
         mTextHeight = mTextPaint.getTextSize();
 
     }
@@ -71,9 +70,11 @@ public class CalorieBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        int max = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(getContext()).getString(
-                getContext().getString(R.string.pref_cal_quota_key),
-                getContext().getString(R.string.pref_cal_quota_default)));
+        int max = Integer.parseInt(
+                PreferenceManager.getDefaultSharedPreferences(getContext()).getString(
+                        getContext().getString(R.string.pref_cal_quota_key),
+                        getContext().getString(R.string.pref_cal_quota_default)));
+
         float progressX = (getRight() - getLeft()) * (Math.min((mProgress / max), max));
         String text = getContext().getString(R.string.calorie_string) + ": " +
                 Math.round(mProgress) + "/" + Math.round(max);

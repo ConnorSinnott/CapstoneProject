@@ -30,12 +30,12 @@ public class DateItem implements Serializable {
         return img_dir != null;
     }
 
-    public static void getDateItems(Context context, LoaderManager manager, int loadId, DateItemLoaderCallbacks.OnDateItemsReceived onDateItemsReceived) {
-        DateItemLoaderCallbacks callbacks = new DateItemLoaderCallbacks(context, onDateItemsReceived);
+    public static void getDateItems(Context context, LoaderManager manager, int loadId, String selection, String[] selectionArgs, DateItemLoaderCallbacks.OnDateItemsReceived onDateItemsReceived) {
+        DateItemLoaderCallbacks callbacks = new DateItemLoaderCallbacks(context, selection, selectionArgs, onDateItemsReceived);
         manager.initLoader(loadId, null, callbacks);
     }
 
-    public static void getDateItemsWithDate(Context context, LoaderManager manager, int loadId, long date, DateItemLoaderCallbacks.OnDateItemsReceived onDateItemsReceived) {
+    public static void getDateItemOfDate(Context context, LoaderManager manager, int loadId, long date, DateItemLoaderCallbacks.OnDateItemsReceived onDateItemsReceived) {
         DateItemLoaderCallbacksWithDate callbacks = new DateItemLoaderCallbacksWithDate(context, date, onDateItemsReceived);
         manager.initLoader(loadId, null, callbacks);
     }

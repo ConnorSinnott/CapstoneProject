@@ -18,10 +18,14 @@ public class DateItemLoaderCallbacks implements LoaderManager.LoaderCallbacks<Cu
 
     protected Context mContext;
     protected OnDateItemsReceived mOnDateItemsReceived;
+    protected String selection;
+    protected String[] selectionArgs;
 
-    public DateItemLoaderCallbacks(Context context, OnDateItemsReceived onDateItemsReceived) {
+    public DateItemLoaderCallbacks(Context context, String selection, String[] selectionArgs, OnDateItemsReceived onDateItemsReceived) {
         mContext = context;
         mOnDateItemsReceived = onDateItemsReceived;
+        this.selection = selection;
+        this.selectionArgs = selectionArgs;
     }
 
     protected final String[] projection = new String[]{
@@ -35,8 +39,8 @@ public class DateItemLoaderCallbacks implements LoaderManager.LoaderCallbacks<Cu
         return new CursorLoader(mContext,
                 DatabaseContract.DateEntry.CONTENT_URI,
                 projection,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 null
         );
     }
@@ -62,7 +66,7 @@ public class DateItemLoaderCallbacks implements LoaderManager.LoaderCallbacks<Cu
 
             } while (data.moveToNext());
         }
-        mOnDateItemsReceived.onDateItemsRecieved(list);
+        mOnDateItemsReceived.onDateItemsReceived(list);
 
     }
 
@@ -72,7 +76,7 @@ public class DateItemLoaderCallbacks implements LoaderManager.LoaderCallbacks<Cu
     }
 
     public interface OnDateItemsReceived {
-        void onDateItemsRecieved(ArrayList<DateItem> dateItems);
+        void onDateItemsReceived(ArrayList<DateItem> dateItems);
     }
 
 }

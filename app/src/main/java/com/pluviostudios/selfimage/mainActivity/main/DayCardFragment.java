@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.mainActivity;
+package com.pluviostudios.selfimage.mainActivity.main;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -57,7 +57,7 @@ public class DayCardFragment extends Fragment {
         } else if ((todayDate - 86400000) == date) {
             dateString = getString(R.string.date_yesterday);
         } else {
-            dateString = DateUtils.getSpecialFormattedDate(date);
+            dateString = DateUtils.getSpecialFormattedDate(getContext(), date);
         }
 
         textView.setText(dateString);

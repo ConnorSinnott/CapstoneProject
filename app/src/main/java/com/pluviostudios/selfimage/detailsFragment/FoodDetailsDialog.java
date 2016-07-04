@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.mainActivity.planning;
+package com.pluviostudios.selfimage.detailsFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -102,7 +102,7 @@ public class FoodDetailsDialog extends DialogFragment {
         init();
 
         // Set Name
-        textName.setText(mDiaryItem.foodItem.getFoodName());
+        textName.setText(mDiaryItem.foodItem.foodName);
 
         // Set Quantity
         updateQuantityUI(mQuantity);

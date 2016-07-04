@@ -16,7 +16,7 @@ public class DateItemLoaderCallbacksWithDate extends DateItemLoaderCallbacks {
     long mDate;
 
     public DateItemLoaderCallbacksWithDate(Context context, long date, OnDateItemsReceived onDateItemsReceived) {
-        super(context, onDateItemsReceived);
+        super(context, null, null, onDateItemsReceived);
         mDate = date;
     }
 
@@ -26,8 +26,8 @@ public class DateItemLoaderCallbacksWithDate extends DateItemLoaderCallbacks {
                 mContext,
                 DatabaseContract.DateEntry.buildDateWithStartDate(mDate),
                 projection,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 null);
     }
 

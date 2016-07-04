@@ -20,7 +20,7 @@
             android:id="@+id/dialog_food_details_subtract"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:text="-"/>
+            android:text="@string/subtract"/>
 
         <EditText
             android:id="@+id/dialog_food_details_count"
@@ -32,7 +32,7 @@
             android:id="@+id/dialog_food_details_add"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:text="+"/>
+            android:text="@string/add"/>
 
     </LinearLayout>
 

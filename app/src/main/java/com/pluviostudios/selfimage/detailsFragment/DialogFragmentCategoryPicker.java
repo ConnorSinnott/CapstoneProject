@@ -1,4 +1,4 @@
-package com.pluviostudios.selfimage.mainActivity.planning;
+package com.pluviostudios.selfimage.detailsFragment;
 
 import android.content.Context;
 import android.content.Intent;

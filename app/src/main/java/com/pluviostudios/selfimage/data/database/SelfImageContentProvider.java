@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 /**
  * Created by Spectre on 5/11/2016.
@@ -134,7 +135,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 long startDate = DatabaseContract.DateEntry.getStartDateFromUri(uri);
 
                 selection = createSelection(selection,
-                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL);
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL + " = ?");
 
                 selectionArgs = createSelectionArgs(selectionArgs,
                         String.valueOf(startDate));
@@ -167,7 +168,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 long startDate = DatabaseContract.DiaryEntry.getStartDateFromUri(uri);
 
                 selection = createSelection(selection,
-                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL);
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL + " = ?");
 
                 selectionArgs = createSelectionArgs(selectionArgs,
                         String.valueOf(startDate));
@@ -187,8 +188,8 @@ public class SelfImageContentProvider extends ContentProvider {
                 int category = DatabaseContract.DiaryEntry.getCategoryFromUri(uri);
 
                 selection = createSelection(selection,
-                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL,
-                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL);
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL + " = ?",
+                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + " = ?");
 
                 selectionArgs = createSelectionArgs(selectionArgs,
                         String.valueOf(startDate),
@@ -210,9 +211,9 @@ public class SelfImageContentProvider extends ContentProvider {
                 String ndbno = DatabaseContract.DiaryEntry.getNDBNOFromUri(uri);
 
                 selection = createSelection(selection,
-                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL,
-                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL,
-                        DatabaseContract.DiaryEntry.ITEM_NDBNO_COL);
+                        DatabaseContract.DateEntry.TABLE_NAME + "." + DatabaseContract.DateEntry.DATE_COL + " = ?",
+                        DatabaseContract.DiaryEntry.ITEM_CATEGORY_COL + " = ?",
+                        DatabaseContract.DiaryEntry.ITEM_NDBNO_COL + " = ?");
 
                 selectionArgs = createSelectionArgs(selectionArgs,
                         String.valueOf(startDate),
@@ -245,7 +246,7 @@ public class SelfImageContentProvider extends ContentProvider {
 
                 int category = DatabaseContract.CategoryEntry.getIndexFromUri(uri);
 
-                selection = createSelection(null, DatabaseContract.CategoryEntry.CATEGORY_INDEX_COL);
+                selection = createSelection(null, DatabaseContract.CategoryEntry.CATEGORY_INDEX_COL + " = ?");
 
                 selectionArgs = createSelectionArgs(null, String.valueOf(category));
 
@@ -276,7 +277,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 String ndbno = DatabaseContract.FoodEntry.getNDBNOFromUri(uri);
 
                 selection = createSelection(selection,
-                        DatabaseContract.FoodEntry.ITEM_NDBNO_COL);
+                        DatabaseContract.FoodEntry.ITEM_NDBNO_COL + " = ?");
 
                 selectionArgs = createSelectionArgs(selectionArgs,
                         ndbno);
@@ -404,7 +405,7 @@ public class SelfImageContentProvider extends ContentProvider {
                 String ndbno = DatabaseContract.FoodEntry.getNDBNOFromUri(uri);
 
                 selection = createSelection(selection,
-                        DatabaseContract.FoodEntry.ITEM_NDBNO_COL);
+                        DatabaseContract.FoodEntry.ITEM_NDBNO_COL + " = ?");
 
                 selectionArgs = createSelectionArgs(selectionArgs,
                         ndbno);
@@ -440,20 +441,33 @@ public class SelfImageContentProvider extends ContentProvider {
 
         String[] selectionArray;
         if (passedSelection != null) {
+
+            Log.d(REFERENCE_ID, passedSelection);
+
             if (additionalSelection != null) {
+
+                for(String x : additionalSelection) {
+                    Log.d(REFERENCE_ID, x);
+                }
+
                 selectionArray = new String[additionalSelection.length + 1];
                 selectionArray[0] = passedSelection;
                 System.arraycopy(additionalSelection, 0, selectionArray, 1, additionalSelection.length);
-            } else return passedSelection;
+            } else
+                return passedSelection;
         } else {
             selectionArray = additionalSelection;
         }
 
         String out = "";
 
+        for(String x : selectionArray) {
+            Log.d(REFERENCE_ID, "ARRAY: " + x);
+        }
+
         for (int i = 0; i < selectionArray.length; i++) {
-            String curr = additionalSelection[i];
-            out += curr + " = ? ";
+            String curr = selectionArray[i];
+            out += curr;
             if (i < selectionArray.length - 1) {
                 out += " AND ";
             }
