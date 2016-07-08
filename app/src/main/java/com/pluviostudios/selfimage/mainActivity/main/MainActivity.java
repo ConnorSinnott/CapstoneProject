@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
     protected void setDayData(ArrayList<DateItem> dateItems) {
 
         // If the database has no DateItems, assume this is the first launch
-        // Todo Remove for production
         if (dateItems.size() == 0) {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_info)

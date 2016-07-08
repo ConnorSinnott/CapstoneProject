@@ -21,82 +21,99 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="022bb94f-23ef-42fb-aa1c-ccb33025b8d0" name="Default" comment="About to submit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_auth_common_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_auth_module_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_config_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_core_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_crash_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_database_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_database_connection_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_messaging_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_storage_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_storage_common_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mediarouter_v7_23_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_impl_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_appindexing_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_appinvite_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_auth_base_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_base_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_cast_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_cast_framework_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_clearcut_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_contextmanager_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_fitness_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_games_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_gass_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_gcm_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_identity_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_iid_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_location_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_maps_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_nearby_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_panorama_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_places_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_plus_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_safetynet_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_tagmanager_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_tagmanager_api_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_tasks_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_vision_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_wearable_9_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/GoogleSignInHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_analytics_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_analytics_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_analytics_impl_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_analytics_impl_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_common_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_common_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_core_9_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_auth_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_iid_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/firebase_iid_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_ads_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_ads_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_ads_lite_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_ads_lite_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_base_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_auth_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_basement_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_basement_9_2_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_tasks_9_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_drive_9_2_0.xml" />
+    <list default="true" id="022bb94f-23ef-42fb-aa1c-ccb33025b8d0" name="Default" comment="Added zxing-android-embedded">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/raw/zxing_beep.ogg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-ar/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-bg/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-ca/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-cs/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-da/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-de/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-el/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-es/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-eu/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-fi/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-fr/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-he/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-hi/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-hu/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-id/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-it/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-iw" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-ja/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-ko/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-nl/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-pl/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-pt/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-ro/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-ru/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-sk/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-sl/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-sv/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-th/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-tr/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-uk/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-zh-rCN/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-zh-rHK" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values-zh-rTW/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res-orig/values/zxing_strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res/layout/zxing_barcode_scanner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res/layout/zxing_capture.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res/values-v11/zxing_themes.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res/values/zxing_attrs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res/values/zxing_colors.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res/values/zxing_ids.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/res/values/zxing_themes.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/AmbientLightManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/BeepManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/DecodeFormatManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/DecodeHintManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/InactivityTimer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/Intents.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/camera/CameraConfigurationUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/camera/open/OpenCameraInterface.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/integration/android/IntentIntegrator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/integration/android/IntentResult.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/BarcodeCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/BarcodeEncoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/BarcodeResult.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/BarcodeView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/CameraPreview.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/CaptureActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/CaptureManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/CompoundBarcodeView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/Decoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/DecoderFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/DecoderResultPointCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/DecoderThread.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/DecoratedBarcodeView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/DefaultDecoderFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/RotationCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/RotationListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/Size.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/SourceData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/Util.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/ViewfinderView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/AutoFocusManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/CameraInstance.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/CameraManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/CameraSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/CameraSurface.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/CameraThread.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/CenterCropStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/DisplayConfiguration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/FitCenterStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/FitXYStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/LegacyPreviewScalingStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/PreviewCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/journeyapps/barcodescanner/camera/PreviewScalingStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/test/java/com/journeyapps/barcodescanner/SizeTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/test/java/com/journeyapps/barcodescanner/camera/CenterCropStrategyTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/test/java/com/journeyapps/barcodescanner/camera/FitCenterStrategyTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/test/java/com/journeyapps/barcodescanner/camera/FitXYStrategyTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/DBHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/DBHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/SelfImageContentProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/SelfImageContentProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/CameraHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/CameraHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/notification/DailyNotification.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/notification/DailyNotification.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/timelapseActivity/TimelapseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/timelapseActivity/TimelapseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/SettingsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/utilities/SettingsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_timelapse.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_timelapse.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_day_card.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_day_card.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_food_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_food_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meal_planning.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meal_planning.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <ignored path="CapstoneProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -238,6 +255,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Intents.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/Intents.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.0500864">
+              <caret line="174" column="105" selection-start-line="174" selection-start-column="83" selection-end-line="174" selection-end-column="105" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -268,31 +305,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_keys.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="api_keys.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/api_keys.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.053859964">
+            <state vertical-scroll-proportion="-1.25">
               <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="5" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0192308">
-              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimelapseActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/timelapseActivity/TimelapseActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -5105,12 +5122,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/data/database/DBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/timelapseActivity/TimelapseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_timelapse.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/notification/DailyNotification.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_food_search.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/api_keys.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -5260,14 +5277,8 @@
               <option name="myItemId" value="CapstoneProject" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="zxing-android-embedded" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -5275,8 +5286,12 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zxing_themes.xml" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -5285,7 +5300,29 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="zxing-android-embedded" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zxing_strings.xml" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CapstoneProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zxing-android-embedded" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -5303,12 +5340,16 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="zxing-android-embedded" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raw" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -5317,7 +5358,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="zxing-android-embedded" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -5335,7 +5376,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="zxing-android-embedded" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -5349,7 +5390,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="zxing-android-embedded" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -5357,11 +5398,29 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CapstoneProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zxing-android-embedded" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="widget" />
+              <option name="myItemId" value="zxing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -5371,7 +5430,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="zxing-android-embedded" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -5379,11 +5438,15 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
+              <option name="myItemId" value="com" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="zxing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -5393,290 +5456,28 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utilities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timelapseActivity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="searchActivity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mainActivity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="planning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mainActivity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="detailsFragment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataContainers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="food" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataContainers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diary" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataContainers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="date" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="selfimage" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CapstoneProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="zxing-android-embedded" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="manifests" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CapstoneProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CapstoneProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -6063,15 +5864,30 @@
       <option name="project" value="LOCAL" />
       <updated>1467660329449</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="About to submit">
+      <created>1468010014384</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1468010014384</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="1105" width="1922" height="1055" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32745314" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32745314" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16145833" sideWeight="0.37634408" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -6086,8 +5902,9 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16115262" sideWeight="0.6236559" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.49344262" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5065574" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23283261" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -6097,7 +5914,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -6117,7 +5933,8 @@
     <MESSAGE value="AppWidget is functional" />
     <MESSAGE value="Working on Google SignIn" />
     <MESSAGE value="About to submit" />
-    <option name="LAST_COMMIT_MESSAGE" value="About to submit" />
+    <MESSAGE value="Added zxing-android-embedded" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added zxing-android-embedded" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6126,13 +5943,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/DayCardFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/usda_nutritional_api/src/main/java/com/pluviostudios/usdanutritionalapi/FoodItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -6464,17 +6274,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
-          <folding>
-            <element signature="e#4631#4879#0" expanded="true" />
-            <element signature="e#4878#4879#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/timelapseActivity/TimelapseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -6552,8 +6351,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/api_keys.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.053859964">
+        <state vertical-scroll-proportion="-1.25">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="5" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pluviostudios/selfimage/mainActivity/main/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/libs/zxing-android-embedded-master/zxing-android-embedded/src/com/google/zxing/client/android/Intents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0500864">
+          <caret line="174" column="105" selection-start-line="174" selection-start-column="83" selection-end-line="174" selection-end-column="105" />
           <folding />
         </state>
       </provider>
