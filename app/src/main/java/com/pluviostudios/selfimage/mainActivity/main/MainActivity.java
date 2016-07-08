@@ -2,8 +2,8 @@ package com.pluviostudios.selfimage.mainActivity.main;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -14,16 +14,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.dataContainers.date.DateItem;
 import com.pluviostudios.selfimage.data.dataContainers.date.DateItemLoaderCallbacks;
 import com.pluviostudios.selfimage.data.database.DBHelper;
+import com.pluviostudios.selfimage.data.database.DatabaseContract;
 import com.pluviostudios.selfimage.mainActivity.planning.MealPlanFragment;
 import com.pluviostudios.selfimage.notification.DailyNotification;
 import com.pluviostudios.selfimage.timelapseActivity.TimelapseActivity;
 import com.pluviostudios.selfimage.utilities.DateUtils;
+import com.pluviostudios.selfimage.utilities.GoogleSignInHandler;
 import com.pluviostudios.selfimage.utilities.SettingsActivity;
 import com.pluviostudios.selfimage.widget.CalBarProvider;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -89,7 +92,8 @@ public class MainActivity extends AppCompatActivity {
         if (dateItems.size() == 0) {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_info)
-                    .setMessage("Hello Tester! The database is empty. Would you like to add dummy data?")
+                    .setMessage("Hello! SelfImage is an app that relies on daily use, and many features will not be available until at least two days are logged. " +
+                            "For development purposes, dummy data can be inserted. Would you like to use the dummy data?")
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -102,9 +106,11 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             addNewDay();
                         }
-                    }).show();
+                    }).setCancelable(false).show();
             return;
         }
+
+        invalidateOptionsMenu();
 
         mDateItems = dateItems;
         mCurrentDateItem = mDateItems.get(dateItems.size() - 1);
@@ -180,21 +186,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-
-            // CameraHandler will request permissions if they are required. Try again upon result.
-            case CameraHandler.CAMERA_ACTIVITY_REQUEST_CODE: {
-
-                mCameraHandler.takeCameraImage(this);
-                break;
-
-            }
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
 
@@ -210,6 +201,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             }
+
+            case GoogleSignInHandler.GOOGLE_SIGN_IN_REQUEST_CODE: {
+                GoogleSignInHandler.onActivityResult(requestCode, resultCode, data);
+                break;
+            }
+
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -218,6 +215,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
+
+        Cursor c = getContentResolver().query(
+                DatabaseContract.DateEntry.CONTENT_URI,
+                new String[]{DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL},
+                DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL + " IS NOT NULL ",
+                null,
+                null
+        );
+        if (c != null) {
+            if (c.getCount() > 1) {
+                menu.findItem(R.id.options_timelapse).setEnabled(true);
+            }
+            c.close();
+        }
+
         return true;
     }
 
@@ -229,30 +241,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             }
-//            case R.id.options_timelapse: {
-//                mInterstitialAd = new InterstitialAd(this);
-//                mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-//                mInterstitialAd.setAdListener(new AdListener() {
-//
-//                    @Override
-//                    public void onAdLoaded() {
-//                        mInterstitialAd.show();
-//                    }
-//
-//                    @Override
-//                    public void onAdClosed() {
-//                        Intent intent = new Intent(getApplicationContext(), TimelapseActivity.class);
-//                        startActivity(intent);
-//                    }
-//                });
-//
-//                requestNewInterstitial();
-//                break;
-//
-//            }
             case R.id.options_timelapse: {
-                Intent intent = new Intent(getApplicationContext(), TimelapseActivity.class);
-                startActivity(intent);
+                mInterstitialAd = new InterstitialAd(this);
+                mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+                mInterstitialAd.setAdListener(new AdListener() {
+
+                    @Override
+                    public void onAdLoaded() {
+                        mInterstitialAd.show();
+                    }
+
+                    @Override
+                    public void onAdClosed() {
+                        Intent intent = new Intent(getApplicationContext(), TimelapseActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                requestNewInterstitial();
+                break;
+
             }
             case R.id.options_test_notify: {
                 Snackbar.make(mSlidingUpPanelLayout, "Sending notification in 10 seconds", Snackbar.LENGTH_SHORT).show();

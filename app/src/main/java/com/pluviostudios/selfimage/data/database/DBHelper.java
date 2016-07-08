@@ -4,11 +4,20 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
 
+import com.pluviostudios.selfimage.R;
 import com.pluviostudios.selfimage.data.dataContainers.date.DateItem;
 import com.pluviostudios.selfimage.data.dataContainers.diary.DiaryItem;
 import com.pluviostudios.selfimage.data.dataContainers.food.FoodItemWithDB;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -102,7 +111,28 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static void addDummyData(Context context) {
 
-        DateItem dateItem = new DateItem(1467010800000L, null);
+        String imageFileName = "SelfImg_Debug";
+        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        Bitmap bm = BitmapFactory.decodeResource(context.getResources(), R.drawable.fitstick);
+        File image = new File(storageDir + "/" + imageFileName + ".jpg");
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(image);
+            bm.compress(Bitmap.CompressFormat.JPEG, 10, fos);
+            fos.close();
+        } catch (IOException e) {
+            Log.e("app", e.getMessage());
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }
+        Uri storageUri = Uri.fromFile(image);
+
+        DateItem dateItem = new DateItem(1467010800000L, storageUri.toString());
         dateItem.save(context);
 
         FoodItemWithDB foodItemEgg = new FoodItemWithDB("Egg, whole, cooked, fried", "01128");
@@ -118,8 +148,29 @@ public class DBHelper extends SQLiteOpenHelper {
             add(401.0);
         }});
         FoodItemWithDB foodItemMilk = new FoodItemWithDB("Milk, lowfat, fluid, 1% milkfat, with added nonfat milk solids, vitamin A and vitamin D", "01083");
+        foodItemMilk.setNutrientData(new ArrayList<Double>() {{
+            add(43.0);
+            add(3.48);
+            add(0.97);
+            add(4.97);
+            add(0.0);
+            add(0.604);
+            add(0.28);
+            add(0.036);
+            add(4.0);
+        }});
         FoodItemWithDB foodItemBagel = new FoodItemWithDB("Bagels, egg", "18003");
-
+        foodItemBagel.setNutrientData(new ArrayList<Double>() {{
+            add(278.0);
+            add(10.6);
+            add(2.1);
+            add(53.0);
+            add(2.3);
+            add(0.421);
+            add(0.42);
+            add(0.642);
+            add(24.0);
+        }});
         foodItemEgg.save(context);
         foodItemMilk.save(context);
         foodItemBagel.save(context);
@@ -129,8 +180,29 @@ public class DBHelper extends SQLiteOpenHelper {
         new DiaryItem(foodItemBagel, dateItem.date, 0, 1).save(context);
 
         FoodItemWithDB foodItemSub = new FoodItemWithDB("SUBWAY, SUBWAY CLUB sub on white bread with lettuce and tomato", "21152");
+        foodItemSub.setNutrientData(new ArrayList<Double>() {{
+            add(146.0);
+            add(10.66);
+            add(2.42);
+            add(20.36);
+            add(1.4);
+            add(0.57);
+            add(0.615);
+            add(0.844);
+            add(16.0);
+        }});
         FoodItemWithDB foodItemSprite = new FoodItemWithDB("Beverages, carbonated, SPRITE, lemon-lime, without caffeine", "14145");
-
+        foodItemSprite.setNutrientData(new ArrayList<Double>() {{
+            add(40.0);
+            add(0.05);
+            add(0.02);
+            add(10.14);
+            add(0.0);
+            add(0.0);
+            add(0.0);
+            add(0.0);
+            add(0.0);
+        }});
         foodItemSprite.save(context);
         foodItemSprite.save(context);
 
@@ -138,16 +210,49 @@ public class DBHelper extends SQLiteOpenHelper {
         new DiaryItem(foodItemSprite, dateItem.date, 2, 1).save(context);
 
         FoodItemWithDB foodItemPretzel = new FoodItemWithDB("Pretzels, soft", "43109");
+        foodItemPretzel.setNutrientData(new ArrayList<Double>() {{
+            add(338.0);
+            add(8.2);
+            add(3.1);
+            add(69.39);
+            add(1.7);
+            add(0.695);
+            add(1.071);
+            add(0.948);
+            add(0.0);
+        }});
         foodItemPretzel.save(context);
 
         new DiaryItem(foodItemPretzel, dateItem.date, 3, 2).save(context);
 
         FoodItemWithDB foodItemBeef = new FoodItemWithDB("Beef, chuck, under blade pot roast, boneless, separable lean only, trimmed to 0\" fat, all grades, cooked, braised", "13285");
+        foodItemBeef.setNutrientData(new ArrayList<Double>() {{
+            add(216.0);
+            add(30.68);
+            add(9.44);
+            add(0.0);
+            add(0.0);
+            add(3.487);
+            add(4.164);
+            add(0.52);
+            add(102.0);
+        }});
         foodItemBeef.save(context);
 
         new DiaryItem(foodItemBeef, dateItem.date, 4, 2).save(context);
 
         FoodItemWithDB foodItemIceCream = new FoodItemWithDB("Ice cream sandwich, made with light ice cream, vanilla", "01241");
+        foodItemIceCream.setNutrientData(new ArrayList<Double>() {{
+            add(186.0);
+            add(4.29);
+            add(3.04);
+            add(39.64);
+            add(0.0);
+            add(0.821);
+            add(0.942);
+            add(0.805);
+            add(7.0);
+        }});
         foodItemIceCream.save(context);
 
         new DiaryItem(foodItemIceCream, dateItem.date, 5, 1).save(context);

@@ -3,6 +3,7 @@ package com.pluviostudios.selfimage.utilities;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -11,9 +12,11 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.pluviostudios.selfimage.R;
 
 import java.util.List;
@@ -30,6 +33,9 @@ import java.util.List;
  * API Guide</a> for more information on developing a Settings UI.
  */
 public class SettingsActivity extends AppCompatPreferenceActivity {
+
+    public static final String REFERENCE_ID = "SettingsActivity";
+
     /**
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
@@ -54,32 +60,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             } else if (preference instanceof SwitchPreference) {
                 SwitchPreference switchPreference = (SwitchPreference) preference;
                 boolean bool = switchPreference.isChecked();
-            }
-
-//            else if (preference instanceof RingtonePreference) {
-//                // For ringtone preferences, look up the correct display value
-//                // using RingtoneManager.
-//                if (TextUtils.isEmpty(stringValue)) {
-//                    // Empty values correspond to 'silent' (no ringtone).
-//                    preference.setSummary(R.string.pref_ringtone_silent);
-//
-//                } else {
-//                    Ringtone ringtone = RingtoneManager.getRingtone(
-//                            preference.getContext(), Uri.parse(stringValue));
-//
-//                    if (ringtone == null) {
-//                        // Clear the summary if there was a lookup error.
-//                        preference.setSummary(null);
-//                    } else {
-//                        // Set the summary to reflect the new ringtone display
-//                        // name.
-//                        String name = ringtone.getTitle(preference.getContext());
-//                        preference.setSummary(name);
-//                    }
-//                }
-//            }
-
-            else {
+            } else {
                 // For all other preferences, set the summary to the value's
                 // simple string representation.
                 preference.setSummary(stringValue);
@@ -162,6 +143,40 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             // updated to reflect the new value, per the Android Design
             // guidelines.
             bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_display_name_key)));
+            Preference button = findPreference(getString(R.string.pref_personalize_with_google_key));
+            button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+
+                    // Personalize With Google Button
+                    GoogleSignInHandler.setOnSignInComplete(new GoogleSignInHandler.OnSignInComplete() {
+                        @Override
+                        public void onSignInComplete(GoogleSignInAccount googleSignInAccount) {
+
+                            if (googleSignInAccount == null) {
+                                Snackbar.make(getView(), R.string.Google_Sign_In_Failure, Snackbar.LENGTH_LONG).show();
+                            } else {
+
+                                // Update values
+                                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+                                editor.putString(getContext().getString(R.string.pref_display_name_key), googleSignInAccount.getGivenName());
+                                editor.apply();
+
+                                // Update any immediately visible summaries
+                                findPreference(getString(R.string.pref_display_name_key)).setSummary(googleSignInAccount.getGivenName());
+
+                                Snackbar.make(getView(), R.string.Google_Sign_In_Success, Snackbar.LENGTH_LONG).show();
+
+                            }
+
+                        }
+                    });
+
+                    GoogleSignInHandler.signIn(getActivity());
+
+                    return false;
+                }
+            });
         }
 
         @Override
@@ -197,6 +212,16 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             }
             return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case GoogleSignInHandler.GOOGLE_SIGN_IN_REQUEST_CODE:
+                GoogleSignInHandler.onActivityResult(requestCode, resultCode, data);
+                break;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

@@ -1,5 +1,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <Preference
+        android:key="@string/pref_personalize_with_google_key"
+        android:title="@string/pref_personalize_with_google"/>
+
     <EditTextPreference
         android:capitalize="words"
         android:inputType="textCapWords"

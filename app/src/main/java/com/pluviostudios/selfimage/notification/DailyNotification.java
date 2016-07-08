@@ -77,9 +77,11 @@ public class DailyNotification extends BroadcastReceiver
 
     public static void pushNotification(Context context) {
 
+        // Get displayName from preferences
         String displayName = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_display_name_key), null);
-        displayName = displayName == null ? "" : " " + displayName;
+        displayName = (displayName == null ? "" : " " + displayName);
 
+        // Build Notification
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
                         .setSmallIcon(R.mipmap.ic_launcher)
@@ -104,6 +106,7 @@ public class DailyNotification extends BroadcastReceiver
         NotificationManager managerCompat =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
+        // Notify
         managerCompat.notify(NOTIFICATION_ID, mBuilder.build());
 
     }
@@ -114,6 +117,7 @@ public class DailyNotification extends BroadcastReceiver
 
         mContext = context;
 
+
         long date = DateUtils.getCurrentNormalizedDate();
         if (intent.hasExtra(EXTRA_TEST)) {
             date = 0;
@@ -121,7 +125,7 @@ public class DailyNotification extends BroadcastReceiver
 
         mLoader = new CursorLoader(
                 mContext,
-                DatabaseContract.DateEntry.buildDateWithStartDate(DateUtils.getCurrentNormalizedDate()),
+                DatabaseContract.DateEntry.buildDateWithStartDate(date),
                 null,
                 null,
                 null,
@@ -134,6 +138,7 @@ public class DailyNotification extends BroadcastReceiver
 
     public void onLoadComplete(Loader<Cursor> loader, Cursor data) {
 
+        // Check if the passed date exists in database, if EXTRA_TEST, date will be 0 and it will not exist
         if (data != null && data.getCount() > 0) {
             data.moveToFirst();
             if (data.isNull(data.getColumnIndex(DatabaseContract.DateEntry.IMAGE_DIRECTORY_COL))) {

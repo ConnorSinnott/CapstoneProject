@@ -30,21 +30,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".searchActivity.FoodSearchActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".utilities.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation"/>
-
         <activity
             android:name=".timelapseActivity.TimelapseActivity"
             android:screenOrientation="portrait"/>
@@ -59,12 +55,13 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/calbar_appwidget_info"/>
         </receiver>
-
         <receiver android:name=".notification.DailyNotification"/>
+
     </application>
 
 </manifest>

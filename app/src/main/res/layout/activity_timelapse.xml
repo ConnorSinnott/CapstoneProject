@@ -7,16 +7,18 @@
     <ViewFlipper
         android:id="@+id/activity_timelapse_viewflipper"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/activity_timelapse_controls">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <TextView
-                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                />
 
             <ProgressBar
                 android:layout_width="wrap_content"
@@ -28,17 +30,49 @@
             android:id="@+id/activity_timelapse_imageview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/button"/>
+            android:contentDescription="@string/time_lapse_content_description"
+            android:scaleType="centerCrop"/>
 
     </ViewFlipper>
 
-
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
+        android:id="@id/activity_timelapse_controls"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:text="Start"/>
+        android:weightSum="6">
+
+        <Button
+            android:id="@+id/activity_timelapse_subtract"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/subtract"/>
+
+        <EditText
+            android:id="@+id/activity_timelapse_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:lines="1"
+            android:singleLine="true"/>
+
+        <Button
+            android:id="@+id/activity_timelapse_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/add"/>
+
+        <Button
+            android:id="@+id/activity_timelapse_start"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="@string/start"/>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

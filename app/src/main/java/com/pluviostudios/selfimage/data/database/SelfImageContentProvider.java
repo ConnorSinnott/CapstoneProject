@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 /**
  * Created by Spectre on 5/11/2016.
@@ -441,15 +440,7 @@ public class SelfImageContentProvider extends ContentProvider {
 
         String[] selectionArray;
         if (passedSelection != null) {
-
-            Log.d(REFERENCE_ID, passedSelection);
-
             if (additionalSelection != null) {
-
-                for(String x : additionalSelection) {
-                    Log.d(REFERENCE_ID, x);
-                }
-
                 selectionArray = new String[additionalSelection.length + 1];
                 selectionArray[0] = passedSelection;
                 System.arraycopy(additionalSelection, 0, selectionArray, 1, additionalSelection.length);
@@ -460,11 +451,6 @@ public class SelfImageContentProvider extends ContentProvider {
         }
 
         String out = "";
-
-        for(String x : selectionArray) {
-            Log.d(REFERENCE_ID, "ARRAY: " + x);
-        }
-
         for (int i = 0; i < selectionArray.length; i++) {
             String curr = selectionArray[i];
             out += curr;

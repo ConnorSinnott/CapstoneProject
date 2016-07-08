@@ -23,6 +23,8 @@
             android:layout_alignParentTop="false"
             android:layout_below="@id/fragment_meal_planning_calorie_bar"
             android:layout_gravity="center_horizontal"
+            android:paddingBottom="64dp"
+            android:clipToPadding="false"
             />
 
     </RelativeLayout>

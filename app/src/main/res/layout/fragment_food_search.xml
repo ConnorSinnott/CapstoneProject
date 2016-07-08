@@ -13,6 +13,7 @@
         android:weightSum="4">
 
         <EditText
+            android:inputType="text"
             android:id="@+id/add_food_fragment_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -36,7 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:clipToPadding="false"
+        android:paddingBottom="64dp"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -44,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
 

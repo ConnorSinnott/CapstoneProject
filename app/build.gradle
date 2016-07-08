@@ -1,20 +1,25 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'spectre'
+            keyPassword '5KOqm@!W!vGooJ'
+            storeFile file('../selfimageks.jks')
+            storePassword '5KOqm@!W!vGooJ'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion "23.0.3"
-
     repositories {
         maven {
             url "https://jitpack.io"
         }
     }
-
     defaultConfig {
         applicationId "com.pluviostudios.selfimage"
         minSdkVersion 23
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }
@@ -22,9 +27,17 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            multiDexEnabled true
+        }
+        debug {
+            signingConfig signingConfigs.config
+            multiDexEnabled true
         }
     }
-
+    dexOptions {
+        incremental false
+    }
 }
 
 dependencies {
@@ -34,12 +47,27 @@ dependencies {
     compile "com.android.support:design:${supportLibVersion}"
     compile "com.android.support:cardview-v7:${supportLibVersion}"
     compile "com.android.support:support-v4:${supportLibVersion}"
-    compile 'com.google.firebase:firebase-ads:9.0.2'
     compile project(':viewPagerIndicator')
     compile project(':zxing-android-embedded')
     compile project(':usda_nutritional_api')
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.google.android.gms:play-services-auth:9.2.0'
+    compile 'com.google.android.gms:play-services-ads:9.2.0'
+    compile 'com.google.firebase:firebase-core:9.0.2'
+    compile 'com.google.firebase:firebase-ads:9.0.2'
+    compile 'com.google.firebase:firebase-auth:9.0.2'
     compile 'com.sothree.slidinguppanel:library:3.3.0'
-
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.google.android.gms:play-services:9.2.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
+
+
+
+
+
+
+
+
+
 

@@ -38,9 +38,6 @@ public class CameraHandler {
 
     public CameraHandler(AppCompatActivity context) {
         mContext = context;
-    }
-
-    public void takeCameraImage(Activity context) {
 
         // Get permission to use the camera and access storage. Results will be rerouted from MainActivity
         for (String x : REQUIRED_PERMISSIONS) {
@@ -49,6 +46,9 @@ public class CameraHandler {
                 return;
             }
         }
+    }
+
+    public void takeCameraImage(Activity context) {
 
         // Launch the Camera
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
